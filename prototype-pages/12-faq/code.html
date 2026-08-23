@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+
+<html lang="ru"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>MAISON - Часто задаваемые вопросы</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&amp;family=Playfair+Display:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-secondary-container": "#636261",
+                        "surface-dim": "#dadada",
+                        "secondary-container": "#e2dfdd",
+                        "surface-container-highest": "#e2e2e2",
+                        "on-surface": "#1a1c1c",
+                        "outline-variant": "#c4c7c7",
+                        "surface-container": "#eeeeee",
+                        "surface-variant": "#e2e2e2",
+                        "on-primary": "#ffffff",
+                        "on-primary-fixed-variant": "#474746",
+                        "on-tertiary-container": "#ad8475",
+                        "secondary-fixed": "#e5e2e0",
+                        "on-secondary-fixed": "#1b1c1b",
+                        "surface": "#f9f9f9",
+                        "on-surface-variant": "#444748",
+                        "secondary": "#5f5e5d",
+                        "background": "#f9f9f9",
+                        "inverse-on-surface": "#f0f1f1",
+                        "tertiary-fixed-dim": "#ebbcac",
+                        "tertiary-fixed": "#ffdbcf",
+                        "tertiary-container": "#3a1f15",
+                        "error-container": "#ffdad6",
+                        "primary-fixed": "#e4e2e1",
+                        "surface-container-high": "#e8e8e8",
+                        "on-background": "#1a1c1c",
+                        "on-tertiary-fixed-variant": "#603f33",
+                        "surface-bright": "#f9f9f9",
+                        "on-tertiary": "#ffffff",
+                        "surface-container-low": "#f3f3f4",
+                        "on-error": "#ffffff",
+                        "on-tertiary-fixed": "#2e150b",
+                        "on-primary-fixed": "#1b1c1c",
+                        "error": "#ba1a1a",
+                        "on-error-container": "#93000a",
+                        "tertiary": "#220b04",
+                        "primary": "#111111",
+                        "primary-container": "#262626",
+                        "surface-tint": "#5f5e5e",
+                        "on-secondary": "#ffffff",
+                        "inverse-primary": "#c8c6c5",
+                        "outline": "#747878",
+                        "secondary-fixed-dim": "#c8c6c4",
+                        "inverse-surface": "#2f3131",
+                        "primary-fixed-dim": "#c8c6c5",
+                        "on-secondary-fixed-variant": "#474745",
+                        "on-primary-container": "#8e8d8c",
+                        "surface-container-lowest": "#ffffff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "unit": "8px",
+                        "container-max": "1440px",
+                        "margin-desktop": "64px",
+                        "gutter": "24px",
+                        "margin-mobile": "16px"
+                    },
+                    "fontFamily": {
+                        "display-lg": ["Playfair Display"],
+                        "display-lg-mobile": ["Playfair Display"],
+                        "label-caps": ["Montserrat"],
+                        "headline-sm": ["Playfair Display"],
+                        "body-md": ["Montserrat"],
+                        "body-lg": ["Montserrat"],
+                        "button": ["Montserrat"],
+                        "headline-md": ["Playfair Display"]
+                    },
+                    "fontSize": {
+                        "display-lg": ["48px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "display-lg-mobile": ["32px", { "lineHeight": "1.2", "fontWeight": "700" }],
+                        "label-caps": ["12px", { "lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "600" }],
+                        "headline-sm": ["24px", { "lineHeight": "1.4", "fontWeight": "600" }],
+                        "body-md": ["16px", { "lineHeight": "1.5", "fontWeight": "400" }],
+                        "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "button": ["14px", { "lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "500" }],
+                        "headline-md": ["32px", { "lineHeight": "1.3", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            background-color: theme('colors.background');
+            color: theme('colors.on-background');
+        }
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out, opacity 0.3s ease-out, padding 0.3s ease;
+            opacity: 0;
+        }
+        .accordion-content.open {
+            max-height: 500px;
+            opacity: 1;
+            padding-top: 1rem;
+            padding-bottom: 1.5rem;
+        }
+        .accordion-icon {
+            transition: transform 0.3s ease;
+        }
+        .accordion-button[aria-expanded="true"] .accordion-icon {
+            transform: rotate(180deg);
+        }
+    </style>
+</head>
+<body class="antialiased min-h-screen flex flex-col">
+<!-- TopNavBar -->
+<header class="fixed top-0 w-full z-50 bg-surface/90 dark:bg-surface-dim/90 backdrop-blur-md border-b border-outline-variant/30 transition-transform duration-300 transform scale-100">
+<div class="flex justify-between items-center h-20 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+<!-- Mobile Menu Button -->
+<button class="md:hidden text-primary dark:text-on-primary-fixed hover:opacity-70 transition-opacity duration-300">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<!-- Brand Logo -->
+<div class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg tracking-tighter text-primary dark:text-on-primary-fixed">
+                MAISON
+            </div>
+<!-- Desktop Navigation -->
+<nav class="hidden md:flex space-x-8">
+<a class="text-secondary dark:text-secondary-fixed-dim hover:text-primary transition-colors font-label-caps text-label-caps hover:opacity-70 duration-300" href="#">Новинки</a>
+<a class="text-secondary dark:text-secondary-fixed-dim hover:text-primary transition-colors font-label-caps text-label-caps hover:opacity-70 duration-300" href="#">Одежда</a>
+<a class="text-secondary dark:text-secondary-fixed-dim hover:text-primary transition-colors font-label-caps text-label-caps hover:opacity-70 duration-300" href="#">Аксессуары</a>
+<a class="text-secondary dark:text-secondary-fixed-dim hover:text-primary transition-colors font-label-caps text-label-caps hover:opacity-70 duration-300" href="#">Распродажа</a>
+</nav>
+<!-- Trailing Icons -->
+<div class="flex items-center space-x-4">
+<button class="text-primary dark:text-on-primary-fixed hover:opacity-70 transition-opacity duration-300">
+<span class="material-symbols-outlined">search</span>
+</button>
+<button class="text-primary dark:text-on-primary-fixed hover:opacity-70 transition-opacity duration-300">
+<span class="material-symbols-outlined">person</span>
+</button>
+<button class="text-primary dark:text-on-primary-fixed hover:opacity-70 transition-opacity duration-300">
+<span class="material-symbols-outlined">shopping_bag</span>
+</button>
+</div>
+</div>
+</header>
+<!-- Main Content -->
+<main class="flex-grow pt-32 pb-24 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto w-full flex flex-col md:flex-row gap-gutter">
+<!-- Sidebar Navigation (Desktop) -->
+<aside class="hidden md:flex flex-col w-64 flex-shrink-0 sticky top-32 h-fit space-y-4">
+<div class="font-headline-sm text-headline-sm text-primary mb-6">Категории FAQ</div>
+<a class="font-label-caps text-label-caps text-primary font-bold bg-secondary-container rounded-lg px-4 py-3 hover:bg-surface-variant/50 transition-colors" href="#orders">Заказы и Доставка</a>
+<a class="font-label-caps text-label-caps text-secondary hover:bg-surface-variant rounded-lg px-4 py-3 hover:bg-surface-variant/50 transition-colors" href="#returns">Возврат и Обмен</a>
+<a class="font-label-caps text-label-caps text-secondary hover:bg-surface-variant rounded-lg px-4 py-3 hover:bg-surface-variant/50 transition-colors" href="#care">Уход за Изделиями</a>
+</aside>
+<!-- FAQ Content -->
+<div class="flex-grow max-w-3xl">
+<div class="mb-12 md:mb-20">
+<h1 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-primary mb-4">Часто задаваемые вопросы</h1>
+<p class="font-body-md text-body-md text-secondary">Найдите ответы на самые популярные вопросы о покупках в MAISON.</p>
+</div>
+<!-- Section 1: Orders -->
+<section class="mb-16" id="orders">
+<h2 class="font-headline-md text-headline-md text-primary mb-6 border-b border-outline-variant/30 pb-4">Заказы и Доставка</h2>
+<div class="border-b border-outline-variant/20">
+<button aria-expanded="false" class="accordion-button w-full flex justify-between items-center py-5 text-left focus:outline-none group">
+<span class="font-body-lg text-body-lg text-on-surface group-hover:text-primary transition-colors">Как отследить заказ?</span>
+<span class="material-symbols-outlined text-outline accordion-icon group-hover:text-primary transition-colors">expand_more</span>
+</button>
+<div class="accordion-content">
+<p class="font-body-md text-body-md text-on-surface-variant">После отправки вашего заказа вы получите электронное письмо с номером для отслеживания. Вы можете использовать этот номер на сайте курьерской службы для проверки статуса доставки.</p>
+</div>
+</div>
+<div class="border-b border-outline-variant/20">
+<button aria-expanded="false" class="accordion-button w-full flex justify-between items-center py-5 text-left focus:outline-none group">
+<span class="font-body-lg text-body-lg text-on-surface group-hover:text-primary transition-colors">Каковы сроки доставки?</span>
+<span class="material-symbols-outlined text-outline accordion-icon group-hover:text-primary transition-colors">expand_more</span>
+</button>
+<div class="accordion-content">
+<p class="font-body-md text-body-md text-on-surface-variant">Стандартная доставка занимает от 3 до 5 рабочих дней. Экспресс-доставка доступна при оформлении заказа и занимает 1-2 рабочих дня. Сроки могут варьироваться в зависимости от вашего региона.</p>
+</div>
+</div>
+</section>
+<!-- Section 2: Returns -->
+<section class="mb-16" id="returns">
+<h2 class="font-headline-md text-headline-md text-primary mb-6 border-b border-outline-variant/30 pb-4">Возврат и Обмен</h2>
+<div class="border-b border-outline-variant/20">
+<button aria-expanded="false" class="accordion-button w-full flex justify-between items-center py-5 text-left focus:outline-none group">
+<span class="font-body-lg text-body-lg text-on-surface group-hover:text-primary transition-colors">Какие сроки возврата?</span>
+<span class="material-symbols-outlined text-outline accordion-icon group-hover:text-primary transition-colors">expand_more</span>
+</button>
+<div class="accordion-content">
+<p class="font-body-md text-body-md text-on-surface-variant">Вы можете вернуть товар надлежащего качества в течение 14 дней с момента получения заказа. Изделие должно сохранить товарный вид, фабричные ярлыки и оригинальную упаковку.</p>
+</div>
+</div>
+</section>
+<!-- Section 3: Product Care -->
+<section id="care">
+<h2 class="font-headline-md text-headline-md text-primary mb-6 border-b border-outline-variant/30 pb-4">Уход за Изделиями</h2>
+<div class="border-b border-outline-variant/20">
+<button aria-expanded="false" class="accordion-button w-full flex justify-between items-center py-5 text-left focus:outline-none group">
+<span class="font-body-lg text-body-lg text-on-surface group-hover:text-primary transition-colors">Как ухаживать за изделиями из шелка?</span>
+<span class="material-symbols-outlined text-outline accordion-icon group-hover:text-primary transition-colors">expand_more</span>
+</button>
+<div class="accordion-content">
+<p class="font-body-md text-body-md text-on-surface-variant">Рекомендуется профессиональная сухая чистка. При ручной стирке используйте прохладную воду и специальные деликатные средства. Не выкручивайте изделие и сушите в расправленном виде вдали от прямых солнечных лучей.</p>
+</div>
+</div>
+</section>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container dark:bg-surface-container-highest w-full pt-20 pb-10 border-t border-outline-variant/20">
+<div class="flex flex-col items-center max-w-container-max mx-auto px-margin-desktop">
+<div class="font-display-lg text-display-lg text-primary mb-10">
+                MAISON
+            </div>
+<nav class="flex flex-wrap justify-center gap-x-8 gap-y-4 mb-10">
+<a class="font-label-caps text-label-caps text-secondary hover:text-primary hover:opacity-80 transition-all" href="#">О нас</a>
+<a class="font-label-caps text-label-caps text-secondary hover:text-primary hover:opacity-80 transition-all" href="#">Доставка</a>
+<a class="font-label-caps text-label-caps text-secondary hover:text-primary hover:opacity-80 transition-all" href="#">Возврат</a>
+<a class="font-label-caps text-label-caps text-secondary hover:text-primary hover:opacity-80 transition-all" href="#">Контакты</a>
+<a class="font-label-caps text-label-caps text-secondary hover:text-primary hover:opacity-80 transition-all" href="#">Политика конфиденциальности</a>
+</nav>
+<div class="font-body-md text-body-md text-secondary dark:text-on-secondary-fixed-variant text-center">
+                © 2024 MAISON. Все права защищены.
+            </div>
+</div>
+</footer>
+<script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const accordions = document.querySelectorAll('.accordion-button');
+            
+            accordions.forEach(acc => {
+                acc.addEventListener('click', function() {
+                    const isExpanded = this.getAttribute('aria-expanded') === 'true';
+                    const content = this.nextElementSibling;
+                    
+                    // Close all others (optional - for strict accordion behavior)
+                    /*
+                    accordions.forEach(otherAcc => {
+                        if (otherAcc !== this) {
+                            otherAcc.setAttribute('aria-expanded', 'false');
+                            otherAcc.nextElementSibling.classList.remove('open');
+                        }
+                    });
+                    */
+
+                    this.setAttribute('aria-expanded', !isExpanded);
+                    if (!isExpanded) {
+                        content.classList.add('open');
+                    } else {
+                        content.classList.remove('open');
+                    }
+                });
+            });
+        });
+    </script>
+</body></html>

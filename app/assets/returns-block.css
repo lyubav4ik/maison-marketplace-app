@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=Playfair+Display:wght@600;700&display=swap');
+.vl-returns{padding:64px 16px 80px}
+@media(min-width:768px){.vl-returns{padding:64px 64px 96px}}
+.vl-rt-inner{max-width:1440px;margin:0 auto}
+.vl-rt-h{font-family:'Playfair Display',Georgia,serif;font-size:32px;font-weight:700;line-height:1.2;color:#111111;text-align:center;margin:0 0 24px}
+@media(min-width:768px){.vl-rt-h{font-size:48px}}
+.vl-rt-sub{font-family:'Montserrat',Arial,sans-serif;font-size:18px;line-height:1.6;color:#5f5e5d;text-align:center;max-width:42rem;margin:0 auto 64px}
+.vl-rt-cards{display:grid;grid-template-columns:1fr;gap:24px;margin-bottom:64px;max-width:960px;margin-left:auto;margin-right:auto}
+@media(min-width:768px){.vl-rt-cards{grid-template-columns:1fr 1fr}}
+.vl-rt-card{background:#f3f3f4;padding:40px;border-radius:8px}
+.vl-rt-cardh{font-family:'Playfair Display',Georgia,serif;font-size:24px;font-weight:600;line-height:1.4;color:#111111;margin:0 0 16px}
+.vl-rt-list{font-family:'Montserrat',Arial,sans-serif;font-size:16px;line-height:1.6;color:#444745;list-style:disc;padding-left:20px;margin:0}
+.vl-rt-list li{margin-bottom:12px}
+.vl-rt-list li:last-child{margin-bottom:0}
+.vl-rt-text{font-family:'Montserrat',Arial,sans-serif;font-size:16px;line-height:1.6;color:#444745;margin:0 0 12px}
+.vl-rt-steps-title{font-family:'Playfair Display',Georgia,serif;font-size:32px;font-weight:600;line-height:1.3;color:#111111;text-align:center;margin:0 0 48px}
+.vl-rt-steps{max-width:720px;margin:0 auto}
+.vl-rt-step{display:flex;gap:20px;margin-bottom:32px}
+.vl-rt-step:last-child{margin-bottom:0}
+.vl-rt-num{flex-shrink:0;width:40px;height:40px;border-radius:9999px;border:2px solid #111111;background:#f9f9f9;color:#111111;display:flex;align-items:center;justify-content:center;font-family:'Montserrat',Arial,sans-serif;font-size:12px;font-weight:600;box-shadow:0 1px 3px rgba(17,17,17,.08)}
+.vl-rt-stepcard{flex:1;background:#f9f9f9;border:1px solid rgba(196,199,199,.2);border-radius:8px;padding:24px}
+.vl-rt-steph{font-family:'Playfair Display',Georgia,serif;font-size:24px;font-weight:600;line-height:1.4;color:#111111;margin:0 0 8px}
+.vl-rt-steptext{font-family:'Montserrat',Arial,sans-serif;font-size:16px;line-height:1.5;color:#444745;margin:0}

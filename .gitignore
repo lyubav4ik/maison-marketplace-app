@@ -1,0 +1,9 @@
+node_modules/
+.env
+*.local
+*.log
+
+# секреты и данные установок не публикуем
+app/config.json
+app/data/
+_backups/

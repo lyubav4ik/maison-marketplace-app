@@ -1,0 +1,38 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=Playfair+Display:wght@600;700&display=swap');
+.vl-prods{padding:80px 16px;background:#f9f9f9}
+@media(min-width:768px){.vl-prods{padding:80px 64px}}
+.vl-prods-inner{max-width:1440px;margin:0 auto}
+.vl-prods-head{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:48px}
+.vl-prods-title{font-family:'Playfair Display',Georgia,serif;font-size:32px;font-weight:700;line-height:1.2;color:#111111;margin:0 0 8px}
+@media(min-width:768px){.vl-prods-title{font-size:48px;line-height:1.1}}
+.vl-prods-sub{font-family:'Montserrat',Arial,sans-serif;font-size:16px;line-height:1.5;color:#5f5e5d;max-width:28rem;margin:0}
+.vl-prods-all{font-family:'Montserrat',Arial,sans-serif;font-size:12px;font-weight:600;letter-spacing:.1em;line-height:1;color:#111111;text-decoration:none;border-bottom:1px solid #111111;padding-bottom:4px;display:none;white-space:nowrap;transition:color .3s ease,border-color .3s ease}
+.vl-prods-all:hover{color:#5f5e5d;border-color:#5f5e5d}
+@media(min-width:768px){.vl-prods-all{display:inline-block}}
+.vl-prods-grid{display:flex;overflow-x:auto;gap:24px;padding-bottom:32px;-ms-overflow-style:none;scrollbar-width:none;scroll-snap-type:x mandatory}
+.vl-prods-grid::-webkit-scrollbar{display:none}
+@media(min-width:768px){.vl-prods-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;padding-bottom:0}}
+.vl-prods-more-wrap{margin-top:32px;text-align:center}
+.vl-prods-more{display:inline-block;border:1px solid #747878;color:#111111;font-family:'Montserrat',Arial,sans-serif;font-size:14px;font-weight:500;letter-spacing:.05em;text-transform:uppercase;text-decoration:none;padding:12px 32px;transition:background-color .3s ease}
+.vl-prods-more:hover{background:#e2e2e2}
+@media(min-width:768px){.vl-prods-more-wrap{display:none}}
+.vl-prod-card{flex:none;width:280px;scroll-snap-align:start;display:block;text-decoration:none}
+@media(min-width:768px){.vl-prod-card{width:auto}}
+.vl-prod-media{position:relative;aspect-ratio:3/4;background:#eeeeee;margin-bottom:16px;overflow:hidden}
+.vl-prod-img{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;object-position:center;transition:opacity .5s ease}
+.vl-prod-img-b{opacity:0}
+.vl-prod-card:hover .vl-prod-img-b{opacity:1}
+.vl-prod-card:hover .vl-prod-img-a{opacity:0}
+.vl-prod-wish{position:absolute;bottom:16px;right:16px;width:40px;height:40px;background:#ffffff;border-radius:9999px;display:flex;align-items:center;justify-content:center;box-shadow:0 1px 3px rgba(17,17,17,.1);opacity:0;transition:opacity .3s ease,background-color .3s ease}
+.vl-prod-card:hover .vl-prod-wish{opacity:1}
+.vl-prod-wish:hover{background:#e2dfdd}
+.vl-prod-wish:before{content:'\2661';font-size:20px;line-height:1;color:#111111;font-family:'Segoe UI Symbol','DejaVu Sans',Arial,sans-serif;transition:color .25s ease}
+.vl-prod-wish:hover:before,.vl-prod-wish.active:before{content:'\2665';color:#ba1a1a}
+.vl-prod-name{font-family:'Playfair Display',Georgia,serif;font-size:18px;font-weight:600;line-height:1.4;color:#111111;margin:0 0 4px}
+.vl-prod-price{font-family:'Montserrat',Arial,sans-serif;font-size:16px;line-height:1.5;color:#5f5e5d;margin:0}
+.vl-prod-card.fade-in,.vl-prods-head.fade-in{opacity:0;transform:translateY(20px);transition:opacity .8s ease-out,transform .8s ease-out}
+.vl-prod-card.fade-in.visible,.vl-prods-head.fade-in.visible{opacity:1;transform:translateY(0)}
+.vl-prod-card.fade-in:nth-child(2){transition-delay:.1s}
+.vl-prod-card.fade-in:nth-child(3){transition-delay:.2s}
+.vl-prod-card.fade-in:nth-child(4){transition-delay:.3s}
+@media(prefers-reduced-motion:reduce){.vl-prod-img,.vl-prod-wish,.fade-in{transition:none!important}.fade-in{opacity:1!important;transform:none!important}}

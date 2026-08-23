@@ -1,0 +1,73 @@
+{
+  "code": "vl-maison-footer",
+  "fields": {
+    "NAME": "MAISON · Футер",
+    "DESCRIPTION": "Центрированный футер: логотип, строка навигационных ссылок (добавляйте/удаляйте кнопками карточек) и строка копирайта.",
+    "SECTIONS": "footer",
+    "ACTIVE": "Y",
+    "PREVIEW": "https://cdn.jsdelivr.net/gh/lyubav4ik/maison-marketplace-app@v0.1/assets/block-preview-footer.jpg",
+    "CONTENT": "<footer class=\"landing-block vl-footer\">\n<div class=\"vl-footer-inner\">\n<a class=\"vl-footer-logo landing-block-node-flogo\" href=\"/\" target=\"_self\">MAISON</a>\n<nav class=\"vl-footer-nav\">\n<a class=\"vl-footer-flink landing-block-card-flink landing-block-node-flink\" href=\"#\" target=\"_self\">О нас</a>\n<a class=\"vl-footer-flink landing-block-card-flink landing-block-node-flink\" href=\"#\" target=\"_self\">Доставка</a>\n<a class=\"vl-footer-flink landing-block-card-flink landing-block-node-flink\" href=\"#\" target=\"_self\">Возврат</a>\n<a class=\"vl-footer-flink landing-block-card-flink landing-block-node-flink\" href=\"#\" target=\"_self\">Контакты</a>\n<a class=\"vl-footer-flink landing-block-card-flink landing-block-node-flink\" href=\"#\" target=\"_self\">Политика конфиденциальности</a>\n</nav>\n<p class=\"vl-footer-copy landing-block-node-fcopy\">© 2024 MAISON. Все права защищены.</p>\n</div>\n</footer>"
+  },
+  "manifest": {
+    "block": {
+      "name": "MAISON · Футер",
+      "section": [
+        "footer"
+      ],
+      "type": [
+        "page",
+        "store"
+      ],
+      "dynamic": false
+    },
+    "nodes": {
+      ".landing-block-node-flogo": {
+        "name": "Логотип",
+        "type": "link"
+      },
+      ".landing-block-node-flink": {
+        "name": "Ссылка",
+        "type": "link"
+      },
+      ".landing-block-node-fcopy": {
+        "name": "Копирайт",
+        "type": "text"
+      }
+    },
+    "cards": {
+      ".landing-block-card-flink": {
+        "name": "Ссылка",
+        "label": [
+          ".landing-block-node-flink"
+        ],
+        "preset": "link"
+      }
+    },
+    "style": {
+      "block": {
+        "type": [
+          "block-default"
+        ]
+      },
+      "nodes": {
+        ".landing-block-node-flogo": {
+          "title": "Логотип",
+          "type": [
+            "typo"
+          ]
+        },
+        ".landing-block-node-flink": {
+          "title": "Ссылки",
+          "type": [
+            "typo-link"
+          ]
+        }
+      }
+    },
+    "assets": {
+      "css": [
+        "https://cdn.jsdelivr.net/gh/lyubav4ik/maison-marketplace-app@v0.1/assets/footer-block.css"
+      ]
+    }
+  }
+}

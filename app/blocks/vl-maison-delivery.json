@@ -1,0 +1,71 @@
+{
+  "code": "vl-maison-delivery",
+  "fields": {
+    "NAME": "MAISON · Доставка",
+    "DESCRIPTION": "Способы доставки: три карточки со знаком, заголовком и списком условий. Количество карточек — кнопками добавления/удаления.",
+    "SECTIONS": "other",
+    "ACTIVE": "Y",
+    "PREVIEW": "https://cdn.jsdelivr.net/gh/lyubav4ik/maison-marketplace-app@v0.1/assets/block-preview-delivery.jpg",
+    "CONTENT": "<section class=\"landing-block vl-delivery\">\n<div class=\"vl-dl-inner\">\n<div class=\"vl-dl-head\">\n<h1 class=\"vl-dl-h landing-block-node-dl-h\">Доставка</h1>\n<p class=\"vl-dl-sub landing-block-node-dl-sub\">Мы стремимся сделать процесс получения ваших заказов максимально комфортным и быстрым.</p>\n</div>\n<div class=\"vl-dl-grid\">\n<div class=\"vl-dl-card landing-block-card-dl\">\n<div class=\"vl-dl-icon landing-block-node-dl-icon\">▤</div>\n<h3 class=\"vl-dl-cardh landing-block-node-dl-cardh\">Курьерская доставка</h3>\n<ul class=\"vl-dl-list\"><li>Срок: 1-3 рабочих дня</li><li>Стоимость: 500 ₽ (бесплатно от 15 000 ₽)</li><li>Примерка перед покупкой доступна</li></ul>\n</div>\n<div class=\"vl-dl-card landing-block-card-dl\">\n<div class=\"vl-dl-icon landing-block-node-dl-icon\">⌂</div>\n<h3 class=\"vl-dl-cardh landing-block-node-dl-cardh\">Самовывоз из бутика</h3>\n<ul class=\"vl-dl-list\"><li>Срок: в день заказа (при наличии)</li><li>Стоимость: бесплатно</li><li>Хранение заказа: 3 дня</li></ul>\n</div>\n<div class=\"vl-dl-card landing-block-card-dl\">\n<div class=\"vl-dl-icon landing-block-node-dl-icon\">▦</div>\n<h3 class=\"vl-dl-cardh landing-block-node-dl-cardh\">Пункты выдачи</h3>\n<ul class=\"vl-dl-list\"><li>Срок: 2-5 рабочих дней</li><li>Стоимость: от 350 ₽</li><li>Отслеживание по трек-номеру</li></ul>\n</div>\n</div>\n</div>\n</section>"
+  },
+  "manifest": {
+    "block": {
+      "name": "MAISON · Доставка",
+      "section": [
+        "other"
+      ],
+      "type": [
+        "page",
+        "store"
+      ],
+      "dynamic": false
+    },
+    "nodes": {
+      ".landing-block-node-dl-h": {
+        "name": "Заголовок",
+        "type": "text"
+      },
+      ".landing-block-node-dl-sub": {
+        "name": "Подзаголовок",
+        "type": "text"
+      },
+      ".landing-block-node-dl-icon": {
+        "name": "Знак",
+        "type": "text"
+      },
+      ".landing-block-node-dl-cardh": {
+        "name": "Заголовок способа",
+        "type": "text"
+      }
+    },
+    "cards": {
+      ".landing-block-card-dl": {
+        "name": "Способ доставки",
+        "label": [
+          ".landing-block-node-dl-cardh"
+        ]
+      }
+    },
+    "style": {
+      "block": {
+        "type": [
+          "block-default"
+        ]
+      },
+      "nodes": {
+        ".landing-block-node-dl-h": {
+          "title": "Заголовок",
+          "type": [
+            "typo"
+          ]
+        }
+      }
+    },
+    "assets": {
+      "css": [
+        "https://cdn.jsdelivr.net/gh/lyubav4ik/maison-marketplace-app@v0.1/assets/delivery-block.css"
+      ],
+      "js": []
+    }
+  }
+}

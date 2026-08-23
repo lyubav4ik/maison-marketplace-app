@@ -1,0 +1,68 @@
+{
+  "code": "vl-maison-abhero",
+  "fields": {
+    "NAME": "MAISON · Обложка страницы",
+    "DESCRIPTION": "Полноэкранная обложка внутренней страницы: фото во всю ширину, затемнение, крупный заголовок и подзаголовок по центру.",
+    "SECTIONS": "cover",
+    "ACTIVE": "Y",
+    "PREVIEW": "https://cdn.jsdelivr.net/gh/lyubav4ik/maison-marketplace-app@v0.1/assets/block-preview-abhero.jpg",
+    "CONTENT": "<section class=\"landing-block vl-abhero\">\n<img class=\"vl-abhero-bg landing-block-node-abhero-img\" src=\"https://cdn.jsdelivr.net/gh/lyubav4ik/maison-marketplace-app@v0.1/assets/ab-hero.jpg\" alt=\"Ателье MAISON\">\n<div class=\"vl-abhero-veil\"></div>\n<div class=\"vl-abhero-inner fade-in\">\n<h1 class=\"vl-abhero-title landing-block-node-abhero-title\">История MAISON</h1>\n<p class=\"vl-abhero-sub landing-block-node-abhero-sub\">Искусство создания одежды, неподвластной времени.</p>\n</div>\n</section>"
+  },
+  "manifest": {
+    "block": {
+      "name": "MAISON · Обложка страницы",
+      "section": [
+        "cover"
+      ],
+      "type": [
+        "page",
+        "store"
+      ],
+      "dynamic": false
+    },
+    "nodes": {
+      ".landing-block-node-abhero-img": {
+        "name": "Фон",
+        "type": "img",
+        "dimensions": {
+          "maxWidth": 2048,
+          "maxHeight": 2048
+        },
+        "allowInlineEdit": true
+      },
+      ".landing-block-node-abhero-title": {
+        "name": "Заголовок",
+        "type": "text"
+      },
+      ".landing-block-node-abhero-sub": {
+        "name": "Подзаголовок",
+        "type": "text"
+      }
+    },
+    "cards": {},
+    "style": {
+      "block": {
+        "type": [
+          "block-default"
+        ]
+      },
+      "nodes": {
+        ".landing-block-node-abhero-title": {
+          "title": "Заголовок",
+          "type": [
+            "typo",
+            "animation"
+          ]
+        }
+      }
+    },
+    "assets": {
+      "css": [
+        "https://cdn.jsdelivr.net/gh/lyubav4ik/maison-marketplace-app@v0.1/assets/abhero-block.css"
+      ],
+      "js": [
+        "https://cdn.jsdelivr.net/gh/lyubav4ik/maison-marketplace-app@v0.1/assets/maison-common.js"
+      ]
+    }
+  }
+}

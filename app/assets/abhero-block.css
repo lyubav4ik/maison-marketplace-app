@@ -1,0 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=Playfair+Display:wght@600;700&display=swap');
+.vl-abhero{position:relative;height:80vh;min-height:600px;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.vl-abhero-bg{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;object-position:center}
+.vl-abhero-veil{position:absolute;top:0;left:0;width:100%;height:100%;background:#220b04;opacity:.25}
+.vl-abhero-inner{position:relative;z-index:2;text-align:center;padding:0 16px}
+.vl-abhero-title{font-family:'Playfair Display',Georgia,serif;font-size:32px;font-weight:700;line-height:1.2;color:#ffffff;margin:0 0 24px;text-shadow:0 1px 4px rgba(17,17,17,.25)}
+@media(min-width:768px){.vl-abhero-title{font-size:72px;line-height:1.1}}
+.vl-abhero-sub{font-family:'Montserrat',Arial,sans-serif;font-size:18px;line-height:1.6;color:rgba(255,255,255,.9);max-width:42rem;margin:0 auto;text-shadow:0 1px 3px rgba(17,17,17,.25)}

@@ -1,0 +1,78 @@
+{
+  "code": "vl-maison-values",
+  "fields": {
+    "NAME": "MAISON · Ценности",
+    "DESCRIPTION": "Три карточки ценностей бренда на светлом фоне: знак, заголовок и описание. Количество карточек — кнопками добавления/удаления. Знак можно заменить любым символом прямо в тексте.",
+    "SECTIONS": "about",
+    "ACTIVE": "Y",
+    "PREVIEW": "https://cdn.jsdelivr.net/gh/lyubav4ik/maison-marketplace-app@v0.1/assets/block-preview-values.jpg",
+    "CONTENT": "<section class=\"landing-block vl-values\">\n<div class=\"vl-values-inner\">\n<span class=\"vl-values-label landing-block-node-values-label\">Наши принципы</span>\n<h2 class=\"vl-values-title landing-block-node-values-title\">Ценности MAISON</h2>\n<div class=\"vl-values-grid\">\n<div class=\"vl-values-card landing-block-card-val\">\n<div class=\"vl-values-icon landing-block-node-val-icon\">◆</div>\n<h3 class=\"vl-values-h landing-block-node-val-h\">Бескомпромиссное качество</h3>\n<p class=\"vl-values-text landing-block-node-val-text\">Мы отбираем лучшие материалы со всего мира: от итальянского кашемира до японского шелка.</p>\n</div>\n<div class=\"vl-values-card landing-block-card-val\">\n<div class=\"vl-values-icon landing-block-node-val-icon\">△</div>\n<h3 class=\"vl-values-h landing-block-node-val-h\">Минималистичная эстетика</h3>\n<p class=\"vl-values-text landing-block-node-val-text\">Чистые линии, выверенные пропорции и сдержанная цветовая палитра.</p>\n</div>\n<div class=\"vl-values-card landing-block-card-val\">\n<div class=\"vl-values-icon landing-block-node-val-icon\">●</div>\n<h3 class=\"vl-values-h landing-block-node-val-h\">Осознанность</h3>\n<p class=\"vl-values-text landing-block-node-val-text\">Мы верим в «медленную моду»: производство локализовано, объемы лимитированы.</p>\n</div>\n</div>\n</div>\n</section>"
+  },
+  "manifest": {
+    "block": {
+      "name": "MAISON · Ценности",
+      "section": [
+        "about"
+      ],
+      "type": [
+        "page",
+        "store"
+      ],
+      "dynamic": false
+    },
+    "nodes": {
+      ".landing-block-node-values-label": {
+        "name": "Надзаголовок",
+        "type": "text"
+      },
+      ".landing-block-node-values-title": {
+        "name": "Заголовок",
+        "type": "text"
+      },
+      ".landing-block-node-val-icon": {
+        "name": "Знак",
+        "type": "text"
+      },
+      ".landing-block-node-val-h": {
+        "name": "Заголовок карточки",
+        "type": "text"
+      },
+      ".landing-block-node-val-text": {
+        "name": "Описание",
+        "type": "text"
+      }
+    },
+    "cards": {
+      ".landing-block-card-val": {
+        "name": "Ценность",
+        "label": [
+          ".landing-block-node-val-h"
+        ]
+      }
+    },
+    "style": {
+      "block": {
+        "type": [
+          "block-default"
+        ]
+      },
+      "nodes": {
+        ".landing-block-node-values-title": {
+          "title": "Заголовок",
+          "type": [
+            "typo",
+            "animation"
+          ]
+        }
+      }
+    },
+    "assets": {
+      "css": [
+        "https://cdn.jsdelivr.net/gh/lyubav4ik/maison-marketplace-app@v0.1/assets/values-block.css"
+      ],
+      "js": [
+        "https://cdn.jsdelivr.net/gh/lyubav4ik/maison-marketplace-app@v0.1/assets/maison-common.js"
+      ]
+    }
+  }
+}

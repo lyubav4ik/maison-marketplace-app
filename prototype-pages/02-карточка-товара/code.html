@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+
+<html lang="ru"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Шелковое платье миди - MAISON</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&amp;family=Playfair+Display:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "on-background": "#1a1c1c",
+                        "primary": "#111111",
+                        "on-error": "#ffffff",
+                        "surface-bright": "#f9f9f9",
+                        "surface-container-highest": "#e2e2e2",
+                        "on-tertiary-container": "#ad8475",
+                        "on-secondary-fixed-variant": "#474745",
+                        "on-primary": "#ffffff",
+                        "inverse-on-surface": "#f0f1f1",
+                        "on-secondary-fixed": "#1b1c1b",
+                        "on-secondary": "#ffffff",
+                        "outline-variant": "#c4c7c7",
+                        "outline": "#747878",
+                        "secondary-container": "#e2dfdd",
+                        "on-primary-container": "#8e8d8c",
+                        "inverse-primary": "#c8c6c5",
+                        "on-surface-variant": "#444748",
+                        "tertiary-container": "#3a1f15",
+                        "error-container": "#ffdad6",
+                        "surface": "#f9f9f9",
+                        "inverse-surface": "#2f3131",
+                        "on-primary-fixed": "#1b1c1c",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary": "#ffffff",
+                        "tertiary-fixed": "#ffdbcf",
+                        "on-primary-fixed-variant": "#474746",
+                        "primary-container": "#262626",
+                        "on-tertiary-fixed": "#2e150b",
+                        "error": "#ba1a1a",
+                        "surface-tint": "#5f5e5e",
+                        "on-secondary-container": "#636261",
+                        "tertiary": "#220b04",
+                        "secondary-fixed": "#e5e2e0",
+                        "primary-fixed": "#e4e2e1",
+                        "surface-container": "#eeeeee",
+                        "surface-dim": "#dadada",
+                        "on-tertiary-fixed-variant": "#603f33",
+                        "surface-container-high": "#e8e8e8",
+                        "secondary-fixed-dim": "#c8c6c4",
+                        "background": "#f9f9f9",
+                        "secondary": "#5f5e5d",
+                        "primary-fixed-dim": "#c8c6c5",
+                        "on-surface": "#1a1c1c",
+                        "on-error-container": "#93000a",
+                        "surface-variant": "#e2e2e2",
+                        "surface-container-low": "#f3f3f4",
+                        "tertiary-fixed-dim": "#ebbcac"
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    spacing: {
+                        "unit": "8px",
+                        "container-max": "1440px",
+                        "gutter": "24px",
+                        "margin-mobile": "16px",
+                        "margin-desktop": "64px"
+                    },
+                    fontFamily: {
+                        "display-lg": ["Playfair Display"],
+                        "label-caps": ["Montserrat"],
+                        "headline-sm": ["Playfair Display"],
+                        "display-lg-mobile": ["Playfair Display"],
+                        "headline-md": ["Playfair Display"],
+                        "body-lg": ["Montserrat"],
+                        "body-md": ["Montserrat"],
+                        "button": ["Montserrat"]
+                    },
+                    fontSize: {
+                        "display-lg": ["48px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "label-caps": ["12px", { "lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "600" }],
+                        "headline-sm": ["24px", { "lineHeight": "1.4", "fontWeight": "600" }],
+                        "display-lg-mobile": ["32px", { "lineHeight": "1.2", "fontWeight": "700" }],
+                        "headline-md": ["32px", { "lineHeight": "1.3", "fontWeight": "600" }],
+                        "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "body-md": ["16px", { "lineHeight": "1.5", "fontWeight": "400" }],
+                        "button": ["14px", { "lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "500" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md antialiased selection:bg-surface-variant selection:text-primary">
+<!-- TopNavBar -->
+<header class="fixed top-0 w-full z-50 bg-surface/90 backdrop-blur-md border-b border-outline-variant/30 transition-all duration-300" id="main-header">
+<div class="flex justify-between items-center h-20 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+<!-- Mobile Menu Toggle -->
+<button aria-label="Menu" class="md:hidden text-primary p-2 -ml-2">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<!-- Logo -->
+<a class="font-display-lg text-display-lg-mobile md:text-display-lg tracking-tighter text-primary" href="#">MAISON</a>
+<!-- Desktop Navigation -->
+<nav class="hidden md:flex items-center space-x-8">
+<a class="text-secondary hover:text-primary transition-colors font-label-caps text-label-caps uppercase tracking-wider" href="#">Новинки</a>
+<a class="text-primary font-semibold border-b border-primary pb-1 font-label-caps text-label-caps uppercase tracking-wider" href="#">Одежда</a>
+<a class="text-secondary hover:text-primary transition-colors font-label-caps text-label-caps uppercase tracking-wider" href="#">Аксессуары</a>
+<a class="text-secondary hover:text-primary transition-colors font-label-caps text-label-caps uppercase tracking-wider" href="#">Распродажа</a>
+</nav>
+<!-- Actions -->
+<div class="flex items-center space-x-4 md:space-x-6 text-primary">
+<button aria-label="Search" class="hover:opacity-70 transition-opacity duration-300 active:scale-95">
+<span class="material-symbols-outlined">search</span>
+</button>
+<button aria-label="Profile" class="hover:opacity-70 transition-opacity duration-300 active:scale-95 hidden md:block">
+<span class="material-symbols-outlined">person</span>
+</button>
+<button aria-label="Cart" class="hover:opacity-70 transition-opacity duration-300 active:scale-95 relative">
+<span class="material-symbols-outlined">shopping_bag</span>
+<span class="absolute -top-1 -right-1 bg-tertiary-container text-on-tertiary-container text-[10px] font-bold w-4 h-4 flex items-center justify-center rounded-full">1</span>
+</button>
+</div>
+</div>
+</header>
+<!-- Main Content -->
+<main class="pt-24 md:pt-32 pb-20 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+<!-- Breadcrumbs -->
+<nav aria-label="Breadcrumb" class="mb-8 hidden md:block">
+<ol class="flex items-center space-x-2 text-secondary font-label-caps text-label-caps">
+<li><a class="hover:text-primary transition-colors" href="#">Главная</a></li>
+<li><span class="mx-2">/</span></li>
+<li><a class="hover:text-primary transition-colors" href="#">Одежда</a></li>
+<li><span class="mx-2">/</span></li>
+<li><a class="hover:text-primary transition-colors" href="#">Платья</a></li>
+<li><span class="mx-2">/</span></li>
+<li aria-current="page" class="text-primary">Шелковое платье миди</li>
+</ol>
+</nav>
+<!-- Product Section -->
+<div class="flex flex-col md:flex-row gap-gutter md:gap-16 lg:gap-24 mb-32">
+<!-- Left: Image Gallery -->
+<div class="w-full md:w-3/5 flex flex-col-reverse md:flex-row gap-4">
+<!-- Thumbnails (Desktop: Left Vertical, Mobile: Bottom Horizontal) -->
+<div aria-label="Product Thumbnails" class="flex md:flex-col gap-4 overflow-x-auto md:overflow-y-auto no-scrollbar md:w-24 shrink-0">
+<button class="w-20 h-24 md:w-full md:h-32 shrink-0 border border-primary relative overflow-hidden group">
+<img alt="Thumbnail 1" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A close-up studio shot of a luxurious silk midi dress in a soft ivory color. The fabric drapes elegantly, catching the high-key, soft white lighting. Minimalist styling, premium high-end fashion photography aesthetic, sharp focus on the silk texture." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAKK0dfk_iuN3LYx_Z4T0-9_5eoLfdY447GJ3w7Dzlp1gndJ46M6Liy0xn3M0WGzEN4gnJxpK9wcEpJoexBUgRnWC6rE51AXcps1WXhZv3q6UWKAWqh-mrUU9cLRT8ckpsSkrVM0VyvUlfsmaro1zU1rTZuYsZCDy07K8URTDnyjTTqogM07eEo4MDiPIpYQADTqZwrUsaNnwbwvC9GTOYJNsnKcrYwPZt1G3GkEAtOv5-iI2QiyzrZ"/>
+</button>
+<button class="w-20 h-24 md:w-full md:h-32 shrink-0 border border-transparent hover:border-outline-variant/50 transition-colors relative overflow-hidden group">
+<img alt="Thumbnail 2" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A detailed shot of the back of a luxurious silk midi dress, showing a delicate open back design and fine stitching. Soft beige background, bright studio lighting highlighting the fluid drape of the fabric. High-end editorial style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDuluX9kGj3iQmqj87pEzWea8Jon3uMV_c7r1k0OtmxhtccRFMKvEm9vLrJ17Xu7CNhrKPI1uKEcnED3hocYFZUq19V1Sj4J0Q4KiTXB-HTCG1TMzd4sp_bHD2nZMwUnp-PIA6sxh5BdjvLEKg6VsDsIMSGXUz3DxPk4j5RQ8JuKO6pBOTgPQR2NrFQm1i7ex3SJ8UPSUdLI6fj3Vfwamx4Nper1QxLQ2wmm7xPxuRUGgRqz8nl4pZ2"/>
+</button>
+<button class="w-20 h-24 md:w-full md:h-32 shrink-0 border border-transparent hover:border-outline-variant/50 transition-colors relative overflow-hidden group">
+<img alt="Thumbnail 3" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A close-up macro shot of premium silk fabric, capturing its subtle sheen and smooth texture. The lighting creates gentle highlights and soft shadows across the material's folds. Minimalist, sophisticated visual approach." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDk4QC_CJSrQur1QLdriBRBz589Re6_Iso3PhjJ_Emio033r0FvffC9-LXcqi0nBRJTYEgB2Yk8tMESNpKkLoPjRQq29rkCsV9GqDDxrZf1j_324f3o8v0GNGAyjl7LGEdlM-F-aj_oJxTPOzCtmdmKxb1W66sPaZizk9W2FgjC-XZ_DOY7o26xp_eyLuWGJLJExv-WHaz2Ek_xj3KofNDloOQv4C7YXR3vwyzezoneP0SzlsS-5EEW"/>
+</button>
+</div>
+<!-- Main Image -->
+<div class="w-full aspect-[3/4] md:aspect-[4/5] bg-surface-container-lowest relative overflow-hidden">
+<img alt="Шелковое платье миди - Основной вид" class="w-full h-full object-cover" data-alt="A full-length editorial shot of a model wearing a sophisticated silk midi dress in soft ivory. The setting is a minimalist, light-filled studio with subtle architectural shadows. The lighting is pristine and soft, emphasizing the dress's elegant silhouette and the brand's high-end, calm aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDIdrAyK_jb7gWC8WQ-fub2Qqz_b05UBE1eGek-QEDMS7yGo3GGxC7_JotQ5_dlJNps10KYU-uJNWHjO7SwlTL62uChOXu71dzrhEN-SCDOMJTfszJQB7zNWC4yP4QBhPEA7iYDq-mnrU5LjztZrFVDA87i8pu0QQvtm8Bh3p7oOEW2eIbyz9duwwgx__VZeGnr2ompD-EsJKEDjcVPDiIK8F6S7unI8RwQEFsh5O8RsXNJqUpm6nxm"/>
+</div>
+</div>
+<!-- Right: Product Details -->
+<div class="w-full md:w-2/5 flex flex-col justify-center">
+<div class="sticky top-32">
+<h1 class="font-headline-md text-headline-md text-primary mb-2">Шелковое платье миди</h1>
+<p class="font-body-lg text-body-lg text-secondary mb-8">145 000 ₽</p>
+<!-- Color Selection -->
+<div class="mb-8">
+<span class="block font-label-caps text-label-caps text-secondary mb-4 uppercase tracking-wider">Цвет: Жемчужный</span>
+<div class="flex gap-3">
+<button aria-label="Жемчужный" class="w-8 h-8 rounded-full bg-[#f4f4f0] border border-primary ring-2 ring-transparent ring-offset-2 hover:ring-outline-variant transition-all"></button>
+<button aria-label="Черный" class="w-8 h-8 rounded-full bg-[#1a1a1a] border border-transparent ring-2 ring-transparent ring-offset-2 hover:ring-outline-variant transition-all"></button>
+<button aria-label="Терракотовый" class="w-8 h-8 rounded-full bg-[#ad8475] border border-transparent ring-2 ring-transparent ring-offset-2 hover:ring-outline-variant transition-all"></button>
+</div>
+</div>
+<!-- Size Selection -->
+<div class="mb-8">
+<div class="flex justify-between items-center mb-4">
+<span class="font-label-caps text-label-caps text-secondary uppercase tracking-wider">Размер</span>
+<button class="text-secondary hover:text-primary transition-colors text-sm underline decoration-1 underline-offset-4">Таблица размеров</button>
+</div>
+<div class="grid grid-cols-4 gap-3">
+<button class="h-12 border border-outline-variant/30 font-button text-button text-secondary hover:border-primary hover:text-primary transition-colors">XS</button>
+<button class="h-12 border border-primary bg-primary text-on-primary font-button text-button transition-colors">S</button>
+<button class="h-12 border border-outline-variant/30 font-button text-button text-secondary hover:border-primary hover:text-primary transition-colors">M</button>
+<button class="h-12 border border-outline-variant/30 font-button text-button text-secondary hover:border-primary hover:text-primary transition-colors disabled:opacity-30 disabled:hover:border-outline-variant/30" disabled="">L</button>
+</div>
+</div>
+<!-- Action -->
+<button class="w-full h-14 bg-primary text-on-primary font-button text-button uppercase tracking-wider hover:bg-primary-container transition-colors mb-8">
+                        Добавить в корзину
+                    </button>
+<!-- Details Accordion (Simplified) -->
+<div class="border-t border-outline-variant/20 pt-6">
+<div class="mb-6">
+<h3 class="font-label-caps text-label-caps uppercase tracking-wider text-primary mb-3">Описание</h3>
+<p class="font-body-md text-body-md text-secondary leading-relaxed">
+                                Воплощение элегантности. Это платье миди выполнено из струящегося 100% шелка Mulberry, который деликатно подчеркивает силуэт. Идеальный выбор для вечерних выходов и особых случаев.
+                            </p>
+</div>
+<div>
+<h3 class="font-label-caps text-label-caps uppercase tracking-wider text-primary mb-3">Состав и уход</h3>
+<ul class="font-body-md text-body-md text-secondary space-y-2 list-inside list-disc">
+<li>100% Шелк Mulberry</li>
+<li>Только сухая чистка</li>
+<li>Не отбеливать</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Related Products Section -->
+<section class="border-t border-outline-variant/20 pt-20">
+<h2 class="font-headline-sm text-headline-sm text-primary mb-10 text-center">С чем носить</h2>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<!-- Product Card 1 -->
+<a class="group block" href="#">
+<div class="aspect-[3/4] bg-surface-container-lowest mb-4 overflow-hidden relative">
+<img alt="Кожаные босоножки" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A minimalist flat lay of a pair of elegant leather strappy heels in black. The background is a clean, crisp white surface. The lighting is bright and even, highlighting the fine texture of the leather. High-end fashion e-commerce photography style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDuDOQNtEBA5MHwlC8x2vf5_6mdx0XsUqzCzpPTL6Bc2lrYBh-fBKZYXiksv1KGh6trHbfmgL2xMrEZ69nw7QAfJY_FC1bnsECbpdM23BaCHJg2FkfI3ZXyPPsoCBMTYpgTueH5IFD-vsif-xQa8sefnyrYIa94d6_LOFiYiIfx2LnrzP0jQTajyfQ_DadsvUPvYuGxCzlKT1H_UGPjvHfv0iEvF7DDAvsj8ToDGLIjKwm5N-54Z805"/>
+</div>
+<div class="flex flex-col items-center text-center">
+<h3 class="font-display-lg text-[16px] text-primary mb-1">Кожаные босоножки</h3>
+<p class="font-body-md text-body-md text-secondary">45 000 ₽</p>
+</div>
+</a>
+<!-- Product Card 2 -->
+<a class="group block" href="#">
+<div class="aspect-[3/4] bg-surface-container-lowest mb-4 overflow-hidden relative">
+<img alt="Кожаный клатч" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A highly detailed shot of a small, structured leather clutch bag in a rich terracotta color. The bag rests on a soft beige pedestal against a clean background. Premium studio lighting creates soft shadows, emphasizing the minimalist and sophisticated brand aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDlRRmcMHDF-GD-e7kA5oCdE4-lESbbzrFBBu33HFTbLWNmSFo-CW67wwqPey3GothyTsImjApxmnN_h-4RoFFdY1cNyd8s4N8GtMQl_OURN5ApfxSd4o8pOBSuo1d9PdckAu1qFKkoG2TwW1yX5aPQRKn4fne4eBBvX-wNNwKMXbGMk2S-ZF8uGnYZCZCasIAokejumwAbg8opnvnx6ZnlZFD4ucfasoUzvTrkJzH8MXbVH20nP80M"/>
+</div>
+<div class="flex flex-col items-center text-center">
+<h3 class="font-display-lg text-[16px] text-primary mb-1">Кожаный клатч</h3>
+<p class="font-body-md text-body-md text-secondary">82 000 ₽</p>
+</div>
+</a>
+<!-- Product Card 3 -->
+<a class="group block hidden md:block" href="#">
+<div class="aspect-[3/4] bg-surface-container-lowest mb-4 overflow-hidden relative">
+<img alt="Подвеска с жемчугом" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A close-up studio photograph of a delicate gold chain necklace with a singular pearl pendant. The jewelry is displayed on a minimalist, soft grey bust. High-key lighting, shallow depth of field, conveying a sense of quiet luxury and refinement." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAGFqdunhcPoL-5lsA4ZVuD56g0P-hbNGdjJArnuvuystSupwNzPbQvHY6cXdi2x4JxPizBEwIinPp2hzCxLzTGM4iCG8NsN1NOza-SKvqV4ItDqrtx7m-5hL6Ihl72SK9FQ9TbUdm4yTt0YC_YHunazcZIq3mzgIEl6U-l46UyfbomjSBAID8KOeGdgoF8iOMn1I98zT0-C8ILzZqsZ50F7bX87Lpq4Gl2K_q2Tc9r2CC4cfzhjDmF"/>
+</div>
+<div class="flex flex-col items-center text-center">
+<h3 class="font-display-lg text-[16px] text-primary mb-1">Подвеска с жемчугом</h3>
+<p class="font-body-md text-body-md text-secondary">38 000 ₽</p>
+</div>
+</a>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full pt-20 pb-10 bg-surface-container border-t border-outline-variant/20 transition-all flex flex-col items-center max-w-container-max mx-auto px-margin-desktop">
+<a class="font-display-lg text-display-lg text-primary mb-10" href="#">MAISON</a>
+<nav class="flex flex-wrap justify-center gap-6 md:gap-8 mb-12">
+<a class="font-label-caps text-label-caps text-secondary hover:text-primary transition-colors uppercase tracking-wider" href="#">О нас</a>
+<a class="font-label-caps text-label-caps text-secondary hover:text-primary transition-colors uppercase tracking-wider" href="#">Доставка</a>
+<a class="font-label-caps text-label-caps text-secondary hover:text-primary transition-colors uppercase tracking-wider" href="#">Возврат</a>
+<a class="font-label-caps text-label-caps text-secondary hover:text-primary transition-colors uppercase tracking-wider" href="#">Контакты</a>
+<a class="font-label-caps text-label-caps text-secondary hover:text-primary transition-colors uppercase tracking-wider" href="#">Политика конфиденциальности</a>
+</nav>
+<p class="font-body-md text-body-md text-secondary dark:text-on-secondary-fixed-variant">© 2024 MAISON. Все права защищены.</p>
+</footer>
+<script>
+        // Simple scroll effect for header shadow
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('main-header');
+            if (window.scrollY > 10) {
+                header.classList.add('shadow-sm');
+            } else {
+                header.classList.remove('shadow-sm');
+            }
+        });
+    </script>
+</body></html>

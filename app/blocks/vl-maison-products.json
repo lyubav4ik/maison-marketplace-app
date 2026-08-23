@@ -1,0 +1,103 @@
+{
+  "code": "vl-maison-products",
+  "fields": {
+    "NAME": "MAISON · Новые поступления",
+    "DESCRIPTION": "Карточки товаров: фото со сменой изображения при наведении, кнопка «в избранное», название и цена. На мобильных — горизонтальная прокрутка, на десктопе — сетка 4 колонки. Статичный режим: меняйте фото, название, цену и ссылку каждой карточки; количество — кнопками карточек. Динамический режим: поставьте любой карточке ссылку #dynamic — блок сам подтянет последние товары из каталога (названия, цены, ссылки и два фото), число карточек = сколько товаров показать.",
+    "SECTIONS": "store",
+    "ACTIVE": "Y",
+    "PREVIEW": "https://cdn.jsdelivr.net/gh/lyubav4ik/maison-marketplace-app@v0.1/assets/block-preview-products.jpg",
+    "CONTENT": "<section class=\"landing-block vl-prods\">\n<div class=\"vl-prods-inner\">\n<div class=\"vl-prods-head fade-in\">\n<div>\n<h2 class=\"vl-prods-title landing-block-node-head-title\">Новые поступления</h2>\n<p class=\"vl-prods-sub landing-block-node-head-sub\">Откройте для себя последние тенденции сезона, воплощенные в безупречном крое.</p>\n</div>\n<a class=\"vl-prods-all landing-block-node-all-link\" href=\"/katalog/\" target=\"_self\">Смотреть все</a>\n</div>\n<div class=\"vl-prods-grid\">\n<a class=\"vl-prod-card landing-block-card-prod landing-block-node-prod-link fade-in\" href=\"#\" target=\"_self\">\n<div class=\"vl-prod-media\">\n<img class=\"vl-prod-img vl-prod-img-a landing-block-node-prod-img\" src=\"https://cdn.jsdelivr.net/gh/lyubav4ik/maison-marketplace-app@v0.1/assets/prod-1a.jpg\" alt=\"Жакет оверсайз\">\n<img class=\"vl-prod-img vl-prod-img-b\" src=\"https://cdn.jsdelivr.net/gh/lyubav4ik/maison-marketplace-app@v0.1/assets/prod-1b.jpg\" alt=\"\">\n<span class=\"vl-prod-wish\" role=\"button\" aria-label=\"В избранное\" title=\"В избранное\"></span>\n</div>\n<h3 class=\"vl-prod-name landing-block-node-prod-name\">Жакет оверсайз</h3>\n<p class=\"vl-prod-price landing-block-node-prod-price\">32 000 ₽</p>\n</a>\n<a class=\"vl-prod-card landing-block-card-prod landing-block-node-prod-link fade-in\" href=\"#\" target=\"_self\" style=\"transition-delay:100ms\">\n<div class=\"vl-prod-media\">\n<img class=\"vl-prod-img vl-prod-img-a landing-block-node-prod-img\" src=\"https://cdn.jsdelivr.net/gh/lyubav4ik/maison-marketplace-app@v0.1/assets/prod-2a.jpg\" alt=\"Шелковая водолазка\">\n<img class=\"vl-prod-img vl-prod-img-b\" src=\"https://cdn.jsdelivr.net/gh/lyubav4ik/maison-marketplace-app@v0.1/assets/prod-2b.jpg\" alt=\"\">\n<span class=\"vl-prod-wish\" role=\"button\" aria-label=\"В избранное\" title=\"В избранное\"></span>\n</div>\n<h3 class=\"vl-prod-name landing-block-node-prod-name\">Шелковая водолазка</h3>\n<p class=\"vl-prod-price landing-block-node-prod-price\">18 500 ₽</p>\n</a>\n<a class=\"vl-prod-card landing-block-card-prod landing-block-node-prod-link fade-in\" href=\"#\" target=\"_self\" style=\"transition-delay:200ms\">\n<div class=\"vl-prod-media\">\n<img class=\"vl-prod-img vl-prod-img-a landing-block-node-prod-img\" src=\"https://cdn.jsdelivr.net/gh/lyubav4ik/maison-marketplace-app@v0.1/assets/prod-3a.jpg\" alt=\"Брюки палаццо\">\n<img class=\"vl-prod-img vl-prod-img-b\" src=\"https://cdn.jsdelivr.net/gh/lyubav4ik/maison-marketplace-app@v0.1/assets/prod-3b.jpg\" alt=\"\">\n<span class=\"vl-prod-wish\" role=\"button\" aria-label=\"В избранное\" title=\"В избранное\"></span>\n</div>\n<h3 class=\"vl-prod-name landing-block-node-prod-name\">Брюки палаццо</h3>\n<p class=\"vl-prod-price landing-block-node-prod-price\">24 000 ₽</p>\n</a>\n<a class=\"vl-prod-card landing-block-card-prod landing-block-node-prod-link fade-in\" href=\"#\" target=\"_self\" style=\"transition-delay:300ms\">\n<div class=\"vl-prod-media\">\n<img class=\"vl-prod-img vl-prod-img-a landing-block-node-prod-img\" src=\"https://cdn.jsdelivr.net/gh/lyubav4ik/maison-marketplace-app@v0.1/assets/prod-4a.jpg\" alt=\"Сумка из кожи\">\n<img class=\"vl-prod-img vl-prod-img-b\" src=\"https://cdn.jsdelivr.net/gh/lyubav4ik/maison-marketplace-app@v0.1/assets/prod-4b.jpg\" alt=\"\">\n<span class=\"vl-prod-wish\" role=\"button\" aria-label=\"В избранное\" title=\"В избранное\"></span>\n</div>\n<h3 class=\"vl-prod-name landing-block-node-prod-name\">Сумка из кожи</h3>\n<p class=\"vl-prod-price landing-block-node-prod-price\">45 000 ₽</p>\n</a>\n</div>\n<div class=\"vl-prods-more-wrap\"><a class=\"vl-prods-more\" href=\"/katalog/\" target=\"_self\">Смотреть все</a></div>\n</div>\n</section>"
+  },
+  "manifest": {
+    "block": {
+      "name": "MAISON · Новые поступления",
+      "section": [
+        "store"
+      ],
+      "type": [
+        "page",
+        "store"
+      ],
+      "dynamic": false
+    },
+    "nodes": {
+      ".landing-block-node-head-title": {
+        "name": "Заголовок",
+        "type": "text"
+      },
+      ".landing-block-node-head-sub": {
+        "name": "Подзаголовок",
+        "type": "text"
+      },
+      ".landing-block-node-all-link": {
+        "name": "Ссылка «Смотреть все»",
+        "type": "link"
+      },
+      ".landing-block-node-prod-img": {
+        "name": "Фото товара",
+        "type": "img",
+        "dimensions": {
+          "maxWidth": 1200,
+          "maxHeight": 1600
+        },
+        "allowInlineEdit": true
+      },
+      ".landing-block-node-prod-name": {
+        "name": "Название товара",
+        "type": "text"
+      },
+      ".landing-block-node-prod-price": {
+        "name": "Цена",
+        "type": "text"
+      },
+      ".landing-block-node-prod-link": {
+        "name": "Ссылка карточки",
+        "type": "link"
+      }
+    },
+    "cards": {
+      ".landing-block-card-prod": {
+        "name": "Товар",
+        "label": [
+          ".landing-block-node-prod-name"
+        ]
+      }
+    },
+    "style": {
+      "block": {
+        "type": [
+          "block-default"
+        ]
+      },
+      "nodes": {
+        ".landing-block-node-head-title": {
+          "title": "Заголовок",
+          "type": [
+            "typo",
+            "animation"
+          ]
+        },
+        ".landing-block-node-prod-name": {
+          "title": "Название",
+          "type": [
+            "typo"
+          ]
+        },
+        ".landing-block-node-prod-price": {
+          "title": "Цена",
+          "type": [
+            "typo"
+          ]
+        }
+      }
+    },
+    "assets": {
+      "css": [
+        "https://cdn.jsdelivr.net/gh/lyubav4ik/maison-marketplace-app@v0.1/assets/products-block.css"
+      ],
+      "js": [
+        "https://cdn.jsdelivr.net/gh/lyubav4ik/maison-marketplace-app@v0.1/assets/products-block.js"
+      ]
+    }
+  }
+}

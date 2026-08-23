@@ -1,0 +1,100 @@
+{
+  "code": "vl-maison-pcard",
+  "fields": {
+    "NAME": "MAISON · Карточка товара",
+    "DESCRIPTION": "Декоративная карточка товара: хлебные крошки, галерея с миниатюрами (клик меняет большое фото), название, цена, выбор цвета и размера, кнопка «В корзину», описание и состав. Интерактив визуальный — реальную корзину Б24 показывает штатная страница товара.",
+    "SECTIONS": "store",
+    "ACTIVE": "Y",
+    "PREVIEW": "https://cdn.jsdelivr.net/gh/lyubav4ik/maison-marketplace-app@v0.1/assets/block-preview-pcard.jpg",
+    "CONTENT": "<section class=\"landing-block vl-pcard\">\n<div class=\"vl-pcard-inner\">\n<nav class=\"vl-pc-crumbs\"><ol><li><a href=\"/\">Главная</a></li><li><a href=\"/katalog/\">Каталог</a></li><li><span class=\"vl-pc-crumb-cur\">Товар</span></li></ol></nav>\n<div class=\"vl-pc-layout\">\n<div class=\"vl-pc-gallery\">\n<div class=\"vl-pc-thumbs\">\n<button type=\"button\" class=\"vl-pc-thumb active landing-block-card-thumb\"><img class=\"landing-block-node-thumb-img\" src=\"https://cdn.jsdelivr.net/gh/lyubav4ik/maison-marketplace-app@v0.1/assets/pc-t1.jpg\" data-full=\"https://cdn.jsdelivr.net/gh/lyubav4ik/maison-marketplace-app@v0.1/assets/pc-main.jpg\" alt=\"Вид 1\"></button>\n<button type=\"button\" class=\"vl-pc-thumb\"><img class=\"landing-block-node-thumb-img\" src=\"https://cdn.jsdelivr.net/gh/lyubav4ik/maison-marketplace-app@v0.1/assets/pc-t2.jpg\" data-full=\"https://cdn.jsdelivr.net/gh/lyubav4ik/maison-marketplace-app@v0.1/assets/pc-t2.jpg\" alt=\"Вид 2\"></button>\n<button type=\"button\" class=\"vl-pc-thumb\"><img class=\"landing-block-node-thumb-img\" src=\"https://cdn.jsdelivr.net/gh/lyubav4ik/maison-marketplace-app@v0.1/assets/pc-t3.jpg\" data-full=\"https://cdn.jsdelivr.net/gh/lyubav4ik/maison-marketplace-app@v0.1/assets/pc-t3.jpg\" alt=\"Вид 3\"></button>\n</div>\n<div class=\"vl-pc-mainimg-wrap\"><img class=\"vl-pc-mainimg landing-block-node-pc-img\" src=\"https://cdn.jsdelivr.net/gh/lyubav4ik/maison-marketplace-app@v0.1/assets/pc-main.jpg\" alt=\"Товар\"></div>\n</div>\n<div class=\"vl-pc-details\"><div class=\"vl-pc-sticky\">\n<h1 class=\"vl-pc-title landing-block-node-pc-title\">Шелковое платье миди</h1>\n<p class=\"vl-pc-price landing-block-node-pc-price\">145 000 ₽</p>\n<div class=\"vl-pc-colors\">\n<span class=\"vl-pc-sublabel vl-pc-colorlabel\">Цвет: Жемчужный</span>\n<div class=\"vl-pc-dots\">\n<button type=\"button\" class=\"vl-pc-dot active landing-block-card-dot\" data-color=\"Жемчужный\" aria-label=\"Жемчужный\" style=\"background:#f4f4f0\"></button>\n<button type=\"button\" class=\"vl-pc-dot\" data-color=\"Черный\" aria-label=\"Черный\" style=\"background:#1a1a1a\"></button>\n<button type=\"button\" class=\"vl-pc-dot\" data-color=\"Терракотовый\" aria-label=\"Терракотовый\" style=\"background:#ad8475\"></button>\n</div>\n</div>\n<div class=\"vl-pc-sizeswrap\">\n<div class=\"vl-pc-sizehead\"><span class=\"vl-pc-sublabel\" style=\"margin-bottom:0\">Размер</span><button type=\"button\" class=\"vl-pc-sizechart\">Таблица размеров</button></div>\n<div class=\"vl-pc-sizes\">\n<button type=\"button\" class=\"vl-pc-size\">XS</button>\n<button type=\"button\" class=\"vl-pc-size selected\">S</button>\n<button type=\"button\" class=\"vl-pc-size\">M</button>\n<button type=\"button\" class=\"vl-pc-size\" disabled>L</button>\n</div>\n</div>\n<a class=\"vl-pc-btn landing-block-node-pc-btn\" href=\"#\" target=\"_self\">Добавить в корзину</a>\n<div class=\"vl-pc-info\">\n<div class=\"vl-pc-infoblock\">\n<h3 class=\"vl-pc-infoh\">Описание</h3>\n<p class=\"vl-pc-text landing-block-node-pc-desc\">Воплощение элегантности. Это платье миди выполнено из струящегося 100% шелка Mulberry, который деликатно подчеркивает силуэт.</p>\n</div>\n<div class=\"vl-pc-infoblock\">\n<h3 class=\"vl-pc-infoh\">Состав и уход</h3>\n<ul class=\"vl-pc-list\"><li>100% Шелк Mulberry</li><li>Только сухая чистка</li><li>Не отбеливать</li></ul>\n</div>\n</div>\n</div></div>\n</div>\n</div>\n</section>"
+  },
+  "manifest": {
+    "block": {
+      "name": "MAISON · Карточка товара",
+      "section": [
+        "store"
+      ],
+      "type": [
+        "page",
+        "store"
+      ],
+      "dynamic": false
+    },
+    "nodes": {
+      ".landing-block-node-thumb-img": {
+        "name": "Миниатюра",
+        "type": "img",
+        "dimensions": {
+          "maxWidth": 1200,
+          "maxHeight": 1200
+        },
+        "allowInlineEdit": true
+      },
+      ".landing-block-node-pc-img": {
+        "name": "Фото товара",
+        "type": "img",
+        "dimensions": {
+          "maxWidth": 1600,
+          "maxHeight": 2000
+        },
+        "allowInlineEdit": true
+      },
+      ".landing-block-node-pc-title": {
+        "name": "Название",
+        "type": "text"
+      },
+      ".landing-block-node-pc-price": {
+        "name": "Цена",
+        "type": "text"
+      },
+      ".landing-block-node-pc-btn": {
+        "name": "Кнопка корзины",
+        "type": "link"
+      },
+      ".landing-block-node-pc-desc": {
+        "name": "Описание",
+        "type": "text"
+      }
+    },
+    "cards": {
+      ".landing-block-card-thumb": {
+        "name": "Миниатюра",
+        "label": [
+          ".landing-block-node-thumb-img"
+        ]
+      },
+      ".landing-block-card-dot": {
+        "name": "Цвет"
+      }
+    },
+    "style": {
+      "block": {
+        "type": [
+          "block-default"
+        ]
+      },
+      "nodes": {
+        ".landing-block-node-pc-title": {
+          "title": "Название",
+          "type": [
+            "typo"
+          ]
+        },
+        ".landing-block-node-pc-price": {
+          "title": "Цена",
+          "type": [
+            "typo"
+          ]
+        }
+      }
+    },
+    "assets": {
+      "css": [
+        "https://cdn.jsdelivr.net/gh/lyubav4ik/maison-marketplace-app@v0.1/assets/product-card-block.css"
+      ],
+      "js": [
+        "https://cdn.jsdelivr.net/gh/lyubav4ik/maison-marketplace-app@v0.1/assets/product-card-block.js"
+      ]
+    }
+  }
+}

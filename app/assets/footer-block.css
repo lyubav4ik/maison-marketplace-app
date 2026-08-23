@@ -1,0 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=Playfair+Display:wght@600;700&display=swap');
+.vl-footer{padding:80px 16px;background:#f9f9f9}
+@media(min-width:768px){.vl-footer{padding:80px 64px}}
+.vl-footer-inner{display:flex;flex-direction:column;align-items:center;max-width:1440px;margin:0 auto}
+.vl-footer-logo{font-family:'Playfair Display',Georgia,serif;font-size:32px;font-weight:700;line-height:1;color:#111111;text-decoration:none;margin-bottom:40px}
+@media(min-width:768px){.vl-footer-logo{font-size:48px}}
+.vl-footer-nav{display:flex;flex-wrap:wrap;justify-content:center;column-gap:32px;row-gap:16px;margin-bottom:48px}
+.vl-footer-flink{font-family:'Montserrat',Arial,sans-serif;font-size:12px;font-weight:600;letter-spacing:.1em;line-height:1;color:#5f5e5d;text-decoration:none;transition:color .3s ease}
+.vl-footer-flink:hover{color:#111111;opacity:.8}
+.vl-footer-copy{font-family:'Montserrat',Arial,sans-serif;font-size:16px;line-height:1.5;color:#5f5e5d;text-align:center;margin:0}

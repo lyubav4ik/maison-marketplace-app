@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+
+<html lang="ru"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>MAISON | Новинки</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&amp;family=Playfair+Display:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Configuration -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-primary": "#ffffff",
+                    "on-error": "#ffffff",
+                    "on-primary-fixed": "#1b1c1c",
+                    "inverse-primary": "#c8c6c5",
+                    "tertiary-container": "#3a1f15",
+                    "tertiary-fixed-dim": "#ebbcac",
+                    "surface-container-highest": "#e2e2e2",
+                    "surface-container-high": "#e8e8e8",
+                    "on-primary-fixed-variant": "#474746",
+                    "on-tertiary-fixed": "#2e150b",
+                    "outline-variant": "#c4c7c7",
+                    "on-surface-variant": "#444748",
+                    "surface-container-low": "#f3f3f4",
+                    "outline": "#747878",
+                    "surface": "#f9f9f9",
+                    "secondary-container": "#e2dfdd",
+                    "on-secondary-fixed-variant": "#474745",
+                    "on-surface": "#1a1c1c",
+                    "surface-dim": "#dadada",
+                    "inverse-surface": "#2f3131",
+                    "secondary-fixed-dim": "#c8c6c4",
+                    "primary-fixed": "#e4e2e1",
+                    "on-primary-container": "#8e8d8c",
+                    "error-container": "#ffdad6",
+                    "primary-fixed-dim": "#c8c6c5",
+                    "primary-container": "#262626",
+                    "secondary-fixed": "#e5e2e0",
+                    "background": "#f9f9f9",
+                    "surface-tint": "#5f5e5e",
+                    "surface-variant": "#e2e2e2",
+                    "on-secondary": "#ffffff",
+                    "surface-container": "#eeeeee",
+                    "primary": "#111111",
+                    "on-tertiary-fixed-variant": "#603f33",
+                    "on-secondary-container": "#636261",
+                    "error": "#ba1a1a",
+                    "on-tertiary-container": "#ad8475",
+                    "tertiary": "#220b04",
+                    "on-background": "#1a1c1c",
+                    "on-secondary-fixed": "#1b1c1b",
+                    "tertiary-fixed": "#ffdbcf",
+                    "inverse-on-surface": "#f0f1f1",
+                    "on-tertiary": "#ffffff",
+                    "surface-bright": "#f9f9f9",
+                    "surface-container-lowest": "#ffffff",
+                    "on-error-container": "#93000a",
+                    "secondary": "#5f5e5d"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "margin-mobile": "16px",
+                    "unit": "8px",
+                    "container-max": "1440px",
+                    "margin-desktop": "64px",
+                    "gutter": "24px"
+            },
+            "fontFamily": {
+                    "label-caps": ["Montserrat"],
+                    "display-lg-mobile": ["Playfair Display"],
+                    "body-lg": ["Montserrat"],
+                    "headline-md": ["Playfair Display"],
+                    "headline-sm": ["Playfair Display"],
+                    "button": ["Montserrat"],
+                    "body-md": ["Montserrat"],
+                    "display-lg": ["Playfair Display"]
+            },
+            "fontSize": {
+                    "label-caps": ["12px", { "lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "600" }],
+                    "display-lg-mobile": ["32px", { "lineHeight": "1.2", "fontWeight": "700" }],
+                    "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                    "headline-md": ["32px", { "lineHeight": "1.3", "fontWeight": "600" }],
+                    "headline-sm": ["24px", { "lineHeight": "1.4", "fontWeight": "600" }],
+                    "button": ["14px", { "lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "500" }],
+                    "body-md": ["16px", { "lineHeight": "1.5", "fontWeight": "400" }],
+                    "display-lg": ["48px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700" }]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+        /* Smooth scrolling and basic resets */
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Montserrat', sans-serif; }
+        
+        /* Material Icon Helper */
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        
+        /* Subtle image hover zoom */
+        .img-hover-zoom {
+            overflow: hidden;
+        }
+        .img-hover-zoom img {
+            transition: transform 0.7s ease;
+        }
+        .img-hover-zoom:hover img {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body-md text-body-md antialiased min-h-screen flex flex-col">
+<!-- TopNavBar Component -->
+<header class="bg-surface/90 dark:bg-surface-dim/90 backdrop-blur-md fixed top-0 w-full z-50 border-b border-outline-variant/30">
+<div class="flex justify-between items-center h-20 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+<!-- Mobile Menu Icon (Placeholder for functionality) -->
+<button class="md:hidden text-primary">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<!-- Brand Logo -->
+<a class="font-display-lg text-display-lg tracking-tighter text-primary dark:text-on-primary-fixed" href="#">MAISON</a>
+<!-- Navigation Links -->
+<nav class="hidden md:flex gap-8">
+<!-- Active Item -->
+<a class="text-primary dark:text-on-primary-fixed font-semibold border-b border-primary py-1 font-label-caps text-label-caps active:scale-95 transition-transform" href="#">
+                    Новинки
+                </a>
+<!-- Inactive Items -->
+<a class="text-secondary dark:text-secondary-fixed-dim hover:text-primary transition-colors py-1 font-label-caps text-label-caps hover:opacity-70 transition-opacity duration-300" href="#">
+                    Одежда
+                </a>
+<a class="text-secondary dark:text-secondary-fixed-dim hover:text-primary transition-colors py-1 font-label-caps text-label-caps hover:opacity-70 transition-opacity duration-300" href="#">
+                    Аксессуары
+                </a>
+<a class="text-secondary dark:text-secondary-fixed-dim hover:text-primary transition-colors py-1 font-label-caps text-label-caps hover:opacity-70 transition-opacity duration-300" href="#">
+                    Распродажа
+                </a>
+</nav>
+<!-- Trailing Icons -->
+<div class="flex items-center gap-4 text-primary dark:text-on-primary-fixed">
+<button aria-label="search" class="hover:opacity-70 transition-opacity duration-300">
+<span class="material-symbols-outlined">search</span>
+</button>
+<button aria-label="person" class="hover:opacity-70 transition-opacity duration-300">
+<span class="material-symbols-outlined">person</span>
+</button>
+<button aria-label="shopping_bag" class="hover:opacity-70 transition-opacity duration-300">
+<span class="material-symbols-outlined">shopping_bag</span>
+</button>
+</div>
+</div>
+</header>
+<!-- Main Content Area -->
+<main class="flex-grow pt-32 pb-24">
+<!-- Page Header -->
+<section class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop mb-16 text-center md:text-left">
+<h1 class="font-display-lg-mobile text-display-lg-mobile md:font-display-lg md:text-display-lg text-primary mb-4">Новинки</h1>
+<p class="font-body-lg text-body-lg text-secondary max-w-2xl">Откройте для себя последние поступления из эксклюзивной коллекции Aura Couture. Элегантность в каждой детали, созданная для ценителей тихой роскоши.</p>
+</section>
+<!-- Layout Container: Sidebar + Grid -->
+<div class="flex max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop gap-gutter">
+<!-- SideNavBar Component (Filters) -->
+<aside class="hidden md:flex flex-col p-gutter space-y-6 h-full w-80 docked-left bg-surface dark:bg-surface-container-low border-r border-outline-variant/20 shadow-sm">
+<!-- Header -->
+<div class="mb-4">
+<h2 class="font-headline-sm text-headline-sm text-primary mb-2">Фильтры</h2>
+<p class="font-body-md text-body-md text-secondary">Сортировать по вашим предпочтениям</p>
+</div>
+<!-- Tabs/Filters -->
+<nav class="flex flex-col gap-2">
+<!-- Active State Example for the first one conceptually, though the prompt says to style active. Let's make "Категории" expanded/active looking -->
+<button class="flex items-center justify-between w-full p-3 text-primary font-bold bg-secondary-container rounded-lg transition-colors hover:bg-surface-variant/50 drawer-slide-in-out">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined">category</span>
+<span class="font-label-caps text-label-caps">Категории</span>
+</div>
+<span class="material-symbols-outlined">expand_less</span>
+</button>
+<!-- Sub-items for active category (simulated) -->
+<div class="pl-10 pr-3 pb-3 flex flex-col gap-3 font-body-md text-body-md text-secondary">
+<label class="flex items-center gap-2 cursor-pointer hover:text-primary">
+<input checked="" class="rounded border-outline-variant text-primary focus:ring-primary" type="checkbox"/> Платья
+                        </label>
+<label class="flex items-center gap-2 cursor-pointer hover:text-primary">
+<input class="rounded border-outline-variant text-primary focus:ring-primary" type="checkbox"/> Блузы
+                        </label>
+<label class="flex items-center gap-2 cursor-pointer hover:text-primary">
+<input class="rounded border-outline-variant text-primary focus:ring-primary" type="checkbox"/> Брюки
+                        </label>
+</div>
+<!-- Inactive Tabs -->
+<button class="flex items-center justify-between w-full p-3 text-secondary hover:bg-surface-variant/50 rounded-lg transition-colors drawer-slide-in-out">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined">straighten</span>
+<span class="font-label-caps text-label-caps">Размер</span>
+</div>
+<span class="material-symbols-outlined">expand_more</span>
+</button>
+<button class="flex items-center justify-between w-full p-3 text-secondary hover:bg-surface-variant/50 rounded-lg transition-colors drawer-slide-in-out">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined">palette</span>
+<span class="font-label-caps text-label-caps">Цвет</span>
+</div>
+<span class="material-symbols-outlined">expand_more</span>
+</button>
+<button class="flex items-center justify-between w-full p-3 text-secondary hover:bg-surface-variant/50 rounded-lg transition-colors drawer-slide-in-out">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined">payments</span>
+<span class="font-label-caps text-label-caps">Цена</span>
+</div>
+<span class="material-symbols-outlined">expand_more</span>
+</button>
+<button class="flex items-center justify-between w-full p-3 text-secondary hover:bg-surface-variant/50 rounded-lg transition-colors drawer-slide-in-out">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined">sell</span>
+<span class="font-label-caps text-label-caps">Бренд</span>
+</div>
+<span class="material-symbols-outlined">expand_more</span>
+</button>
+</nav>
+<!-- CTA -->
+<div class="mt-8 pt-6 border-t border-outline-variant/20">
+<button class="w-full bg-primary text-on-primary py-4 font-button text-button uppercase tracking-widest hover:opacity-90 transition-opacity">
+                        Применить
+                    </button>
+</div>
+</aside>
+<!-- Product Grid -->
+<section class="flex-1 w-full">
+<!-- Mobile Filter Trigger -->
+<div class="md:hidden flex justify-between items-center mb-6 pb-4 border-b border-outline-variant/30">
+<span class="font-body-md text-body-md text-secondary">6 товаров</span>
+<button class="flex items-center gap-2 text-primary font-label-caps text-label-caps">
+<span class="material-symbols-outlined">tune</span> Фильтры
+                    </button>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-12">
+<!-- Product Card 1 -->
+<article class="group cursor-pointer">
+<div class="relative w-full aspect-[3/4] bg-surface-container-low mb-4 img-hover-zoom">
+<img alt="Шелковое платье комбинация" class="w-full h-full object-cover" data-alt="Full body shot of a model wearing a luxurious, minimalist beige silk slip dress in a high-end, softly lit studio setting. The lighting is bright and diffuse, creating a serene, quiet luxury aesthetic typical of a premium women's fashion editorial. Soft neutral backdrop with subtle shadows emphasizing the drape of the silk fabric." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDCkXeGF2ZqQ4WFTPVmZzMmOHD2KP2dqHGo3UUCYDkQ7ERvifSlaYmSPZ05UmgDlg8dGy30g0cik_jpSktzPQVI_JtKWH7mmDzlpDhiMA0DkmwN4f0ztr0ixojB5ayY2q7Yr3VFXLVIjW3HRu4J90zgCkUUITAdiw2uJfCo-YF_WX9OxYIZAC_XGy3j94ZgAhjNRsVRjITRHElgYTR0jU4hQL4TYWvSPS3yLl9uzsL9csI0o1rFtiNA"/>
+<!-- Subtle quick add button on hover -->
+<div class="absolute bottom-4 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+<button class="bg-surface/90 backdrop-blur text-primary px-6 py-2 font-button text-button shadow-sm hover:bg-primary hover:text-on-primary transition-colors">В корзину</button>
+</div>
+</div>
+<div class="flex flex-col gap-1 text-center md:text-left">
+<h3 class="font-label-caps text-label-caps text-secondary">Шелковое платье Aura</h3>
+<p class="font-body-md text-body-md text-primary">85 000 ₽</p>
+</div>
+</article>
+<!-- Product Card 2 -->
+<article class="group cursor-pointer">
+<div class="relative w-full aspect-[3/4] bg-surface-container-low mb-4 img-hover-zoom">
+<img alt="Шерстяной блейзер" class="w-full h-full object-cover" data-alt="Close up shot of a tailored, oversized charcoal grey wool blazer worn over a crisp white button-down shirt. High-end fashion editorial photography with a focus on fabric texture and minimalist cut. Soft, high-key studio lighting with a neutral gray background. The mood is sophisticated and understated, embodying quiet luxury." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB4IlgcDRDaMf7_s087x7C3Ey-JjzIQkGNhh5cq4wQWIqbxy_Z_lPL_b9VhSBsNYTF5voufOieNUuxPP3HcefQ5pGPh3zOzrlM6VDwB0BhZU0dpb2OUlz7KL_K_RAGWkv4H-DVbpLBdje_ORwT_SkgAB1-vvMS9cwqYrv2cR8RhmrwES3uXLnZrzbmr0e2Jb_jHE1Ou4YFWDusAuR9NS-Dwxxj7Ok_EGvcG2K7RYefVTNXBhXsYF0I8"/>
+</div>
+<div class="flex flex-col gap-1 text-center md:text-left">
+<h3 class="font-label-caps text-label-caps text-secondary">Шерстяной блейзер оверсайз</h3>
+<p class="font-body-md text-body-md text-primary">120 000 ₽</p>
+</div>
+</article>
+<!-- Product Card 3 -->
+<article class="group cursor-pointer">
+<div class="relative w-full aspect-[3/4] bg-surface-container-low mb-4 img-hover-zoom">
+<img alt="Льняные брюки" class="w-full h-full object-cover" data-alt="Wide shot of a model in wide-leg cream linen trousers and a matching tailored vest, posing confidently against an abstract, textured beige wall. The scene is bathed in natural, soft daylight creating a warm, elegant atmosphere. The styling reflects modern, minimalist luxury e-commerce photography with impeccable tailoring and neutral tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBCDZxm0C42c565GjVnN2rtinGBPeuu9n5EkHlcz9R3W_fCJkFtXVxX85K9-6Oz5sXXZmh3J0O1zYeyQgwZXgwSXFVxmE4Mjf-PN4fiw6e0Qq_INqVIqMchOIkwhmK_2tNjfHfDhSpyb1D6obEl8GEmA27LwnBWbBuqfRW4nC8KTjKcXfD599KuBypuVtp2D80r9LYAQkwT65j_dMHp4hiK18KDfYivI4XFp_m0h1330Kyx8nK5i3fy"/>
+<div class="absolute top-4 right-4 bg-primary text-on-primary px-2 py-1 font-label-caps text-[10px]">Эксклюзив</div>
+</div>
+<div class="flex flex-col gap-1 text-center md:text-left">
+<h3 class="font-label-caps text-label-caps text-secondary">Льняные брюки палаццо</h3>
+<p class="font-body-md text-body-md text-primary">65 000 ₽</p>
+</div>
+</article>
+<!-- Product Card 4 -->
+<article class="group cursor-pointer">
+<div class="relative w-full aspect-[3/4] bg-surface-container-low mb-4 img-hover-zoom">
+<img alt="Кожаная сумка" class="w-full h-full object-cover" data-alt="Detailed shot of an elegant, structured leather handbag in deep rich espresso brown, resting on a minimalist marble plinth. Soft, diffused lighting highlights the premium leather grain and sleek gold hardware. The background is a soft, out-of-focus beige studio setting. High-end product photography style conveying exclusivity and quiet luxury." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCKNUKrpVtSIatEkDrL5quFqKK1rNgr6HC8tN-tTGnevNe7X6m0EQCdd86NGDOcplqOqhaxIov2tvKIIi1jyroqRBpxefNEZ_f1fX3_AYCkg-mt-CLDjGhmXsDXM8R9ueQM9RFhnNK-tgjRjAgkx-oYBpXvU0s37xhRMzqAv1LEekWOY_MleJ51YsRP6Cmr2ojgI6ke0p2ynFTx46qsGbHZVrRZ15kG5553WB6BJ4720Wih0G3Woz14"/>
+</div>
+<div class="flex flex-col gap-1 text-center md:text-left">
+<h3 class="font-label-caps text-label-caps text-secondary">Сумка из зернистой кожи</h3>
+<p class="font-body-md text-body-md text-primary">145 000 ₽</p>
+</div>
+</article>
+<!-- Product Card 5 -->
+<article class="group cursor-pointer">
+<div class="relative w-full aspect-[3/4] bg-surface-container-low mb-4 img-hover-zoom">
+<img alt="Черное платье миди" class="w-full h-full object-cover" data-alt="Medium shot of a model wearing a fluid, asymmetrical black midi dress with delicate draping. The setting is a minimalist, airy studio with soft, diffused white lighting creating a crisp, elegant mood. The styling is effortless and sophisticated, perfectly capturing the high-end, quiet luxury aesthetic of a premium fashion brand." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBwzbSl09duGtd5_9F8_5MqJNdD-QqgheRUy-iyYY_8JkBQDZ9ljaQXMy_WeRpgEoMPqrocikd5eTY7ODjc2vFOZ4l4GzRnfX1lnffIhvPTTm6dnHOGyxKnLdP6qvT8LPO9odJvXQJty3zP_S1yuxmp8DXk4gJQqdoVizc_DvFa6DKz2ygxIlhoVL3XnNpbFooN5lx2JPlStbsYwQRi32nk0G7l6o0268cU7TYs5NVL4E_rwOyxQDri"/>
+</div>
+<div class="flex flex-col gap-1 text-center md:text-left">
+<h3 class="font-label-caps text-label-caps text-secondary">Асимметричное платье миди</h3>
+<p class="font-body-md text-body-md text-primary">92 000 ₽</p>
+</div>
+</article>
+<!-- Product Card 6 -->
+<article class="group cursor-pointer">
+<div class="relative w-full aspect-[3/4] bg-surface-container-low mb-4 img-hover-zoom">
+<img alt="Кашемировый свитер" class="w-full h-full object-cover" data-alt="A luxurious, oversized cream cashmere sweater styled effortlessly on a model, half-tucked into tailored dark trousers. The lighting is soft and inviting, emphasizing the plush texture of the knitwear against a clean, white studio background. The overall aesthetic is calm, sophisticated, and synonymous with minimalist, high-end fashion editorials." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDODxAVkyXlJumjeWgrKxQnzMo-7YbqEUmc-qzqoUzjBIRKNTcr6mOFVc2-8iCd7gXxJcon02VjWJadppD3TtG4Aep-mRSXrXhR3RvePQtmwtiEaHpjwkpYcdKd4VZo5tf4RJTBpaB2HOa5gmPag6PKQ3YuqnaMi6Kta7JULaWzP4j5EqD3ocIYw_D-5-z845nAoR1khf3-S0Y4AYjMugmDPIN8YcdO0b2ZiYgppTJoElqRlvaRpN-y"/>
+</div>
+<div class="flex flex-col gap-1 text-center md:text-left">
+<h3 class="font-label-caps text-label-caps text-secondary">Кашемировый свитер</h3>
+<p class="font-body-md text-body-md text-primary">110 000 ₽</p>
+</div>
+</article>
+</div>
+<!-- Load More / Pagination -->
+<div class="mt-16 flex justify-center border-t border-outline-variant/20 pt-8">
+<button class="border border-primary text-primary px-12 py-3 font-button text-button uppercase tracking-widest hover:bg-primary hover:text-on-primary transition-colors">
+                        Показать еще
+                    </button>
+</div>
+</section>
+</div>
+</main>
+<!-- Footer Component -->
+<footer class="bg-surface-container dark:bg-surface-container-highest border-t border-outline-variant/20 w-full pt-20 pb-10">
+<div class="flex flex-col items-center max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+<!-- Brand Logo -->
+<h2 class="font-display-lg text-display-lg text-primary mb-12">MAISON</h2>
+<!-- Links -->
+<nav class="flex flex-wrap justify-center gap-x-8 gap-y-4 mb-16">
+<a class="font-label-caps text-label-caps text-secondary hover:text-primary hover:opacity-80 transition-all" href="#">О нас</a>
+<a class="font-label-caps text-label-caps text-secondary hover:text-primary hover:opacity-80 transition-all" href="#">Доставка</a>
+<a class="font-label-caps text-label-caps text-secondary hover:text-primary hover:opacity-80 transition-all" href="#">Возврат</a>
+<a class="font-label-caps text-label-caps text-secondary hover:text-primary hover:opacity-80 transition-all" href="#">Контакты</a>
+<a class="font-label-caps text-label-caps text-secondary hover:text-primary hover:opacity-80 transition-all" href="#">Политика конфиденциальности</a>
+</nav>
+<!-- Copyright -->
+<p class="font-body-md text-body-md text-secondary dark:text-on-secondary-fixed-variant text-center">
+                © 2024 MAISON. Все права защищены.
+            </p>
+</div>
+</footer>
+</body></html>

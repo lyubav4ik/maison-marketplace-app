@@ -1,0 +1,68 @@
+{
+  "code": "vl-maison-abstory",
+  "fields": {
+    "NAME": "MAISON · История (текст + фото)",
+    "DESCRIPTION": "Две колонки: слева заголовок и рассказ бренда, справа вертикальное фото. Появление при скролле.",
+    "SECTIONS": "about",
+    "ACTIVE": "Y",
+    "PREVIEW": "https://cdn.jsdelivr.net/gh/lyubav4ik/maison-marketplace-app@v0.1/assets/block-preview-abstory.jpg",
+    "CONTENT": "<section class=\"landing-block vl-abstory\">\n<div class=\"vl-abstory-inner\">\n<div class=\"fade-in\">\n<h2 class=\"vl-abstory-title landing-block-node-abstory-title\">Зарождение элегантности</h2>\n<div class=\"vl-abstory-text landing-block-node-abstory-text\"><p>Бренд MAISON родился в самом сердце Парижа из простой, но мощной идеи: создавать одежду, которая говорит шепотом, а не кричит. Наш путь начался с безусловной любви к качественным тканям и стремления к безупречному крою.</p><p>Мы отвергаем мимолетные тренды в пользу тихой роскоши. Каждая вещь MAISON — это инвестиция в гардероб, созданная для того, чтобы служить годами, сохраняя свою актуальность и эстетическую ценность.</p></div>\n</div>\n<div class=\"vl-abstory-media fade-in\"><img class=\"vl-abstory-img landing-block-node-abstory-img\" src=\"https://cdn.jsdelivr.net/gh/lyubav4ik/maison-marketplace-app@v0.1/assets/ab-story.jpg\" alt=\"Работа ателье\"></div>\n</div>\n</section>"
+  },
+  "manifest": {
+    "block": {
+      "name": "MAISON · История (текст + фото)",
+      "section": [
+        "about"
+      ],
+      "type": [
+        "page",
+        "store"
+      ],
+      "dynamic": false
+    },
+    "nodes": {
+      ".landing-block-node-abstory-title": {
+        "name": "Заголовок",
+        "type": "text"
+      },
+      ".landing-block-node-abstory-text": {
+        "name": "Текст",
+        "type": "text"
+      },
+      ".landing-block-node-abstory-img": {
+        "name": "Фото",
+        "type": "img",
+        "dimensions": {
+          "maxWidth": 1400,
+          "maxHeight": 1800
+        },
+        "allowInlineEdit": true
+      }
+    },
+    "cards": {},
+    "style": {
+      "block": {
+        "type": [
+          "block-default"
+        ]
+      },
+      "nodes": {
+        ".landing-block-node-abstory-title": {
+          "title": "Заголовок",
+          "type": [
+            "typo",
+            "animation"
+          ]
+        }
+      }
+    },
+    "assets": {
+      "css": [
+        "https://cdn.jsdelivr.net/gh/lyubav4ik/maison-marketplace-app@v0.1/assets/abstory-block.css"
+      ],
+      "js": [
+        "https://cdn.jsdelivr.net/gh/lyubav4ik/maison-marketplace-app@v0.1/assets/maison-common.js"
+      ]
+    }
+  }
+}

@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+
+<html class="light" lang="ru"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>История MAISON - О бренде</title>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&amp;family=Playfair+Display:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Config -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-bright": "#f9f9f9",
+                        "surface-container-high": "#e8e8e8",
+                        "primary-fixed": "#e4e2e1",
+                        "surface-container-lowest": "#ffffff",
+                        "tertiary": "#220b04",
+                        "tertiary-fixed": "#ffdbcf",
+                        "on-surface-variant": "#444748",
+                        "on-primary-fixed": "#1b1c1c",
+                        "on-primary": "#ffffff",
+                        "secondary-container": "#e2dfdd",
+                        "inverse-on-surface": "#f0f1f1",
+                        "on-secondary-fixed": "#1b1c1b",
+                        "outline": "#747878",
+                        "on-tertiary-fixed": "#2e150b",
+                        "secondary": "#5f5e5d",
+                        "surface-container-low": "#f3f3f4",
+                        "on-background": "#1a1c1c",
+                        "tertiary-fixed-dim": "#ebbcac",
+                        "on-tertiary-fixed-variant": "#603f33",
+                        "primary": "#111111",
+                        "on-primary-container": "#8e8d8c",
+                        "on-secondary": "#ffffff",
+                        "on-error": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "on-surface": "#1a1c1c",
+                        "secondary-fixed-dim": "#c8c6c4",
+                        "primary-container": "#262626",
+                        "background": "#f9f9f9",
+                        "error": "#ba1a1a",
+                        "outline-variant": "#c4c7c7",
+                        "on-secondary-container": "#636261",
+                        "primary-fixed-dim": "#c8c6c5",
+                        "inverse-surface": "#2f3131",
+                        "secondary-fixed": "#e5e2e0",
+                        "surface-dim": "#dadada",
+                        "surface-container": "#eeeeee",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary-fixed-variant": "#474745",
+                        "surface-tint": "#5f5e5e",
+                        "on-tertiary-container": "#ad8475",
+                        "on-error-container": "#93000a",
+                        "surface": "#f9f9f9",
+                        "surface-container-highest": "#e2e2e2",
+                        "inverse-primary": "#c8c6c5",
+                        "tertiary-container": "#3a1f15",
+                        "on-primary-fixed-variant": "#474746",
+                        "surface-variant": "#e2e2e2"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "container-max": "1440px",
+                        "margin-desktop": "64px",
+                        "margin-mobile": "16px",
+                        "unit": "8px",
+                        "gutter": "24px"
+                    },
+                    "fontFamily": {
+                        "button": ["Montserrat"],
+                        "body-md": ["Montserrat"],
+                        "body-lg": ["Montserrat"],
+                        "display-lg-mobile": ["Playfair Display"],
+                        "headline-md": ["Playfair Display"],
+                        "display-lg": ["Playfair Display"],
+                        "headline-sm": ["Playfair Display"],
+                        "label-caps": ["Montserrat"]
+                    },
+                    "fontSize": {
+                        "button": ["14px", { "lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "500" }],
+                        "body-md": ["16px", { "lineHeight": "1.5", "fontWeight": "400" }],
+                        "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "display-lg-mobile": ["32px", { "lineHeight": "1.2", "fontWeight": "700" }],
+                        "headline-md": ["32px", { "lineHeight": "1.3", "fontWeight": "600" }],
+                        "display-lg": ["48px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "headline-sm": ["24px", { "lineHeight": "1.4", "fontWeight": "600" }],
+                        "label-caps": ["12px", { "lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .fade-in-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface antialiased selection:bg-secondary-container selection:text-on-secondary-container">
+<!-- TopNavBar -->
+<header class="bg-surface/90 dark:bg-surface-dim/90 backdrop-blur-md fixed top-0 w-full z-50 border-b border-outline-variant/30">
+<div class="flex justify-between items-center h-20 px-margin-desktop max-w-container-max mx-auto md:px-margin-desktop px-margin-mobile">
+<!-- Brand -->
+<a class="font-display-lg text-display-lg tracking-tighter text-primary dark:text-on-primary-fixed hover:opacity-70 transition-opacity duration-300" href="#">
+                MAISON
+            </a>
+<!-- Navigation Links (Desktop) -->
+<nav class="hidden md:flex space-x-8">
+<a class="font-label-caps text-label-caps text-secondary dark:text-secondary-fixed-dim hover:text-primary transition-colors hover:opacity-70 duration-300" href="#">Новинки</a>
+<a class="font-label-caps text-label-caps text-secondary dark:text-secondary-fixed-dim hover:text-primary transition-colors hover:opacity-70 duration-300" href="#">Одежда</a>
+<a class="font-label-caps text-label-caps text-secondary dark:text-secondary-fixed-dim hover:text-primary transition-colors hover:opacity-70 duration-300" href="#">Аксессуары</a>
+<a class="font-label-caps text-label-caps text-secondary dark:text-secondary-fixed-dim hover:text-primary transition-colors hover:opacity-70 duration-300" href="#">Распродажа</a>
+</nav>
+<!-- Actions -->
+<div class="flex items-center space-x-6">
+<button class="text-primary dark:text-on-primary-fixed hover:opacity-70 transition-opacity duration-300 active:scale-95 transition-transform">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">search</span>
+</button>
+<button class="text-primary dark:text-on-primary-fixed hover:opacity-70 transition-opacity duration-300 active:scale-95 transition-transform hidden md:block">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">person</span>
+</button>
+<button class="text-primary dark:text-on-primary-fixed hover:opacity-70 transition-opacity duration-300 active:scale-95 transition-transform">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">shopping_bag</span>
+</button>
+</div>
+</div>
+</header>
+<!-- Main Content -->
+<main class="pt-20">
+<!-- Hero Section -->
+<section class="relative h-[80vh] min-h-[600px] w-full flex items-center justify-center overflow-hidden">
+<div class="absolute inset-0 bg-cover bg-center" data-alt="A cinematic, wide-angle shot of a high-end Parisian fashion atelier. Sun streams through large arched windows, illuminating a dressmaker's form draped in flowing silk. Spools of thread, measuring tapes, and fabric swatches are meticulously arranged on a wooden table. The lighting is soft and natural, emphasizing the texture of the materials. The color palette is minimal: predominantly warm whites, soft beiges, and deep charcoal shadows, creating an atmosphere of quiet luxury and artisanal craftsmanship." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBPFeAOzfHaQsXL1r9FTppyJElVuDK58aSLHBVIvvQKZ1anUxEkdZ8Mxt0giC4jWsAiLvRHmJR0HUyErSXXclLCTX7PayRWWkj08vZC2_NLs56NDigta5IWez7iVKNPTUyMoP99lpa7dOlyvMYTZ8aupIknvicS-JetQz2TzTj_JCao5VShCepBWiv-Z2t3w6jlUkRUcbO7NFynAMmG7Q7dA0lpUSl6NPceA9W0nybaZIGNwxzFSI9J')"></div>
+<div class="absolute inset-0 bg-tertiary/20 mix-blend-multiply"></div>
+<div class="relative z-10 text-center px-margin-mobile">
+<h1 class="font-display-lg text-display-lg md:text-[72px] text-on-primary mb-6 drop-shadow-sm fade-in-up">История MAISON</h1>
+<p class="font-body-lg text-body-lg text-on-primary/90 max-w-2xl mx-auto drop-shadow-sm fade-in-up" style="transition-delay: 0.2s;">
+                    Искусство создания одежды, неподвластной времени.
+                </p>
+</div>
+</section>
+<!-- Our Story -->
+<section class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-[120px]">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter items-center">
+<div class="fade-in-up">
+<h2 class="font-headline-md text-headline-md text-primary mb-8">Зарождение элегантности</h2>
+<p class="font-body-md text-body-md text-secondary mb-6 leading-relaxed">
+                        Бренд MAISON родился в самом сердце Парижа из простой, но мощной идеи: создавать одежду, которая говорит шепотом, а не кричит. Наш путь начался с безусловной любви к качественным тканям и стремления к безупречному крою, который подчеркивает естественную красоту.
+                    </p>
+<p class="font-body-md text-body-md text-secondary leading-relaxed">
+                        Мы отвергаем мимолетные тренды в пользу тихой роскоши. Каждая вещь MAISON — это инвестиция в гардероб, созданная для того, чтобы служить годами, сохраняя свою актуальность и эстетическую ценность. Наша философия строится на уважении к традициям портновского искусства и современных потребностях женщины.
+                    </p>
+</div>
+<div class="relative h-[600px] fade-in-up" style="transition-delay: 0.2s;">
+<img class="w-full h-full object-cover rounded-sm" data-alt="A close-up, highly detailed photograph of a fashion designer's hands delicately pinning a piece of premium, structured charcoal fabric on a mannequin. The focus is incredibly sharp on the texture of the wool blend and the metallic glint of the pin. The background is slightly blurred, showing a minimalist, brightly lit studio with subtle beige tones. The image conveys dedication, precision, and the essence of high-end tailoring." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCRtmME6G-NnJLBFa8M9dKMKWeFcjHOvRAeCebrnXXml9jqKGfyeYvyefLDtKg3HUJeQlv--1DGGTlKUk7ryiKW27w_SikBgHfBjdgv74Y1SBwRjhAWuhZJnD78_3k0SpSl_e-zwAXIJxsV4f2uZUmXyNgVqEVJPIzXr9v--RqP5ECIl3AbtamCwFrPxa2Vj4RN2q8mR8j2gXBVmXH9r876cjV1N4LFO04tHzKPfZ7mqRscgT79f8_H"/>
+</div>
+</div>
+</section>
+<!-- Values -->
+<section class="bg-surface-container-low py-[120px]">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop text-center">
+<span class="font-label-caps text-label-caps text-secondary mb-4 block tracking-widest fade-in-up">Наши принципы</span>
+<h2 class="font-headline-md text-headline-md text-primary mb-16 fade-in-up" style="transition-delay: 0.1s;">Ценности MAISON</h2>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<!-- Value 1 -->
+<div class="bg-surface p-12 rounded-sm border border-outline-variant/20 hover:shadow-sm transition-shadow duration-300 fade-in-up" style="transition-delay: 0.2s;">
+<div class="mb-6 text-primary">
+<span class="material-symbols-outlined text-[48px]" style="font-variation-settings: 'FILL' 0;">diamond</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-primary mb-4">Бескомпромиссное качество</h3>
+<p class="font-body-md text-body-md text-secondary">
+                            Мы отбираем лучшие материалы со всего мира: от итальянского кашемира до японского шелка. Наш фокус — долговечность и тактильное совершенство.
+                        </p>
+</div>
+<!-- Value 2 -->
+<div class="bg-surface p-12 rounded-sm border border-outline-variant/20 hover:shadow-sm transition-shadow duration-300 fade-in-up" style="transition-delay: 0.3s;">
+<div class="mb-6 text-primary">
+<span class="material-symbols-outlined text-[48px]" style="font-variation-settings: 'FILL' 0;">architecture</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-primary mb-4">Минималистичная эстетика</h3>
+<p class="font-body-md text-body-md text-secondary">
+                            Чистые линии, выверенные пропорции и сдержанная цветовая палитра. Мы создаем холст, на котором раскрывается ваша индивидуальность.
+                        </p>
+</div>
+<!-- Value 3 -->
+<div class="bg-surface p-12 rounded-sm border border-outline-variant/20 hover:shadow-sm transition-shadow duration-300 fade-in-up" style="transition-delay: 0.4s;">
+<div class="mb-6 text-primary">
+<span class="material-symbols-outlined text-[48px]" style="font-variation-settings: 'FILL' 0;">eco</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-primary mb-4">Осознанность</h3>
+<p class="font-body-md text-body-md text-secondary">
+                            Мы верим в "медленную моду". Наше производство локализовано, а объемы лимитированы, чтобы минимизировать влияние на окружающую среду.
+                        </p>
+</div>
+</div>
+</div>
+</section>
+<!-- Craftsmanship -->
+<section class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-[120px]">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter items-center">
+<div class="md:col-span-7 relative h-[700px] fade-in-up order-2 md:order-1 mt-12 md:mt-0">
+<img class="w-full h-full object-cover rounded-sm" data-alt="An editorial, macro photograph capturing the intricate details of a classic tailored garment. The image focuses on a perfectly aligned row of hand-stitched buttonholes on a textured, light beige linen jacket. A master tailor's hand, partially visible, holds a needle with precision. The lighting is dramatic yet soft, highlighting the weave of the fabric and the meticulous craftsmanship. The overall tone is refined, professional, and luxurious, adhering to a minimalist aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCAfr5pJR7xAtR_KMFhBKmGppCNUxDj4gaHBig-tlNlt46FFzzUvpK3v6gVMbdSw_fAmsYYC8bOhLb0A5g2KG2nlWKOgwph8Y7ExF9ASua4j6OgEYEC87IWOfw6rXCjdDh0FoNh4Ecna1_b7fVY7idZmlCoL5ODdKcCscIYplE8lsmT3Our2d__gwr1_9eC0rpBLPVaKC_eLb_aMr2zxKiIJ8PnqlPsrdQHCqvawG1aHB4P2a3sGL5M"/>
+</div>
+<div class="md:col-span-4 md:col-start-9 fade-in-up order-1 md:order-2">
+<span class="font-label-caps text-label-caps text-secondary mb-4 block tracking-widest">Процесс</span>
+<h2 class="font-headline-md text-headline-md text-primary mb-8">Мастерство в каждой детали</h2>
+<p class="font-body-md text-body-md text-secondary mb-6 leading-relaxed">
+                        Внимание к деталям — это то, что отличает хорошую вещь от великой. В студиях MAISON процесс создания одежды напоминает ритуал. Каждый шов, каждая пуговица и линия подкладки проходят строгий контроль.
+                    </p>
+<p class="font-body-md text-body-md text-secondary mb-10 leading-relaxed">
+                        Наши мастера обладают десятилетиями опыта, объединяя традиционные ручные техники с современными технологиями кроя, чтобы обеспечить идеальную посадку, дарящую свободу движений и уверенность.
+                    </p>
+<a class="inline-flex items-center font-button text-button text-on-primary bg-primary px-8 py-4 hover:bg-secondary transition-colors duration-300" href="#">
+                        Изучить коллекции
+                    </a>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container dark:bg-surface-container-highest w-full pt-20 pb-10 border-t border-outline-variant/20 flex flex-col items-center max-w-container-max mx-auto px-margin-desktop">
+<div class="mb-12 text-center">
+<a class="font-display-lg text-display-lg text-primary tracking-tighter hover:opacity-80 transition-opacity" href="#">
+                MAISON
+            </a>
+</div>
+<nav class="flex flex-wrap justify-center gap-x-8 gap-y-4 mb-16">
+<a class="font-label-caps text-label-caps text-primary underline transition-all hover:opacity-80" href="#">О нас</a>
+<a class="font-label-caps text-label-caps text-secondary hover:text-primary transition-all hover:opacity-80" href="#">Доставка</a>
+<a class="font-label-caps text-label-caps text-secondary hover:text-primary transition-all hover:opacity-80" href="#">Возврат</a>
+<a class="font-label-caps text-label-caps text-secondary hover:text-primary transition-all hover:opacity-80" href="#">Контакты</a>
+<a class="font-label-caps text-label-caps text-secondary hover:text-primary transition-all hover:opacity-80" href="#">Политика конфиденциальности</a>
+</nav>
+<div class="text-center font-body-md text-body-md text-secondary dark:text-on-secondary-fixed-variant">
+            © 2024 MAISON. Все права защищены.
+        </div>
+</footer>
+<!-- Simple Scroll Animation Script -->
+<script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.1
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.fade-in-up').forEach(el => {
+                observer.observe(el);
+            });
+            
+            // Trigger immediately for elements already in view on load
+            setTimeout(() => {
+                document.querySelectorAll('.fade-in-up').forEach(el => {
+                    const rect = el.getBoundingClientRect();
+                    if (rect.top < window.innerHeight) {
+                        el.classList.add('visible');
+                    }
+                });
+            }, 100);
+        });
+    </script>
+</body></html>

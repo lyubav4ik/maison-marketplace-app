@@ -1,0 +1,263 @@
+<!DOCTYPE html><html lang="ru"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Избранное - MAISON</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&amp;family=Playfair+Display:wght@600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-tint": "#5f5e5e",
+                        "surface-container-low": "#f3f3f4",
+                        "primary-fixed-dim": "#c8c6c5",
+                        "surface-container-highest": "#e2e2e2",
+                        "on-error": "#ffffff",
+                        "on-secondary": "#ffffff",
+                        "on-surface": "#1a1c1c",
+                        "on-primary-fixed": "#1b1c1c",
+                        "secondary-fixed-dim": "#c8c6c4",
+                        "secondary-container": "#e2dfdd",
+                        "tertiary-container": "#3a1f15",
+                        "secondary": "#5f5e5d",
+                        "on-tertiary-fixed": "#2e150b",
+                        "on-background": "#1a1c1c",
+                        "secondary-fixed": "#e5e2e0",
+                        "inverse-surface": "#2f3131",
+                        "surface-bright": "#f9f9f9",
+                        "outline": "#747878",
+                        "on-tertiary": "#ffffff",
+                        "tertiary-fixed": "#ffdbcf",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-container-high": "#e8e8e8",
+                        "primary": "#111111",
+                        "on-primary-fixed-variant": "#474746",
+                        "surface-container": "#eeeeee",
+                        "on-tertiary-fixed-variant": "#603f33",
+                        "surface": "#f9f9f9",
+                        "surface-variant": "#e2e2e2",
+                        "error-container": "#ffdad6",
+                        "on-secondary-fixed-variant": "#474745",
+                        "on-surface-variant": "#444748",
+                        "primary-container": "#262626",
+                        "inverse-on-surface": "#f0f1f1",
+                        "on-error-container": "#93000a",
+                        "inverse-primary": "#c8c6c5",
+                        "on-primary": "#ffffff",
+                        "on-secondary-fixed": "#1b1c1b",
+                        "outline-variant": "#c4c7c7",
+                        "tertiary": "#220b04",
+                        "surface-dim": "#dadada",
+                        "error": "#ba1a1a",
+                        "tertiary-fixed-dim": "#ebbcac",
+                        "primary-fixed": "#e4e2e1",
+                        "on-secondary-container": "#636261",
+                        "on-tertiary-container": "#ad8475",
+                        "on-primary-container": "#8e8d8c",
+                        "background": "#f9f9f9"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-desktop": "64px",
+                        "unit": "8px",
+                        "gutter": "24px",
+                        "margin-mobile": "16px",
+                        "container-max": "1440px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Playfair Display"],
+                        "display-lg-mobile": ["Playfair Display"],
+                        "body-lg": ["Montserrat"],
+                        "display-lg": ["Playfair Display"],
+                        "button": ["Montserrat"],
+                        "label-caps": ["Montserrat"],
+                        "headline-sm": ["Playfair Display"],
+                        "body-md": ["Montserrat"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["32px", { "lineHeight": "1.3", "fontWeight": "600" }],
+                        "display-lg-mobile": ["32px", { "lineHeight": "1.2", "fontWeight": "700" }],
+                        "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "display-lg": ["48px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "button": ["14px", { "lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "500" }],
+                        "label-caps": ["12px", { "lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "600" }],
+                        "headline-sm": ["24px", { "lineHeight": "1.4", "fontWeight": "600" }],
+                        "body-md": ["16px", { "lineHeight": "1.5", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-background text-on-background antialiased selection:bg-surface-dim selection:text-primary min-h-screen flex flex-col">
+<!-- TopNavBar -->
+<header class="fixed top-0 w-full z-50 bg-surface/90 dark:bg-surface-dim/90 backdrop-blur-md border-b border-outline-variant/30 transition-all duration-300">
+<div class="flex justify-between items-center h-20 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+<nav aria-label="Main Navigation" class="hidden md:flex space-x-8">
+<a class="text-secondary dark:text-secondary-fixed-dim hover:text-primary transition-colors font-label-caps text-label-caps" href="#">Новинки</a>
+<a class="text-secondary dark:text-secondary-fixed-dim hover:text-primary transition-colors font-label-caps text-label-caps" href="#">Одежда</a>
+<a class="text-secondary dark:text-secondary-fixed-dim hover:text-primary transition-colors font-label-caps text-label-caps" href="#">Аксессуары</a>
+<a class="text-secondary dark:text-secondary-fixed-dim hover:text-primary transition-colors font-label-caps text-label-caps" href="#">Распродажа</a>
+</nav>
+<a class="font-display-lg text-display-lg tracking-tighter text-primary dark:text-on-primary-fixed hover:opacity-70 transition-opacity duration-300" href="#">MAISON</a>
+<div class="flex items-center space-x-6">
+<button aria-label="Search" class="text-primary dark:text-on-primary-fixed hover:opacity-70 transition-opacity duration-300 active:scale-95 transition-transform">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">search</span>
+</button>
+<button aria-label="Profile" class="text-primary dark:text-on-primary-fixed hover:opacity-70 transition-opacity duration-300 active:scale-95 transition-transform">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">person</span>
+</button>
+<button aria-label="Wishlist" class="text-primary dark:text-on-primary-fixed font-semibold border-b border-primary hover:opacity-70 transition-opacity duration-300 active:scale-95 transition-transform relative">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">favorite</span>
+<span class="absolute -top-1 -right-2 bg-primary text-on-primary font-label-caps text-[9px] w-4 h-4 flex items-center justify-center rounded-full">4</span>
+</button>
+<button aria-label="Shopping Bag" class="text-primary dark:text-on-primary-fixed hover:opacity-70 transition-opacity duration-300 active:scale-95 transition-transform">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">shopping_bag</span>
+</button>
+</div>
+</div>
+</header>
+<!-- Main Content -->
+<main class="flex-grow pt-32 pb-margin-desktop px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto w-full">
+<!-- Page Header -->
+<div class="mb-16 flex flex-col md:flex-row md:items-end justify-between gap-6">
+<div>
+<nav aria-label="Breadcrumbs" class="flex items-center space-x-2 text-secondary font-label-caps text-label-caps mb-4">
+<a class="hover:text-primary transition-colors" href="#">ГЛАВНАЯ</a>
+<span class="">/</span>
+<span class="text-outline">ИЗБРАННОЕ</span>
+</nav>
+<h1 class="font-display-lg text-display-lg-mobile md:text-display-lg text-primary">Избранное</h1>
+</div>
+<div class="flex flex-col md:items-end gap-2">
+    <button class="inline-flex items-center justify-center border border-primary text-primary font-button text-button py-2 px-6 rounded-DEFAULT hover:bg-primary hover:text-on-primary transition-all duration-300 active:scale-95">
+        ДОБАВИТЬ ВСЕ В КОРЗИНУ
+    </button>
+    <div class="font-body-md text-body-md text-secondary">
+        4 товара
+    </div>
+</div>
+</div>
+<!-- Wishlist Grid -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-gutter">
+<!-- Product Card 1 -->
+<article class="group relative flex flex-col bg-surface-bright border border-outline-variant/10 rounded-DEFAULT overflow-hidden hover:shadow-[0_4px_24px_rgba(0,0,0,0.04)] transition-all duration-500 ease-out">
+<button aria-label="Remove from wishlist" class="absolute top-4 right-4 z-10 w-8 h-8 flex items-center justify-center bg-surface/80 backdrop-blur-sm rounded-full text-primary hover:bg-surface transition-colors">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">close</span>
+</button>
+<div class="relative w-full aspect-[3/4] overflow-hidden bg-surface-container-low">
+<img alt="Кашемировое пальто" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A highly detailed, editorial-style studio photograph of a luxurious women's cashmere coat in a soft camel beige color. The lighting is soft and cinematic, highlighting the fine texture of the premium wool. The styling is minimalist and high-end, set against a pristine, softly lit neutral white background typical of luxury e-commerce. Clean lines and elegant drape are emphasized." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAo6eq3iqqANknqm5vklOjAg8Hssh2_mC9CVV03LOqVc7tfrG-WXBB1vJ3Qs3onGjrEOhteAfQhkfBtY41c9kALa2ZTYbNqNwiZUTFKnLWDGnk0TOsVztCQVLgQ40ugOpUDex3PLYUj-dZ2jSCtn1TNn_AWALv0szX7aALQ8LZI1WV-fWKC7o0H5-_g9bVLAYlYQ35kXUdtaMZuXW5HlGQcpJKF0tKm3HOMe0lcrTD7CEvhxJ11FHtl">
+<div class="absolute bottom-0 left-0 right-0 p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out bg-gradient-to-t from-surface-tint/20 to-transparent">
+<button class="w-full bg-primary text-on-primary font-button text-button py-3 px-4 rounded-DEFAULT hover:bg-primary-container transition-colors flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-[18px]">shopping_bag</span>
+                            В КОРЗИНУ
+                        </button>
+</div>
+</div>
+<div class="p-4 flex flex-col gap-1">
+<h2 class="font-headline-sm text-[16px] leading-tight text-primary truncate">Кашемировое пальто</h2>
+<p class="font-body-md text-body-md text-secondary">Camel</p>
+<p class="font-body-lg text-[16px] font-medium text-primary mt-2">124 000 ₽</p>
+</div>
+</article>
+<!-- Product Card 2 -->
+<article class="group relative flex flex-col bg-surface-bright border border-outline-variant/10 rounded-DEFAULT overflow-hidden hover:shadow-[0_4px_24px_rgba(0,0,0,0.04)] transition-all duration-500 ease-out">
+<button aria-label="Remove from wishlist" class="absolute top-4 right-4 z-10 w-8 h-8 flex items-center justify-center bg-surface/80 backdrop-blur-sm rounded-full text-primary hover:bg-surface transition-colors">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">close</span>
+</button>
+<div class="relative w-full aspect-[3/4] overflow-hidden bg-surface-container-low">
+<img alt="Шелковая блуза" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="An elegant editorial shot of a flowy silk blouse in ivory white. The fabric catches the light, showing a subtle sheen and delicate drape. Photographed on an invisible mannequin or subtle styling setup against a clean, warm-toned gray minimalist background. High-key lighting typical of luxury fashion brands, emphasizing purity and sophisticated design." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAMnWDDpAtPQcMZFTTzJj8p1Irr9SamR1MdyrsNu2YlsOE5IS6ZGtvN_BabQWxyaJGJH3keTVevVIrkZkvTNxTOiyQuORKBow0Nal6f4NQ1PIn_1XgvVAAGWj0W0dyQlaLLVhH0izuz78CmqOELuSqcmySFFWQL_QYuHF8mNcx8whX8v3noUuplBbLI5jsMMlZEAF9vqeS5_o2EfiUUoNNSrPClu1A9Z13YyE4muO2vFQfgVTb1UPvY">
+<div class="absolute bottom-0 left-0 right-0 p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out bg-gradient-to-t from-surface-tint/20 to-transparent">
+<button class="w-full bg-primary text-on-primary font-button text-button py-3 px-4 rounded-DEFAULT hover:bg-primary-container transition-colors flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-[18px]">shopping_bag</span>
+                            В КОРЗИНУ
+                        </button>
+</div>
+</div>
+<div class="p-4 flex flex-col gap-1">
+<h2 class="font-headline-sm text-[16px] leading-tight text-primary truncate">Шелковая блуза</h2>
+<p class="font-body-md text-body-md text-secondary">Ivory</p>
+<p class="font-body-lg text-[16px] font-medium text-primary mt-2">48 500 ₽</p>
+</div>
+</article>
+<!-- Product Card 3 -->
+<article class="group relative flex flex-col bg-surface-bright border border-outline-variant/10 rounded-DEFAULT overflow-hidden hover:shadow-[0_4px_24px_rgba(0,0,0,0.04)] transition-all duration-500 ease-out">
+<button aria-label="Remove from wishlist" class="absolute top-4 right-4 z-10 w-8 h-8 flex items-center justify-center bg-surface/80 backdrop-blur-sm rounded-full text-primary hover:bg-surface transition-colors">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">close</span>
+</button>
+<div class="relative w-full aspect-[3/4] overflow-hidden bg-surface-container-low">
+<img alt="Широкие брюки со стрелками" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A sophisticated close-up product photograph of wide-leg tailored trousers in a deep charcoal grey wool blend. The lighting is sharp yet flattering, highlighting the sharp crease and premium tailoring details. Set against a minimalist off-white backdrop, establishing a chic, modern corporate or evening wear aesthetic for a high-end women's fashion site." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAMrPaLz5_FBkbokvFT11Y0Xqm5cu1cYak96pgoWL6PIPsANmauuAY7SNr92zbgkSmjbPEXV7ObIzcRmHyoCEHsCeu-7GMXq5BfhZ2dSNzQ99qxQ6ghlJuAHSEPAWZti-96GOuaZkjDMSuduumrBKu0Rv9rDUhcsCrYG-zlaK_69stbkt_3_rqkfSIDfw-ikQ36RNZYzwtKL4G_t66RJq7bpknjU0ysH2axt-86rRa5HWwpqbvkqvyh">
+<div class="absolute bottom-0 left-0 right-0 p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out bg-gradient-to-t from-surface-tint/20 to-transparent">
+<button class="w-full bg-primary text-on-primary font-button text-button py-3 px-4 rounded-DEFAULT hover:bg-primary-container transition-colors flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-[18px]">shopping_bag</span>
+                            В КОРЗИНУ
+                        </button>
+</div>
+</div>
+<div class="p-4 flex flex-col gap-1">
+<h2 class="font-headline-sm text-[16px] leading-tight text-primary truncate">Широкие брюки со стрелками</h2>
+<p class="font-body-md text-body-md text-secondary">Charcoal</p>
+<p class="font-body-lg text-[16px] font-medium text-primary mt-2">56 000 ₽</p>
+</div>
+</article>
+<!-- Product Card 4 -->
+<article class="group relative flex flex-col bg-surface-bright border border-outline-variant/10 rounded-DEFAULT overflow-hidden hover:shadow-[0_4px_24px_rgba(0,0,0,0.04)] transition-all duration-500 ease-out">
+<button aria-label="Remove from wishlist" class="absolute top-4 right-4 z-10 w-8 h-8 flex items-center justify-center bg-surface/80 backdrop-blur-sm rounded-full text-primary hover:bg-surface transition-colors">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">close</span>
+</button>
+<div class="relative w-full aspect-[3/4] overflow-hidden bg-surface-container-low">
+<img alt="Кожаная сумка-тоут" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A beautifully styled still-life image of a structured leather mini handbag in a rich, dark espresso brown. The bag sits on a minimalist plaster plinth against a soft beige background. Natural-looking dappled light creates soft shadows, emphasizing the premium quality of the leather and the gold hardware details. Luxurious, calm, and highly curated aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAH6DCZQanUNVlaFIKZgx6oiSCufKtwXq7MIvT0IRnJZAx7D4xxHU3FqhQCxLBfG-4Sqvh6bLVzkLHu1c1fwWs7IVsKBqzb6R03qU0CEIGxAsMEEgk_KEVHnFvNGrsJJHFNJKCjs9vYYk3NzRpewm-whloh6ztUW8CM8up48TOe5k6QhufUE6ufGgfhnNo4Zo-FFJ1z4_CjX91SvFf442RKYXda4Rji2fDJ7cf5kHjFSqol-uQEzMbb">
+<div class="absolute bottom-0 left-0 right-0 p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out bg-gradient-to-t from-surface-tint/20 to-transparent">
+<button class="w-full bg-primary text-on-primary font-button text-button py-3 px-4 rounded-DEFAULT hover:bg-primary-container transition-colors flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-[18px]">shopping_bag</span>
+                            В КОРЗИНУ
+                        </button>
+</div>
+</div>
+<div class="p-4 flex flex-col gap-1">
+<h2 class="font-headline-sm text-[16px] leading-tight text-primary truncate">Кожаная сумка-тоут</h2>
+<p class="font-body-md text-body-md text-secondary">Espresso</p>
+<p class="font-body-lg text-[16px] font-medium text-primary mt-2">115 000 ₽</p>
+</div>
+</article>
+</div>
+<!-- Empty State (Hidden, for structural context) -->
+<!-- 
+        <div class="hidden flex flex-col items-center justify-center py-32 text-center">
+            <span class="material-symbols-outlined text-[48px] text-outline-variant mb-6" style="font-variation-settings: 'wght' 200;">favorite</span>
+            <h2 class="font-headline-md text-headline-md text-primary mb-4">Ваш список желаний пуст</h2>
+            <p class="font-body-lg text-body-lg text-secondary max-w-md mb-8">Сохраняйте понравившиеся товары, чтобы вернуться к ним позже.</p>
+            <a href="#" class="inline-flex items-center justify-center bg-primary text-on-primary font-button text-button py-4 px-8 rounded-DEFAULT hover:bg-primary-container transition-colors">
+                ПЕРЕЙТИ К НОВИНКАМ
+            </a>
+        </div>
+        -->
+</main>
+<!-- Footer -->
+<footer class="w-full pt-20 pb-10 border-t border-outline-variant/20 bg-surface-container dark:bg-surface-container-highest">
+<div class="flex flex-col items-center max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+<div class="font-display-lg text-display-lg text-primary mb-12">MAISON</div>
+<nav aria-label="Footer Navigation" class="flex flex-wrap justify-center gap-x-8 gap-y-4 mb-16">
+<a class="font-label-caps text-label-caps text-secondary hover:text-primary transition-all hover:opacity-80" href="#">О нас</a>
+<a class="font-label-caps text-label-caps text-secondary hover:text-primary transition-all hover:opacity-80" href="#">Доставка</a>
+<a class="font-label-caps text-label-caps text-secondary hover:text-primary transition-all hover:opacity-80" href="#">Возврат</a>
+<a class="font-label-caps text-label-caps text-secondary hover:text-primary transition-all hover:opacity-80" href="#">Контакты</a>
+<a class="font-label-caps text-label-caps text-secondary hover:text-primary transition-all hover:opacity-80" href="#">Политика конфиденциальности</a>
+</nav>
+<div class="font-body-md text-body-md text-secondary dark:text-on-secondary-fixed-variant">
+                © 2024 MAISON. Все права защищены.
+            </div>
+</div>
+</footer>
+
+
+</body></html>

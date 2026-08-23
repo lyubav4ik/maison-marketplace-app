@@ -1,0 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=Playfair+Display:wght@600;700&display=swap');
+.vl-article{padding:64px 16px 96px}
+@media(min-width:768px){.vl-article{padding:64px 64px 96px}}
+.vl-article-inner{max-width:768px;margin:0 auto}
+.vl-article-h{font-family:'Playfair Display',Georgia,serif;font-size:32px;font-weight:700;line-height:1.2;color:#111111;margin:0 0 40px}
+@media(min-width:768px){.vl-article-h{font-size:48px}}
+.vl-article-text{font-family:'Montserrat',Arial,sans-serif;font-size:16px;line-height:1.7;color:#444745}
+.vl-article-text h3{font-family:'Playfair Display',Georgia,serif;font-size:24px;font-weight:600;line-height:1.4;color:#111111;margin:32px 0 12px}
+.vl-article-text p{margin:0 0 16px}
+.vl-article-text ul,.vl-article-text ol{margin:0 0 16px;padding-left:24px}
+.vl-article-text li{margin-bottom:8px}

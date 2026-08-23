@@ -1,0 +1,75 @@
+{
+  "code": "vl-maison-cats",
+  "fields": {
+    "NAME": "MAISON · Популярные категории",
+    "DESCRIPTION": "Карточки категорий с фото во всю высоту, зумом при наведении и появлением при скролле. Статичный режим: меняйте картинку, название и ссылку каждой карточки; количество карточек — кнопками добавления/удаления. Динамический режим: поставьте любой карточке ссылку #dynamic — блок сам подтянет разделы каталога (названия и фото первых товаров), число карточек = сколько разделов показать.",
+    "SECTIONS": "store",
+    "ACTIVE": "Y",
+    "PREVIEW": "https://cdn.jsdelivr.net/gh/lyubav4ik/maison-marketplace-app@v0.1/assets/block-preview-cats.jpg",
+    "CONTENT": "<section class=\"landing-block vl-cats\">\n<div class=\"vl-cats-grid\">\n<a class=\"vl-cat landing-block-card-cat landing-block-node-cat-link fade-in\" href=\"#\" target=\"_self\">\n<img class=\"vl-cat-img landing-block-node-cat-img\" src=\"https://cdn.jsdelivr.net/gh/lyubav4ik/maison-marketplace-app@v0.1/assets/cat-1.jpg\" alt=\"Верхняя одежда\">\n<div class=\"vl-cat-veil\"></div>\n<div class=\"vl-cat-bottom\">\n<h3 class=\"vl-cat-title landing-block-node-cat-title\">Верхняя одежда</h3>\n<span class=\"vl-cat-arrow\" aria-hidden=\"true\">→</span>\n</div>\n</a>\n<a class=\"vl-cat landing-block-card-cat landing-block-node-cat-link fade-in\" href=\"#\" target=\"_self\" style=\"transition-delay:100ms\">\n<img class=\"vl-cat-img landing-block-node-cat-img\" src=\"https://cdn.jsdelivr.net/gh/lyubav4ik/maison-marketplace-app@v0.1/assets/cat-2.jpg\" alt=\"Платья\">\n<div class=\"vl-cat-veil\"></div>\n<div class=\"vl-cat-bottom\">\n<h3 class=\"vl-cat-title landing-block-node-cat-title\">Платья</h3>\n<span class=\"vl-cat-arrow\" aria-hidden=\"true\">→</span>\n</div>\n</a>\n<a class=\"vl-cat landing-block-card-cat landing-block-node-cat-link fade-in\" href=\"#\" target=\"_self\" style=\"transition-delay:200ms\">\n<img class=\"vl-cat-img landing-block-node-cat-img\" src=\"https://cdn.jsdelivr.net/gh/lyubav4ik/maison-marketplace-app@v0.1/assets/cat-3.jpg\" alt=\"Трикотаж\">\n<div class=\"vl-cat-veil\"></div>\n<div class=\"vl-cat-bottom\">\n<h3 class=\"vl-cat-title landing-block-node-cat-title\">Трикотаж</h3>\n<span class=\"vl-cat-arrow\" aria-hidden=\"true\">→</span>\n</div>\n</a>\n</div>\n</section>"
+  },
+  "manifest": {
+    "block": {
+      "name": "MAISON · Популярные категории",
+      "section": [
+        "store"
+      ],
+      "type": [
+        "page",
+        "store"
+      ],
+      "dynamic": false
+    },
+    "nodes": {
+      ".landing-block-node-cat-img": {
+        "name": "Фото категории",
+        "type": "img",
+        "dimensions": {
+          "maxWidth": 1600,
+          "maxHeight": 1600
+        },
+        "allowInlineEdit": true
+      },
+      ".landing-block-node-cat-title": {
+        "name": "Название категории",
+        "type": "text"
+      },
+      ".landing-block-node-cat-link": {
+        "name": "Ссылка карточки",
+        "type": "link"
+      }
+    },
+    "cards": {
+      ".landing-block-card-cat": {
+        "name": "Категория",
+        "label": [
+          ".landing-block-node-cat-title"
+        ]
+      }
+    },
+    "style": {
+      "block": {
+        "type": [
+          "block-default"
+        ]
+      },
+      "nodes": {
+        ".landing-block-node-cat-title": {
+          "title": "Название",
+          "type": [
+            "typo",
+            "animation"
+          ]
+        }
+      }
+    },
+    "assets": {
+      "css": [
+        "https://cdn.jsdelivr.net/gh/lyubav4ik/maison-marketplace-app@v0.1/assets/categories-block.css"
+      ],
+      "js": [
+        "https://cdn.jsdelivr.net/gh/lyubav4ik/maison-marketplace-app@v0.1/assets/categories-block.js"
+      ]
+    }
+  }
+}

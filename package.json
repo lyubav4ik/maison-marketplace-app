@@ -1,0 +1,14 @@
+{
+  "name": "maison-marketplace-app",
+  "version": "1.0.0",
+  "description": "MAISON — тиражное приложение Маркетплейс Битрикс24: интернет-магазин женской одежды устанавливается в один клик (сайт-витрина, премиум-блоки, демо-каталог)",
+  "main": "app/server.js",
+  "scripts": {
+    "start": "node app/server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "author": "Maison Team",
+  "license": "MIT"
+}

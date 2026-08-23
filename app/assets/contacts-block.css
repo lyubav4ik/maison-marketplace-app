@@ -1,0 +1,34 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=Playfair+Display:wght@600;700&display=swap');
+.vl-contacts{padding:64px 16px 80px}
+@media(min-width:768px){.vl-contacts{padding:64px 64px 80px}}
+.vl-ct-inner{max-width:1440px;margin:0 auto}
+.vl-ct-head{text-align:center;margin-bottom:56px}
+.vl-ct-h{font-family:'Playfair Display',Georgia,serif;font-size:32px;font-weight:700;line-height:1.2;color:#111111;margin:0 0 24px}
+@media(min-width:768px){.vl-ct-h{font-size:48px}}
+.vl-ct-sub{font-family:'Montserrat',Arial,sans-serif;font-size:18px;line-height:1.6;color:#5f5e5d;max-width:42rem;margin:0 auto}
+.vl-ct-grid{display:grid;grid-template-columns:1fr;gap:24px;margin-bottom:48px}
+@media(min-width:1024px){.vl-ct-grid{grid-template-columns:5fr 7fr}}
+.vl-ct-infocard{background:#ffffff;padding:40px;border:1px solid rgba(196,199,199,.2);border-radius:2px;height:100%;display:flex;flex-direction:column;justify-content:center}
+@media(min-width:768px){.vl-ct-infocard{padding:56px}}
+.vl-ct-group{margin-bottom:32px}
+.vl-ct-group:last-child{margin-bottom:0}
+.vl-ct-grouph{font-family:'Playfair Display',Georgia,serif;font-size:24px;font-weight:600;line-height:1.4;color:#111111;margin:0 0 16px}
+.vl-ct-text{font-family:'Montserrat',Arial,sans-serif;font-size:16px;line-height:1.6;color:#444745;margin:0 0 4px}
+.vl-ct-row{display:flex;justify-content:space-between;max-width:200px;font-family:'Montserrat',Arial,sans-serif;font-size:16px;color:#444745;margin:0}
+.vl-ct-link{display:inline-block;font-family:'Montserrat',Arial,sans-serif;font-size:16px;color:#444745;text-decoration:none;border-bottom:1px solid transparent;padding-bottom:2px;margin-bottom:8px;transition:color .3s ease,border-color .3s ease}
+.vl-ct-link:hover{color:#111111;border-color:#111111}
+.vl-ct-formcard{background:#f3f3f4;padding:40px;border:1px solid rgba(196,199,199,.1);border-radius:2px;display:flex;flex-direction:column}
+@media(min-width:768px){.vl-ct-formcard{padding:56px}}
+.vl-ct-formtext{font-family:'Montserrat',Arial,sans-serif;font-size:16px;line-height:1.6;color:#444745;margin:0 0 32px}
+.vl-ct-formh{font-family:'Playfair Display',Georgia,serif;font-size:32px;font-weight:600;line-height:1.3;color:#111111;margin:0 0 32px}
+.vl-ct-formrow{display:grid;grid-template-columns:1fr;gap:32px;margin-bottom:32px}
+@media(min-width:768px){.vl-ct-formrow{grid-template-columns:1fr 1fr}}
+.vl-ct-field{width:100%;background:transparent;border:none;border-bottom:1px solid rgba(196,199,199,.4);padding:12px 0;font-family:'Montserrat',Arial,sans-serif;font-size:16px;color:#111111;outline:none;transition:border-color .3s ease}
+.vl-ct-field:focus{border-color:#111111}
+.vl-ct-field::placeholder{color:#5f5e5d;text-transform:uppercase;font-size:12px;letter-spacing:.1em;font-weight:600}
+.vl-ct-area{width:100%;background:transparent;border:1px solid rgba(196,199,199,.3);border-radius:2px;padding:16px;font-family:'Montserrat',Arial,sans-serif;font-size:16px;color:#111111;min-height:120px;resize:vertical;outline:none;transition:border-color .3s ease}
+.vl-ct-area:focus{border-color:#111111}
+.vl-ct-submitwrap{display:flex;justify-content:flex-start;margin-top:auto;padding-top:16px}
+.vl-ct-submit{background:#111111;color:#ffffff;border:none;cursor:pointer;font-family:'Montserrat',Arial,sans-serif;font-size:14px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;padding:16px 48px;border-radius:2px;transition:background-color .3s ease;width:100%;text-align:center;text-decoration:none;display:inline-block}
+.vl-ct-submit:hover{background:#262626;color:#ffffff}
+@media(min-width:640px){.vl-ct-submit{width:auto}}

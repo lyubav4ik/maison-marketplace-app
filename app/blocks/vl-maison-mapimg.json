@@ -1,0 +1,54 @@
+{
+  "code": "vl-maison-mapimg",
+  "fields": {
+    "NAME": "MAISON · Карта",
+    "DESCRIPTION": "Изображение карты с меткой бутика. При наведении карта становится цветной. Метку и картинку можно менять.",
+    "SECTIONS": "contacts",
+    "ACTIVE": "Y",
+    "PREVIEW": "https://cdn.jsdelivr.net/gh/lyubav4ik/maison-marketplace-app@v0.1/assets/block-preview-mapimg.jpg",
+    "CONTENT": "<section class=\"landing-block vl-mapimg\">\n<div class=\"vl-mapimg-inner\">\n<img class=\"vl-mapimg-img landing-block-node-map-img\" src=\"https://cdn.jsdelivr.net/gh/lyubav4ik/maison-marketplace-app@v0.1/assets/ct-map.jpg\" alt=\"Карта\">\n<div class=\"vl-mapimg-marker\">\n<div class=\"vl-mapimg-label landing-block-node-map-label\">MAISON BOUTIQUE</div>\n<div class=\"vl-mapimg-dot\"></div>\n</div>\n</div>\n</section>"
+  },
+  "manifest": {
+    "block": {
+      "name": "MAISON · Карта",
+      "section": [
+        "contacts"
+      ],
+      "type": [
+        "page",
+        "store"
+      ],
+      "dynamic": false
+    },
+    "nodes": {
+      ".landing-block-node-map-img": {
+        "name": "Карта",
+        "type": "img",
+        "dimensions": {
+          "maxWidth": 1600,
+          "maxHeight": 1600
+        },
+        "allowInlineEdit": true
+      },
+      ".landing-block-node-map-label": {
+        "name": "Метка",
+        "type": "text"
+      }
+    },
+    "cards": {},
+    "style": {
+      "block": {
+        "type": [
+          "block-default"
+        ]
+      },
+      "nodes": {}
+    },
+    "assets": {
+      "css": [
+        "https://cdn.jsdelivr.net/gh/lyubav4ik/maison-marketplace-app@v0.1/assets/mapimg-block.css"
+      ],
+      "js": []
+    }
+  }
+}

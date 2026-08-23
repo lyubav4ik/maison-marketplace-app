@@ -1,0 +1,84 @@
+{
+  "code": "vl-maison-contacts",
+  "fields": {
+    "NAME": "MAISON · Контакты",
+    "DESCRIPTION": "Заголовок страницы, карточка с адресом, часами работы и связью, карточка персонального сервиса с кнопкой. Чтобы принимать заявки онлайн, добавьте рядом штатный CRM-форму Б24.",
+    "SECTIONS": "contacts",
+    "ACTIVE": "Y",
+    "PREVIEW": "https://cdn.jsdelivr.net/gh/lyubav4ik/maison-marketplace-app@v0.1/assets/block-preview-contacts.jpg",
+    "CONTENT": "<section class=\"landing-block vl-contacts\">\n<div class=\"vl-ct-inner\">\n<div class=\"vl-ct-head\">\n<h1 class=\"vl-ct-h landing-block-node-ct-h\">Контакты</h1>\n<p class=\"vl-ct-sub landing-block-node-ct-sub\">Мы всегда рады видеть вас в нашем флагманском бутике или ответить на любые вопросы онлайн.</p>\n</div>\n<div class=\"vl-ct-grid\">\n<div class=\"vl-ct-infocard\">\n<div class=\"vl-ct-group\">\n<h2 class=\"vl-ct-grouph\">Флагманский бутик</h2>\n<div class=\"vl-ct-text landing-block-node-ct-address\">Столешников переулок, 9<br>Москва, 107031<br>Россия</div>\n</div>\n<div class=\"vl-ct-group\">\n<h2 class=\"vl-ct-grouph\">Часы работы</h2>\n<p class=\"vl-ct-row\"><span>Пн - Вс:</span> <span class=\"landing-block-node-ct-hours\">11:00 - 22:00</span></p>\n</div>\n<div class=\"vl-ct-group\">\n<h2 class=\"vl-ct-grouph\">Связь</h2>\n<a class=\"vl-ct-link landing-block-node-ct-phone\" href=\"tel:+74951234567\" target=\"_self\">+7 (495) 123-45-67</a><br>\n<a class=\"vl-ct-link landing-block-node-ct-email\" href=\"mailto:concierge@maison.ru\" target=\"_self\">concierge@maison.ru</a>\n</div>\n</div>\n<div class=\"vl-ct-formcard\">\n<h3 class=\"vl-ct-formh landing-block-node-ct-formh\">Персональный сервис</h3>\n<p class=\"vl-ct-formtext landing-block-node-ct-formtext\">Наши консультанты помогут с выбором размера, подберут образ для особого случая и ответят на любые вопросы о заказе и доставке.</p>\n<div class=\"vl-ct-submitwrap\"><a class=\"vl-ct-submit landing-block-node-ct-btn\" href=\"mailto:concierge@maison.ru\" target=\"_self\">Написать консьержу</a></div>\n</div>\n</div>\n</div>\n</section>"
+  },
+  "manifest": {
+    "block": {
+      "name": "MAISON · Контакты",
+      "section": [
+        "contacts"
+      ],
+      "type": [
+        "page",
+        "store"
+      ],
+      "dynamic": false
+    },
+    "nodes": {
+      ".landing-block-node-ct-h": {
+        "name": "Заголовок",
+        "type": "text"
+      },
+      ".landing-block-node-ct-sub": {
+        "name": "Подзаголовок",
+        "type": "text"
+      },
+      ".landing-block-node-ct-address": {
+        "name": "Адрес",
+        "type": "text"
+      },
+      ".landing-block-node-ct-hours": {
+        "name": "Часы",
+        "type": "text"
+      },
+      ".landing-block-node-ct-phone": {
+        "name": "Телефон",
+        "type": "link"
+      },
+      ".landing-block-node-ct-email": {
+        "name": "Email",
+        "type": "link"
+      },
+      ".landing-block-node-ct-formh": {
+        "name": "Заголовок сервиса",
+        "type": "text"
+      },
+      ".landing-block-node-ct-formtext": {
+        "name": "Текст сервиса",
+        "type": "text"
+      },
+      ".landing-block-node-ct-btn": {
+        "name": "Кнопка",
+        "type": "link"
+      }
+    },
+    "cards": {},
+    "style": {
+      "block": {
+        "type": [
+          "block-default"
+        ]
+      },
+      "nodes": {
+        ".landing-block-node-ct-h": {
+          "title": "Заголовок",
+          "type": [
+            "typo"
+          ]
+        }
+      }
+    },
+    "assets": {
+      "css": [
+        "https://cdn.jsdelivr.net/gh/lyubav4ik/maison-marketplace-app@v0.1/assets/contacts-block.css"
+      ],
+      "js": []
+    }
+  }
+}

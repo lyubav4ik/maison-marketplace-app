@@ -1,0 +1,81 @@
+{
+  "code": "vl-maison-hero",
+  "fields": {
+    "NAME": "MAISON · Херо-баннер",
+    "DESCRIPTION": "Полноэкранный баннер: фото на фоне с медленным зумом при наведении, лёгкое затемнение и размытие, надзаголовок, крупный заголовок (Playfair Display) и кнопка. Фон, тексты и ссылка кнопки редактируются прямо в блоке. Высота 80% экрана, на мобильных шрифт меньше.",
+    "SECTIONS": "cover",
+    "ACTIVE": "Y",
+    "PREVIEW": "https://cdn.jsdelivr.net/gh/lyubav4ik/maison-marketplace-app@v0.1/assets/block-preview-hero.jpg",
+    "CONTENT": "<section class=\"landing-block vl-hero\">\n<img class=\"vl-hero-img landing-block-node-hero-img\" src=\"https://cdn.jsdelivr.net/gh/lyubav4ik/maison-marketplace-app@v0.1/assets/hero-default.jpg\" alt=\"Новая коллекция MAISON\">\n<div class=\"vl-hero-overlay\"></div>\n<div class=\"vl-hero-inner\">\n<span class=\"vl-hero-label landing-block-node-hero-label\">Новая коллекция</span>\n<h2 class=\"vl-hero-title landing-block-node-hero-title\">Aura Couture</h2>\n<a class=\"vl-hero-btn landing-block-node-hero-btn\" href=\"#\" target=\"_self\">Смотреть коллекцию</a>\n</div>\n</section>"
+  },
+  "manifest": {
+    "block": {
+      "name": "MAISON · Херо-баннер",
+      "section": [
+        "cover"
+      ],
+      "type": [
+        "page",
+        "store"
+      ],
+      "dynamic": false
+    },
+    "nodes": {
+      ".landing-block-node-hero-img": {
+        "name": "Фон баннера",
+        "type": "img",
+        "dimensions": {
+          "maxWidth": 2400,
+          "maxHeight": 1600
+        },
+        "allowInlineEdit": true
+      },
+      ".landing-block-node-hero-label": {
+        "name": "Надзаголовок",
+        "type": "text"
+      },
+      ".landing-block-node-hero-title": {
+        "name": "Заголовок",
+        "type": "text"
+      },
+      ".landing-block-node-hero-btn": {
+        "name": "Кнопка",
+        "type": "link"
+      }
+    },
+    "style": {
+      "block": {
+        "type": [
+          "block-default"
+        ]
+      },
+      "nodes": {
+        ".landing-block-node-hero-label": {
+          "title": "Надзаголовок",
+          "type": [
+            "typo"
+          ]
+        },
+        ".landing-block-node-hero-title": {
+          "title": "Заголовок",
+          "type": [
+            "typo",
+            "animation"
+          ]
+        },
+        ".landing-block-node-hero-btn": {
+          "title": "Кнопка",
+          "type": [
+            "typo-link",
+            "background-color"
+          ]
+        }
+      }
+    },
+    "assets": {
+      "css": [
+        "https://cdn.jsdelivr.net/gh/lyubav4ik/maison-marketplace-app@v0.1/assets/hero-block.css"
+      ]
+    }
+  }
+}

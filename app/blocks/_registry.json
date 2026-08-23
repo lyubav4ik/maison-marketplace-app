@@ -1,0 +1,74 @@
+[
+  {
+    "code": "vl-maison-header",
+    "name": "MAISON · Шапка (лого у иконок, меню по ширине)"
+  },
+  {
+    "code": "vl-maison-hero",
+    "name": "MAISON · Херо-баннер"
+  },
+  {
+    "code": "vl-maison-cats",
+    "name": "MAISON · Популярные категории"
+  },
+  {
+    "code": "vl-maison-products",
+    "name": "MAISON · Новые поступления"
+  },
+  {
+    "code": "vl-maison-story",
+    "name": "MAISON · История бренда"
+  },
+  {
+    "code": "vl-maison-footer",
+    "name": "MAISON · Футер"
+  },
+  {
+    "code": "vl-maison-pcard",
+    "name": "MAISON · Карточка товара"
+  },
+  {
+    "code": "vl-maison-related",
+    "name": "MAISON · С чем носить"
+  },
+  {
+    "code": "vl-maison-abhero",
+    "name": "MAISON · Обложка страницы"
+  },
+  {
+    "code": "vl-maison-abstory",
+    "name": "MAISON · История (текст + фото)"
+  },
+  {
+    "code": "vl-maison-values",
+    "name": "MAISON · Ценности"
+  },
+  {
+    "code": "vl-maison-craft",
+    "name": "MAISON · Мастерство"
+  },
+  {
+    "code": "vl-maison-contacts",
+    "name": "MAISON · Контакты"
+  },
+  {
+    "code": "vl-maison-mapimg",
+    "name": "MAISON · Карта"
+  },
+  {
+    "code": "vl-maison-delivery",
+    "name": "MAISON · Доставка"
+  },
+  {
+    "code": "vl-maison-returns",
+    "name": "MAISON · Возврат"
+  },
+  {
+    "code": "vl-maison-faq",
+    "name": "MAISON · FAQ (аккордеон)"
+  },
+  {
+    "code": "vl-maison-article",
+    "name": "MAISON · Текстовая страница"
+  }
+]

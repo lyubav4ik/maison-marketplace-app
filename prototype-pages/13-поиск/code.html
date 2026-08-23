@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+
+<html lang="ru"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>MAISON - Результаты поиска</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&amp;family=Playfair+Display:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-primary-fixed": "#1b1c1c",
+                        "surface-dim": "#dadada",
+                        "surface-container-highest": "#e2e2e2",
+                        "outline-variant": "#c4c7c7",
+                        "primary-container": "#262626",
+                        "primary": "#111111",
+                        "surface": "#f9f9f9",
+                        "on-tertiary-fixed": "#2e150b",
+                        "on-surface": "#1a1c1c",
+                        "on-secondary-fixed": "#1b1c1b",
+                        "surface-container-lowest": "#ffffff",
+                        "outline": "#747878",
+                        "primary-fixed-dim": "#c8c6c5",
+                        "tertiary": "#220b04",
+                        "surface-tint": "#5f5e5e",
+                        "background": "#f9f9f9",
+                        "secondary-fixed-dim": "#c8c6c4",
+                        "secondary-fixed": "#e5e2e0",
+                        "on-primary-fixed-variant": "#474746",
+                        "on-background": "#1a1c1c",
+                        "on-surface-variant": "#444748",
+                        "on-error": "#ffffff",
+                        "on-primary": "#ffffff",
+                        "tertiary-fixed-dim": "#ebbcac",
+                        "inverse-surface": "#2f3131",
+                        "inverse-on-surface": "#f0f1f1",
+                        "surface-container-high": "#e8e8e8",
+                        "primary-fixed": "#e4e2e1",
+                        "tertiary-container": "#3a1f15",
+                        "on-secondary-container": "#636261",
+                        "secondary-container": "#e2dfdd",
+                        "on-tertiary-container": "#ad8475",
+                        "on-tertiary-fixed-variant": "#603f33",
+                        "tertiary-fixed": "#ffdbcf",
+                        "error": "#ba1a1a",
+                        "surface-container-low": "#f3f3f4",
+                        "on-primary-container": "#8e8d8c",
+                        "on-secondary-fixed-variant": "#474745",
+                        "on-tertiary": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "surface-variant": "#e2e2e2",
+                        "on-secondary": "#ffffff",
+                        "surface-container": "#eeeeee",
+                        "surface-bright": "#f9f9f9",
+                        "secondary": "#5f5e5d",
+                        "inverse-primary": "#c8c6c5",
+                        "on-error-container": "#93000a"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "gutter": "24px",
+                        "container-max": "1440px",
+                        "margin-desktop": "64px",
+                        "margin-mobile": "16px",
+                        "unit": "8px"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["Montserrat"],
+                        "button": ["Montserrat"],
+                        "label-caps": ["Montserrat"],
+                        "display-lg-mobile": ["Playfair Display"],
+                        "body-md": ["Montserrat"],
+                        "headline-md": ["Playfair Display"],
+                        "headline-sm": ["Playfair Display"],
+                        "display-lg": ["Playfair Display"]
+                    },
+                    "fontSize": {
+                        "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "button": ["14px", { "lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "500" }],
+                        "label-caps": ["12px", { "lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "600" }],
+                        "display-lg-mobile": ["32px", { "lineHeight": "1.2", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "1.5", "fontWeight": "400" }],
+                        "headline-md": ["32px", { "lineHeight": "1.3", "fontWeight": "600" }],
+                        "headline-sm": ["24px", { "lineHeight": "1.4", "fontWeight": "600" }],
+                        "display-lg": ["48px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .fill-icon {
+            font-variation-settings: 'FILL' 1;
+        }
+        .product-card:hover .product-img-alt {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen flex flex-col font-body-md antialiased">
+<!-- TopNavBar -->
+<header class="bg-surface/90 dark:bg-surface-dim/90 backdrop-blur-md fixed top-0 w-full z-50 border-b border-outline-variant/30">
+<div class="flex justify-between items-center h-20 px-margin-desktop max-w-container-max mx-auto md:px-margin-desktop px-margin-mobile">
+<!-- Brand -->
+<a class="font-display-lg text-display-lg tracking-tighter text-primary dark:text-on-primary-fixed hover:opacity-70 transition-opacity duration-300" href="#">
+                MAISON
+            </a>
+<!-- Navigation Links (Web) -->
+<nav class="hidden md:flex items-center space-x-8">
+<a class="text-secondary dark:text-secondary-fixed-dim hover:text-primary transition-colors font-label-caps text-label-caps hover:opacity-70 duration-300" href="#">Новинки</a>
+<a class="text-secondary dark:text-secondary-fixed-dim hover:text-primary transition-colors font-label-caps text-label-caps hover:opacity-70 duration-300" href="#">Одежда</a>
+<a class="text-secondary dark:text-secondary-fixed-dim hover:text-primary transition-colors font-label-caps text-label-caps hover:opacity-70 duration-300" href="#">Аксессуары</a>
+<a class="text-secondary dark:text-secondary-fixed-dim hover:text-primary transition-colors font-label-caps text-label-caps hover:opacity-70 duration-300" href="#">Распродажа</a>
+</nav>
+<!-- Trailing Icons -->
+<div class="flex items-center space-x-6 text-primary dark:text-on-primary-fixed">
+<button aria-label="Search" class="hover:opacity-70 transition-opacity duration-300 flex items-center justify-center scale-95 transition-transform">
+<span class="material-symbols-outlined" data-icon="search">search</span>
+</button>
+<button aria-label="Profile" class="hover:opacity-70 transition-opacity duration-300 flex items-center justify-center">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+</button>
+<button aria-label="Shopping Bag" class="hover:opacity-70 transition-opacity duration-300 flex items-center justify-center">
+<span class="material-symbols-outlined" data-icon="shopping_bag">shopping_bag</span>
+</button>
+<button aria-label="Menu" class="md:hidden hover:opacity-70 transition-opacity duration-300 flex items-center justify-center">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</div>
+</header>
+<!-- Main Content -->
+<main class="flex-grow pt-32 pb-24 max-w-container-max mx-auto w-full px-margin-mobile md:px-margin-desktop flex flex-col md:flex-row gap-gutter">
+<!-- SideNavBar (Filters) -->
+<aside class="hidden md:flex flex-col p-gutter space-y-6 h-full w-80 docked-left bg-surface dark:bg-surface-container-low bg-surface-container-low dark:bg-surface-container-highest shadow-sm rounded-lg flex-shrink-0">
+<div class="mb-4">
+<h2 class="font-headline-sm text-headline-sm text-primary">Фильтры</h2>
+<p class="font-body-md text-body-md text-secondary mt-2">Сортировать по вашим предпочтениям</p>
+</div>
+<nav class="flex flex-col space-y-2">
+<a class="flex items-center px-4 py-3 text-secondary hover:bg-surface-variant hover:bg-surface-variant/50 transition-colors rounded-lg font-label-caps text-label-caps drawer-slide-in-out" href="#">
+<span class="material-symbols-outlined mr-3" data-icon="category">category</span>
+                    Категории
+                </a>
+<a class="flex items-center px-4 py-3 text-secondary hover:bg-surface-variant hover:bg-surface-variant/50 transition-colors rounded-lg font-label-caps text-label-caps drawer-slide-in-out" href="#">
+<span class="material-symbols-outlined mr-3" data-icon="straighten">straighten</span>
+                    Размер
+                </a>
+<a class="flex items-center px-4 py-3 text-secondary hover:bg-surface-variant hover:bg-surface-variant/50 transition-colors rounded-lg font-label-caps text-label-caps drawer-slide-in-out" href="#">
+<span class="material-symbols-outlined mr-3" data-icon="palette">palette</span>
+                    Цвет
+                </a>
+<a class="flex items-center px-4 py-3 text-secondary hover:bg-surface-variant hover:bg-surface-variant/50 transition-colors rounded-lg font-label-caps text-label-caps drawer-slide-in-out" href="#">
+<span class="material-symbols-outlined mr-3" data-icon="payments">payments</span>
+                    Цена
+                </a>
+<a class="flex items-center px-4 py-3 text-secondary hover:bg-surface-variant hover:bg-surface-variant/50 transition-colors rounded-lg font-label-caps text-label-caps drawer-slide-in-out" href="#">
+<span class="material-symbols-outlined mr-3" data-icon="sell">sell</span>
+                    Бренд
+                </a>
+</nav>
+<div class="mt-auto pt-6">
+<button class="w-full bg-primary text-on-primary font-button text-button py-4 rounded hover:opacity-80 transition-opacity">
+                    Применить
+                </button>
+</div>
+</aside>
+<!-- Search Results Area -->
+<div class="flex-grow w-full">
+<!-- Mobile Filter Trigger & Search -->
+<div class="md:hidden mb-8 flex flex-col space-y-4">
+<div class="relative w-full">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline">search</span>
+<input class="w-full bg-surface-container-low border-none rounded-full py-4 pl-12 pr-4 font-body-md text-body-md focus:ring-1 focus:ring-primary outline-none" placeholder="Поиск" type="text" value="шелк"/>
+</div>
+<button class="flex items-center justify-center w-full py-3 border border-outline-variant/30 rounded font-button text-button">
+<span class="material-symbols-outlined mr-2">tune</span>
+                    Фильтры
+                </button>
+</div>
+<!-- Header & Desktop Search -->
+<div class="mb-12 flex flex-col items-start">
+<div class="w-full flex justify-between items-end mb-8 hidden md:flex border-b border-outline-variant/20 pb-4">
+<div class="relative w-2/3 max-w-lg">
+<span class="material-symbols-outlined absolute left-0 top-1/2 -translate-y-1/2 text-outline text-[20px]">search</span>
+<input class="w-full bg-transparent border-none py-2 pl-8 pr-4 font-body-lg text-body-lg focus:ring-0 outline-none placeholder-outline-variant" placeholder="Искать в коллекции..." type="text" value="шелк"/>
+</div>
+<span class="font-label-caps text-label-caps text-secondary">24 РЕЗУЛЬТАТА</span>
+</div>
+<h1 class="font-headline-md text-headline-md text-primary mb-2 hidden md:block">Результаты поиска по запросу: шелк</h1>
+<h1 class="font-display-lg-mobile text-display-lg-mobile text-primary mb-2 md:hidden">Результаты: шелк</h1>
+</div>
+<!-- Product Grid -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-12">
+<!-- Product 1 -->
+<div class="product-card group flex flex-col cursor-pointer">
+<div class="relative w-full aspect-[3/4] bg-surface-container-low mb-4 overflow-hidden rounded-sm">
+<img class="absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ease-in-out" data-alt="A full-length studio shot of a female model wearing a flowing, minimalist beige silk slip dress. The lighting is soft, high-key, and diffused, creating a serene and luxurious light-mode aesthetic. The background is a seamless, pristine white cyclorama. The overall mood is elegant, quiet luxury, and highly editorial." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDFxSB_2w0nHGDOEqAW2uDeAfiAOAIXY-hllZCVr6Mg7iwWSDgKOX0tLK0SVPa2W8yLM86GnPVpmgmAx9wFgioLfWbAr7948iOh35XnUY2AXFxJWDQqJyf9mXcH0KbJooWhnFQ2D9qkTGlmwZwV-3II_QcOX_8lIa30LpQ9zMorVLWUH0_ycRIqY-EUxDVV9pQE1JfHktO5KEFn6cIMzrRh2nFuWy9uBFt1k8U-j2TGJlYBRYCKp8up"/>
+<img class="product-img-alt absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-500 ease-in-out" data-alt="A close-up detail shot of the back of a beige silk slip dress worn by a model, showing delicate spaghetti straps crossing over a bare back. Soft, sophisticated studio lighting highlights the sheen and drape of the luxurious fabric against a pure white background. Editorial fashion photography style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDTPMt2Pl1x8GsfxbBMEBEOzpW3gL3o2OWdON7Oqk9HgZRuaiLIdIoyTqw2Zs-f-HVq4oI6hLs66utudI-J_S0QgsL67QbSxbLJchwBkx845QTbg0Yma6aRDAW44_GnmQVYNujV85My5mY-f-08BQLPF2vvu18FY_1TR9q827KtF9EO-Eg0TGFFBA7hTRBAIsO4vp8a8FwK5jA0jbitaMqSHwlvirMMlCOOece0bPxBepHF_1gC0Z5_"/>
+<button aria-label="Add to wishlist" class="absolute top-4 right-4 text-primary opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+<span class="material-symbols-outlined hover:font-variation-[FILL_1]">favorite</span>
+</button>
+</div>
+<div class="flex flex-col items-center text-center">
+<span class="font-label-caps text-label-caps text-secondary mb-1">ПЛАТЬЕ</span>
+<h3 class="font-body-md text-body-md text-primary font-medium mb-1">Шелковое платье-комбинация</h3>
+<span class="font-body-md text-body-md text-secondary">32 000 ₽</span>
+</div>
+</div>
+<!-- Product 2 -->
+<div class="product-card group flex flex-col cursor-pointer">
+<div class="relative w-full aspect-[3/4] bg-surface-container-low mb-4 overflow-hidden rounded-sm">
+<img class="absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ease-in-out" data-alt="A female fashion model posing in a crisp white silk blouse with voluminous sleeves and tailored black trousers. She stands against a minimalist, bright grey concrete wall bathed in soft, natural window light. The aesthetic is clean, modern, and embodies high-end corporate elegance in a light-mode color palette." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDSllv3IKN1PE1KNmQU6J3i2vhJyCXfMQpKpUw4PPsSeXTlb4fw65M_nnIjahcO4iLCtW9zzHxABirywNc3JB6ro3-LpM8-WK-2hKPm-HoSv7ot-HakJeZKELY5TlH8KaTnk8dYo8PTcfvIxnWC1hAwYBuvLgRpprgcdV7V1redi2PkuYP6jsJCBG8pXB5SluN_zfnDKU71X6JpBSnvDmcHIQ6mhNvvfQFtUlpeN8goB7sGy0xOhTHM"/>
+<img class="product-img-alt absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-500 ease-in-out" data-alt="A detailed crop showing the intricate cuff buttons and fabric texture of a white silk blouse. The sleeve is slightly rolled up, revealing a slender wrist. Photographed in soft, bright light against a neutral background to emphasize the premium quality and quiet luxury of the garment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBhogvoEIYgeqOVENstLWPq0AGhPoeGq2y_apNjZzuVig11SziTLllbzQOGT-jaWjrdUmXN9qmwMdylfV9ZyhRbN2DBX2kp-E5-GVfwnY0aYmcT7_Ji1_dyjuvudZPaYzdHdZmLSe44M1j_2Kcg-37DvPXQMAft12YyEm0Fn-Z7JyvbofNnEl2PkC5c_u0ZVUBaSNTjIh0DjHIIRdnL0CSa9pZ79pOlwKLCVee_0s5et7e4zegp05og"/>
+<div class="absolute top-4 left-4 bg-surface text-primary px-2 py-1 font-label-caps text-[10px] tracking-widest">NEW</div>
+<button aria-label="Add to wishlist" class="absolute top-4 right-4 text-primary opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+<span class="material-symbols-outlined hover:font-variation-[FILL_1]">favorite</span>
+</button>
+</div>
+<div class="flex flex-col items-center text-center">
+<span class="font-label-caps text-label-caps text-secondary mb-1">БЛУЗА</span>
+<h3 class="font-body-md text-body-md text-primary font-medium mb-1">Блуза из жатого шелка</h3>
+<span class="font-body-md text-body-md text-secondary">24 500 ₽</span>
+</div>
+</div>
+<!-- Product 3 -->
+<div class="product-card group flex flex-col cursor-pointer">
+<div class="relative w-full aspect-[3/4] bg-surface-container-low mb-4 overflow-hidden rounded-sm">
+<img class="absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ease-in-out" data-alt="A studio portrait of a woman wearing a minimalist, tailored champagne-colored silk shirt, partially unbuttoned. The lighting is clean and highly controlled, casting subtle shadows that define the drape of the fabric. The background is pure, stark white. The image exudes sophisticated, understated wealth." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBiVdwxRYwMdBZLmEmbLCNppWV8ZDm9ClmMtfSwWyxlQCeECUD_C2szRN4pRJw5Ft-sBo4W_JajWf7vy-ICUoFDEK3G5H1iUsVeinRomfsNAKqnxmveodqextbJUcsLypKlgXW3OUMAqVwpPALVyNnCalsXP46oBr7nSKj9UkGNQ7cg0z41qLeeGzkZVzG75dAKg7zKfESX20UqGAvPoDlSN4EDk2Hx6Qg4jM7vM1k5E-CSq91x4gd_"/>
+<img class="product-img-alt absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-500 ease-in-out" data-alt="A flat lay photograph of a folded champagne-colored silk shirt resting on a textured, light beige linen surface. A single ray of warm sunlight cuts across the fabric, highlighting its smooth, reflective surface. The composition is highly editorial, minimalist, and serene." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA-9Il-Oko8l7LE7QVvQvZDQUVQbz2lLjay_9nOgDIprPto65NOVp4G5RcCDTrAd-JI2KYgSr3nMDHQ8FhhSBDgFEl2aiaq3KGUeSIP8aU5q1f3P9KAAY5bo5AciLbXz_8PMn1mz2nPjrI21tl0wyH0parqs2SKqg2MLnmABAhFhrek_y3o6p2WLn8DRiBrRH9n2E-cAchLQf21HV6NX-Ubbh-10o4B_yFhAPsWftzsVtesH3MC5End"/>
+<button aria-label="Add to wishlist" class="absolute top-4 right-4 text-primary opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+<span class="material-symbols-outlined hover:font-variation-[FILL_1]">favorite</span>
+</button>
+</div>
+<div class="flex flex-col items-center text-center">
+<span class="font-label-caps text-label-caps text-secondary mb-1">РУБАШКА</span>
+<h3 class="font-body-md text-body-md text-primary font-medium mb-1">Классическая шелковая рубашка</h3>
+<span class="font-body-md text-body-md text-secondary">28 000 ₽</span>
+</div>
+</div>
+<!-- Product 4 -->
+<div class="product-card group flex flex-col cursor-pointer">
+<div class="relative w-full aspect-[3/4] bg-surface-container-low mb-4 overflow-hidden rounded-sm">
+<img class="absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ease-in-out" data-alt="A model walking purposefully, wearing wide-leg trousers made of flowing charcoal silk. The movement is captured beautifully against a stark white studio backdrop. The lighting is bright and even, highlighting the fluidity of the fabric. The styling is minimalist, high-end, and contemporary." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDF0-b3X9NtDM4qkTyFXGlKP1iztrWg4s4r3OWGAJQqmReRYOfRM5orlF9iS35A1o3r4aoypksKHbwp6vPWLX4DJaFKAtV8pT8hsWZyjigFj-XsrACiOSKNR3ClwCPZFrxRSb7U4sZ-7rLYjpnxtj-l-d9nl6QGQxWxb-Ys6WhgWJh_szOxGbeTjb6pTleEXmGLYBKTaQLOLndt3yX5CjHs-SgzFEljIoIu46y-uT2HNi0OPXLNr2qU"/>
+<button aria-label="Add to wishlist" class="absolute top-4 right-4 text-primary opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+<span class="material-symbols-outlined hover:font-variation-[FILL_1]">favorite</span>
+</button>
+</div>
+<div class="flex flex-col items-center text-center">
+<span class="font-label-caps text-label-caps text-secondary mb-1">БРЮКИ</span>
+<h3 class="font-body-md text-body-md text-primary font-medium mb-1">Шелковые брюки палаццо</h3>
+<span class="font-body-md text-body-md text-secondary">36 000 ₽</span>
+</div>
+</div>
+<!-- Product 5 -->
+<div class="product-card group flex flex-col cursor-pointer">
+<div class="relative w-full aspect-[3/4] bg-surface-container-low mb-4 overflow-hidden rounded-sm">
+<img class="absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ease-in-out" data-alt="A close-up fashion shot of a dark navy silk camisole worn with delicate gold jewelry. The focus is on the subtle sheen of the fabric against pale skin. The lighting is soft and intimate, set against a very light, desaturated grey background. The mood is quiet, refined elegance." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCSujUErUedwptKLqlB2Fpw0_ZEhrvtfzffYn9C3XeLBvtvQIA5XfF7wCOYD85l3LBZ8akqFwY-2Ux2fuXAaicsA999quoXyZtF4QJh63YGq4ID4ZSx9_zIOfunVHD4WbtOD_FV96S3K7yXmK3MiOseuOM3tYvKuf8KXN7Wxt423jFI-x-PEkACHhgXpVB9rSz6eQx2Kzeih3AUFpej6UQvBaR1_V-7AC4eFerXrliZodWku28vpMnm"/>
+<button aria-label="Add to wishlist" class="absolute top-4 right-4 text-primary opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+<span class="material-symbols-outlined hover:font-variation-[FILL_1]">favorite</span>
+</button>
+</div>
+<div class="flex flex-col items-center text-center">
+<span class="font-label-caps text-label-caps text-secondary mb-1">ТОП</span>
+<h3 class="font-body-md text-body-md text-primary font-medium mb-1">Шелковый топ на бретелях</h3>
+<span class="font-body-md text-body-md text-secondary">18 000 ₽</span>
+</div>
+</div>
+<!-- Product 6 -->
+<div class="product-card group flex flex-col cursor-pointer">
+<div class="relative w-full aspect-[3/4] bg-surface-container-low mb-4 overflow-hidden rounded-sm">
+<img class="absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ease-in-out" data-alt="A model draped in a large, luxurious ivory silk scarf, paired with a simple black turtleneck. She looks away from the camera in a pensive pose. The studio lighting is high-key and bright, creating a minimalist, elegant portrait that emphasizes the texture of the silk accessory." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBfPMdsTYLw0kyyxY5sdleycg9VAHPvJLQwgZPmiikQScfongwTx8Rjukat7eIkggoHHU1NeI4oLTe2h15L0k3vfHl0lw6Vj7wJifYT8z3iaMa7_giXfm8jbXIvocESsGnARJvBpd2Mvdlfoa2lnw2pS5Q444tUW0cwEqxlLS31wJXr60u5igpu38u079alocOkvWN0X_ZZroNMZSkrNvXXTun-1uVMV_PDOwuUMDkRgdrUsO635-WO"/>
+<button aria-label="Add to wishlist" class="absolute top-4 right-4 text-primary opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+<span class="material-symbols-outlined hover:font-variation-[FILL_1]">favorite</span>
+</button>
+</div>
+<div class="flex flex-col items-center text-center">
+<span class="font-label-caps text-label-caps text-secondary mb-1">АКСЕССУАРЫ</span>
+<h3 class="font-body-md text-body-md text-primary font-medium mb-1">Большой шелковый платок</h3>
+<span class="font-body-md text-body-md text-secondary">14 500 ₽</span>
+</div>
+</div>
+</div>
+<!-- Load More -->
+<div class="mt-16 flex justify-center">
+<button class="border border-outline px-8 py-3 font-button text-button text-primary hover:bg-surface-variant transition-colors rounded-sm">
+                    ПОКАЗАТЬ ЕЩЕ
+                </button>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container dark:bg-surface-container-highest w-full pt-20 pb-10 border-t border-outline-variant/20 flex flex-col items-center max-w-container-max mx-auto px-margin-desktop">
+<div class="font-display-lg text-display-lg text-primary mb-8">
+            MAISON
+        </div>
+<nav class="flex flex-wrap justify-center gap-x-8 gap-y-4 mb-12">
+<a class="text-secondary dark:text-on-secondary-fixed-variant hover:text-primary transition-colors font-label-caps text-label-caps hover:opacity-80" href="#">О нас</a>
+<a class="text-secondary dark:text-on-secondary-fixed-variant hover:text-primary transition-colors font-label-caps text-label-caps hover:opacity-80" href="#">Доставка</a>
+<a class="text-secondary dark:text-on-secondary-fixed-variant hover:text-primary transition-colors font-label-caps text-label-caps hover:opacity-80" href="#">Возврат</a>
+<a class="text-secondary dark:text-on-secondary-fixed-variant hover:text-primary transition-colors font-label-caps text-label-caps hover:opacity-80" href="#">Контакты</a>
+<a class="text-secondary dark:text-on-secondary-fixed-variant hover:text-primary transition-colors font-label-caps text-label-caps hover:opacity-80" href="#">Политика конфиденциальности</a>
+</nav>
+<div class="text-secondary dark:text-on-secondary-fixed-variant font-body-md text-body-md text-sm text-center">
+            © 2024 MAISON. Все права защищены.
+        </div>
+</footer>
+</body></html>

@@ -1,0 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=Playfair+Display:wght@600;700&display=swap');
+.vl-hero{position:relative;height:80vh;min-height:520px;overflow:hidden;background:#eeeeee}
+.vl-hero-img{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;transform:scale(1.06);transition:transform 10s ease}
+.vl-hero:hover .vl-hero-img{transform:scale(1)}
+.vl-hero-overlay{position:absolute;top:0;left:0;width:100%;height:100%;background:rgba(17,17,17,.2);backdrop-filter:blur(2px)}
+.vl-hero-inner{position:relative;z-index:2;height:100%;max-width:672px;margin:0 auto;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:24px}
+.vl-hero-label{font-family:'Montserrat',Arial,sans-serif;font-size:12px;font-weight:600;line-height:1;letter-spacing:.2em;text-transform:uppercase;color:#ffffff}
+.vl-hero-title{font-family:'Playfair Display',Georgia,serif;font-size:48px;font-weight:700;line-height:1.1;letter-spacing:-.02em;color:#ffffff;text-shadow:0 2px 6px rgba(0,0,0,.35);margin:16px 0 32px}
+.vl-hero-btn{display:inline-block;background:#111111;color:#ffffff;border:1px solid #111111;padding:16px 32px;font-family:'Montserrat',Arial,sans-serif;font-size:14px;font-weight:500;line-height:1;letter-spacing:.05em;text-transform:uppercase;text-decoration:none;transition:background .3s ease,border-color .3s ease}
+.vl-hero-btn:hover{background:rgba(17,17,17,.88);border-color:rgba(17,17,17,.88);color:#ffffff}
+@media(max-width:767px){
+.vl-hero{min-height:440px}
+.vl-hero-title{font-size:32px;line-height:1.2}
+}
+@media(prefers-reduced-motion:reduce){.vl-hero-img{transition:none!important;transform:none!important}}

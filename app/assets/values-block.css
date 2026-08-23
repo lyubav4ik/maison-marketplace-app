@@ -1,0 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=Playfair+Display:wght@600;700&display=swap');
+.vl-values{padding:120px 16px;background:#f3f3f4}
+@media(min-width:768px){.vl-values{padding:120px 64px}}
+.vl-values-inner{max-width:1440px;margin:0 auto;text-align:center}
+.vl-values-label{display:block;font-family:'Montserrat',Arial,sans-serif;font-size:12px;font-weight:600;letter-spacing:.1em;color:#5f5e5d;margin-bottom:16px}
+.vl-values-title{font-family:'Playfair Display',Georgia,serif;font-size:32px;font-weight:600;line-height:1.3;color:#111111;margin:0 0 64px}
+.vl-values-grid{display:grid;grid-template-columns:1fr;gap:24px}
+@media(min-width:768px){.vl-values-grid{grid-template-columns:repeat(3,1fr)}}
+.vl-values-card{background:#ffffff;padding:48px;border-radius:2px;border:1px solid rgba(196,199,199,.2);text-align:center;transition:box-shadow .3s ease}
+.vl-values-card:hover{box-shadow:0 2px 8px rgba(17,17,17,.08)}
+.vl-values-icon{font-size:40px;line-height:1;color:#111111;margin-bottom:24px;font-family:'Segoe UI Symbol','DejaVu Sans',Arial,sans-serif}
+.vl-values-h{font-family:'Playfair Display',Georgia,serif;font-size:24px;font-weight:600;line-height:1.4;color:#111111;margin:0 0 16px}
+.vl-values-text{font-family:'Montserrat',Arial,sans-serif;font-size:16px;line-height:1.5;color:#5f5e5d;margin:0}

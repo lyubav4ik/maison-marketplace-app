@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+
+<html lang="ru"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>MAISON - Доставка</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&amp;family=Playfair+Display:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+                "inverse-primary": "#c8c6c5",
+                "error": "#ba1a1a",
+                "outline-variant": "#c4c7c7",
+                "secondary": "#5f5e5d",
+                "tertiary-fixed": "#ffdbcf",
+                "on-tertiary-fixed": "#2e150b",
+                "secondary-fixed": "#e5e2e0",
+                "on-secondary-fixed-variant": "#474745",
+                "surface-container-high": "#e8e8e8",
+                "on-background": "#1a1c1c",
+                "surface-variant": "#e2e2e2",
+                "surface-container-low": "#f3f3f4",
+                "on-tertiary-fixed-variant": "#603f33",
+                "tertiary-container": "#3a1f15",
+                "on-error-container": "#93000a",
+                "tertiary-fixed-dim": "#ebbcac",
+                "primary-fixed-dim": "#c8c6c5",
+                "surface-tint": "#5f5e5e",
+                "background": "#f9f9f9",
+                "on-error": "#ffffff",
+                "on-secondary-fixed": "#1b1c1b",
+                "on-primary-fixed": "#1b1c1c",
+                "on-secondary-container": "#636261",
+                "tertiary": "#220b04",
+                "primary": "#111111",
+                "on-surface": "#1a1c1c",
+                "on-primary": "#ffffff",
+                "surface-dim": "#dadada",
+                "secondary-container": "#e2dfdd",
+                "on-primary-container": "#8e8d8c",
+                "on-tertiary-container": "#ad8475",
+                "surface-container-highest": "#e2e2e2",
+                "primary-container": "#262626",
+                "on-tertiary": "#ffffff",
+                "surface-container": "#eeeeee",
+                "outline": "#747878",
+                "secondary-fixed-dim": "#c8c6c4",
+                "error-container": "#ffdad6",
+                "on-secondary": "#ffffff",
+                "on-surface-variant": "#444748",
+                "primary-fixed": "#e4e2e1",
+                "on-primary-fixed-variant": "#474746",
+                "surface-container-lowest": "#ffffff",
+                "inverse-on-surface": "#f0f1f1",
+                "inverse-surface": "#2f3131",
+                "surface": "#f9f9f9",
+                "surface-bright": "#f9f9f9"
+        },
+        "borderRadius": {
+                "DEFAULT": "0.25rem",
+                "lg": "0.5rem",
+                "xl": "0.75rem",
+                "full": "9999px"
+        },
+        "spacing": {
+                "gutter": "24px",
+                "unit": "8px",
+                "margin-mobile": "16px",
+                "container-max": "1440px",
+                "margin-desktop": "64px"
+        },
+        "fontFamily": {
+                "display-lg-mobile": [
+                        "Playfair Display"
+                ],
+                "headline-sm": [
+                        "Playfair Display"
+                ],
+                "button": [
+                        "Montserrat"
+                ],
+                "display-lg": [
+                        "Playfair Display"
+                ],
+                "body-lg": [
+                        "Montserrat"
+                ],
+                "headline-md": [
+                        "Playfair Display"
+                ],
+                "body-md": [
+                        "Montserrat"
+                ],
+                "label-caps": [
+                        "Montserrat"
+                ]
+        },
+        "fontSize": {
+                "display-lg-mobile": [
+                        "32px",
+                        {
+                                "lineHeight": "1.2",
+                                "fontWeight": "700"
+                        }
+                ],
+                "headline-sm": [
+                        "24px",
+                        {
+                                "lineHeight": "1.4",
+                                "fontWeight": "600"
+                        }
+                ],
+                "button": [
+                        "14px",
+                        {
+                                "lineHeight": "1",
+                                "letterSpacing": "0.05em",
+                                "fontWeight": "500"
+                        }
+                ],
+                "display-lg": [
+                        "48px",
+                        {
+                                "lineHeight": "1.1",
+                                "letterSpacing": "-0.02em",
+                                "fontWeight": "700"
+                        }
+                ],
+                "body-lg": [
+                        "18px",
+                        {
+                                "lineHeight": "1.6",
+                                "fontWeight": "400"
+                        }
+                ],
+                "headline-md": [
+                        "32px",
+                        {
+                                "lineHeight": "1.3",
+                                "fontWeight": "600"
+                        }
+                ],
+                "body-md": [
+                        "16px",
+                        {
+                                "lineHeight": "1.5",
+                                "fontWeight": "400"
+                        }
+                ],
+                "label-caps": [
+                        "12px",
+                        {
+                                "lineHeight": "1",
+                                "letterSpacing": "0.1em",
+                                "fontWeight": "600"
+                        }
+                ]
+        }
+},
+    },
+  }
+</script>
+</head>
+<body class="bg-background text-on-background font-body-md antialiased selection:bg-secondary-container selection:text-on-background">
+<!-- Header: Suppressed as per logic for contextual pages like "Доставка" -->
+<!-- Main Content -->
+<main class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-margin-desktop">
+<!-- Header Section -->
+<header class="text-center mb-16 md:mb-24">
+<h1 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-primary mb-6">Доставка</h1>
+<p class="font-body-lg text-body-lg text-secondary max-w-2xl mx-auto">
+                Мы стремимся сделать процесс получения ваших заказов MAISON максимально комфортным и быстрым. Ниже представлена подробная информация о доступных способах доставки.
+            </p>
+</header>
+<!-- Delivery Methods Grid -->
+<section class="grid grid-cols-1 md:grid-cols-3 gap-gutter mb-24">
+<!-- Method 1 -->
+<div class="bg-surface-container-low p-8 rounded border border-outline-variant/30 hover:shadow-sm transition-shadow duration-300">
+<div class="mb-6 text-primary">
+<span class="material-symbols-outlined" data-icon="local_shipping" style="font-size: 32px;">local_shipping</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-primary mb-4">Курьерская доставка</h3>
+<ul class="space-y-3 font-body-md text-body-md text-secondary">
+<li class="flex items-start">
+<span class="w-1.5 h-1.5 rounded-full bg-primary mt-2 mr-3 flex-shrink-0"></span>
+<span>Срок: 1-3 рабочих дня</span>
+</li>
+<li class="flex items-start">
+<span class="w-1.5 h-1.5 rounded-full bg-primary mt-2 mr-3 flex-shrink-0"></span>
+<span>Стоимость: 500 ₽ (бесплатно от 15 000 ₽)</span>
+</li>
+<li class="flex items-start">
+<span class="w-1.5 h-1.5 rounded-full bg-primary mt-2 mr-3 flex-shrink-0"></span>
+<span>Примерка перед покупкой доступна</span>
+</li>
+</ul>
+</div>
+<!-- Method 2 -->
+<div class="bg-surface-container-low p-8 rounded border border-outline-variant/30 hover:shadow-sm transition-shadow duration-300">
+<div class="mb-6 text-primary">
+<span class="material-symbols-outlined" data-icon="storefront" style="font-size: 32px;">storefront</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-primary mb-4">Самовывоз из бутика</h3>
+<ul class="space-y-3 font-body-md text-body-md text-secondary">
+<li class="flex items-start">
+<span class="w-1.5 h-1.5 rounded-full bg-primary mt-2 mr-3 flex-shrink-0"></span>
+<span>Срок: В день заказа (при наличии)</span>
+</li>
+<li class="flex items-start">
+<span class="w-1.5 h-1.5 rounded-full bg-primary mt-2 mr-3 flex-shrink-0"></span>
+<span>Стоимость: Бесплатно</span>
+</li>
+<li class="flex items-start">
+<span class="w-1.5 h-1.5 rounded-full bg-primary mt-2 mr-3 flex-shrink-0"></span>
+<span>Хранение заказа: 3 дня</span>
+</li>
+</ul>
+</div>
+<!-- Method 3 -->
+<div class="bg-surface-container-low p-8 rounded border border-outline-variant/30 hover:shadow-sm transition-shadow duration-300">
+<div class="mb-6 text-primary">
+<span class="material-symbols-outlined" data-icon="package" style="font-size: 32px;">package</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-primary mb-4">Пункты выдачи (СДЭК)</h3>
+<ul class="space-y-3 font-body-md text-body-md text-secondary">
+<li class="flex items-start">
+<span class="w-1.5 h-1.5 rounded-full bg-primary mt-2 mr-3 flex-shrink-0"></span>
+<span>Срок: 2-5 рабочих дней</span>
+</li>
+<li class="flex items-start">
+<span class="w-1.5 h-1.5 rounded-full bg-primary mt-2 mr-3 flex-shrink-0"></span>
+<span>Стоимость: от 350 ₽</span>
+</li>
+<li class="flex items-start">
+<span class="w-1.5 h-1.5 rounded-full bg-primary mt-2 mr-3 flex-shrink-0"></span>
+<span>Отслеживание по трек-номеру</span>
+</li>
+</ul>
+</div>
+</section>
+<!-- FAQ Section -->
+<section class="max-w-3xl mx-auto">
+<h2 class="font-headline-md text-headline-md text-primary text-center mb-12">Частые вопросы</h2>
+<div class="space-y-6">
+<!-- FAQ Item 1 -->
+<div class="border-b border-outline-variant/30 pb-6">
+<h4 class="font-label-caps text-label-caps text-primary mb-3">МОГУ ЛИ Я ИЗМЕНИТЬ АДРЕС ДОСТАВКИ ПОСЛЕ ОФОРМЛЕНИЯ ЗАКАЗА?</h4>
+<p class="font-body-md text-body-md text-secondary">
+                        Да, вы можете изменить адрес доставки, связавшись с нашей службой поддержки до того, как заказ будет передан в курьерскую службу. Обычно у вас есть на это 2-4 часа после оформления заказа.
+                    </p>
+</div>
+<!-- FAQ Item 2 -->
+<div class="border-b border-outline-variant/30 pb-6">
+<h4 class="font-label-caps text-label-caps text-primary mb-3">ЧТО ДЕЛАТЬ, ЕСЛИ МНЕ НЕ ПОДОШЕЛ РАЗМЕР ПРИ КУРЬЕРСКОЙ ДОСТАВКЕ?</h4>
+<p class="font-body-md text-body-md text-secondary">
+                        При выборе опции "Примерка", вы можете отказаться от неподошедших вещей прямо при курьере. Оплата будет произведена только за те товары, которые вы решите оставить.
+                    </p>
+</div>
+<!-- FAQ Item 3 -->
+<div class="border-b border-outline-variant/30 pb-6">
+<h4 class="font-label-caps text-label-caps text-primary mb-3">ОСУЩЕСТВЛЯЕТСЯ ЛИ ДОСТАВКА В ВЫХОДНЫЕ ДНИ?</h4>
+<p class="font-body-md text-body-md text-secondary">
+                        Курьерская доставка по Москве и Санкт-Петербургу возможна в выходные дни. Доставка в регионы через транспортные компании осуществляется согласно их графику работы.
+                    </p>
+</div>
+</div>
+</section>
+<div class="mt-24 text-center">
+<a class="inline-block bg-primary text-on-primary font-button text-button px-8 py-4 rounded hover:opacity-90 transition-opacity" href="#">
+                Вернуться к покупкам
+            </a>
+</div>
+</main>
+<!-- Footer Component -->
+<footer class="bg-surface-container dark:bg-surface-container-highest w-full pt-20 pb-10 border-t border-outline-variant/20 flat flex flex-col items-center max-w-container-max mx-auto px-margin-desktop transition-all">
+<div class="font-display-lg text-display-lg text-primary mb-8">MAISON</div>
+<nav class="flex flex-wrap justify-center gap-6 mb-12">
+<a class="text-primary font-label-caps text-label-caps underline hover:opacity-80" href="#">О нас</a>
+<a class="text-secondary font-label-caps text-label-caps hover:text-primary hover:opacity-80 transition-colors" href="#">Доставка</a>
+<a class="text-secondary font-label-caps text-label-caps hover:text-primary hover:opacity-80 transition-colors" href="#">Возврат</a>
+<a class="text-secondary font-label-caps text-label-caps hover:text-primary hover:opacity-80 transition-colors" href="#">Контакты</a>
+<a class="text-secondary font-label-caps text-label-caps hover:text-primary hover:opacity-80 transition-colors" href="#">Политика конфиденциальности</a>
+</nav>
+<p class="font-body-md text-body-md text-secondary dark:text-on-secondary-fixed-variant">© 2024 MAISON. Все права защищены.</p>
+</footer>
+</body></html>

@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+
+<html lang="ru"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>MAISON - Контакты</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&amp;family=Montserrat:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-fixed-dim": "#ebbcac",
+                        "outline": "#747878",
+                        "on-primary": "#ffffff",
+                        "on-tertiary-fixed-variant": "#603f33",
+                        "surface-container-high": "#e8e8e8",
+                        "on-surface-variant": "#444748",
+                        "secondary": "#5f5e5d",
+                        "surface-tint": "#5f5e5e",
+                        "surface-container-low": "#f3f3f4",
+                        "error": "#ba1a1a",
+                        "primary-fixed-dim": "#c8c6c5",
+                        "on-background": "#1a1c1c",
+                        "surface-container-highest": "#e2e2e2",
+                        "on-secondary-container": "#636261",
+                        "inverse-on-surface": "#f0f1f1",
+                        "inverse-surface": "#2f3131",
+                        "surface-container-lowest": "#ffffff",
+                        "tertiary-fixed": "#ffdbcf",
+                        "surface": "#f9f9f9",
+                        "on-tertiary": "#ffffff",
+                        "surface-container": "#eeeeee",
+                        "primary-fixed": "#e4e2e1",
+                        "background": "#f9f9f9",
+                        "on-surface": "#1a1c1c",
+                        "outline-variant": "#c4c7c7",
+                        "secondary-fixed-dim": "#c8c6c4",
+                        "surface-bright": "#f9f9f9",
+                        "on-primary-fixed": "#1b1c1c",
+                        "secondary-fixed": "#e5e2e0",
+                        "tertiary": "#220b04",
+                        "on-secondary-fixed-variant": "#474745",
+                        "error-container": "#ffdad6",
+                        "surface-variant": "#e2e2e2",
+                        "surface-dim": "#dadada",
+                        "on-tertiary-fixed": "#2e150b",
+                        "on-error": "#ffffff",
+                        "inverse-primary": "#c8c6c5",
+                        "on-secondary-fixed": "#1b1c1b",
+                        "on-tertiary-container": "#ad8475",
+                        "secondary-container": "#e2dfdd",
+                        "tertiary-container": "#3a1f15",
+                        "on-secondary": "#ffffff",
+                        "primary-container": "#262626",
+                        "primary": "#111111",
+                        "on-primary-fixed-variant": "#474746",
+                        "on-error-container": "#93000a",
+                        "on-primary-container": "#8e8d8c"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-mobile": "16px",
+                        "gutter": "24px",
+                        "unit": "8px",
+                        "margin-desktop": "64px",
+                        "container-max": "1440px"
+                    },
+                    "fontFamily": {
+                        "display-lg": ["Playfair Display"],
+                        "headline-md": ["Playfair Display"],
+                        "label-caps": ["Montserrat"],
+                        "display-lg-mobile": ["Playfair Display"],
+                        "headline-sm": ["Playfair Display"],
+                        "button": ["Montserrat"],
+                        "body-lg": ["Montserrat"],
+                        "body-md": ["Montserrat"]
+                    },
+                    "fontSize": {
+                        "display-lg": ["48px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "headline-md": ["32px", { "lineHeight": "1.3", "fontWeight": "600" }],
+                        "label-caps": ["12px", { "lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "600" }],
+                        "display-lg-mobile": ["32px", { "lineHeight": "1.2", "fontWeight": "700" }],
+                        "headline-sm": ["24px", { "lineHeight": "1.4", "fontWeight": "600" }],
+                        "button": ["14px", { "lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "500" }],
+                        "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "body-md": ["16px", { "lineHeight": "1.5", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { font-family: 'Montserrat', sans-serif; background-color: #f9f9f9; color: #1a1c1c; }
+        h1, h2, h3, h4, h5, h6, .font-display, .font-headline { font-family: 'Playfair Display', serif; }
+        .nav-link { position: relative; }
+        .nav-link::after { content: ''; position: absolute; width: 0; height: 1px; bottom: -4px; left: 0; background-color: currentColor; transition: width 0.3s ease; }
+        .nav-link:hover::after { width: 100%; }
+        input:focus, textarea:focus { outline: none; border-color: #111111; box-shadow: none; }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen flex flex-col">
+<!-- TopNavBar -->
+<header class="bg-surface/90 dark:bg-surface-dim/90 backdrop-blur-md fixed top-0 w-full z-50 border-b border-outline-variant/30 transition-all duration-300">
+<div class="flex justify-between items-center h-20 px-margin-desktop max-w-container-max mx-auto">
+<div class="flex items-center space-x-8">
+<nav class="hidden md:flex space-x-8 font-label-caps text-label-caps">
+<a class="text-secondary dark:text-secondary-fixed-dim hover:text-primary transition-colors nav-link" href="#">Новинки</a>
+<a class="text-secondary dark:text-secondary-fixed-dim hover:text-primary transition-colors nav-link" href="#">Одежда</a>
+<a class="text-secondary dark:text-secondary-fixed-dim hover:text-primary transition-colors nav-link" href="#">Аксессуары</a>
+<a class="text-secondary dark:text-secondary-fixed-dim hover:text-primary transition-colors nav-link" href="#">Распродажа</a>
+</nav>
+</div>
+<a class="font-display-lg text-display-lg tracking-tighter text-primary dark:text-on-primary-fixed hover:opacity-70 transition-opacity duration-300" href="#">
+                MAISON
+            </a>
+<div class="flex items-center space-x-6">
+<button class="text-primary dark:text-on-primary-fixed hover:opacity-70 transition-opacity duration-300">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">search</span>
+</button>
+<button class="text-primary dark:text-on-primary-fixed hover:opacity-70 transition-opacity duration-300">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">person</span>
+</button>
+<button class="text-primary dark:text-on-primary-fixed hover:opacity-70 transition-opacity duration-300">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">shopping_bag</span>
+</button>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-grow pt-[140px] pb-24 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto w-full">
+<!-- Header Section -->
+<div class="text-center mb-20 max-w-3xl mx-auto">
+<h1 class="font-display-lg text-display-lg md:text-[56px] text-primary mb-6">Контакты</h1>
+<p class="font-body-lg text-body-lg text-secondary">Мы всегда рады видеть вас в нашем флагманском бутике или ответить на любые вопросы онлайн.</p>
+</div>
+<!-- Bento Grid Layout for Contact Info & Form -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter mb-24">
+<!-- Left Column: Information -->
+<div class="lg:col-span-5 flex flex-col justify-between">
+<div class="bg-surface-container-lowest p-10 md:p-14 border border-outline-variant/20 rounded-sm h-full shadow-sm hover:shadow-md transition-shadow duration-500 flex flex-col justify-center">
+<div class="mb-12">
+<h2 class="font-headline-sm text-headline-sm text-primary mb-6 flex items-center">
+<span class="material-symbols-outlined mr-3 text-secondary" style="font-variation-settings: 'FILL' 0;">location_on</span>
+                            Флагманский Бутик
+                        </h2>
+<address class="not-italic font-body-md text-body-md text-on-surface-variant space-y-2">
+<p>Столешников переулок, 9</p>
+<p>Москва, 107031</p>
+<p>Россия</p>
+</address>
+</div>
+<div class="mb-12">
+<h2 class="font-headline-sm text-headline-sm text-primary mb-6 flex items-center">
+<span class="material-symbols-outlined mr-3 text-secondary" style="font-variation-settings: 'FILL' 0;">schedule</span>
+                            Часы Работы
+                        </h2>
+<div class="font-body-md text-body-md text-on-surface-variant space-y-2">
+<p class="flex justify-between w-48"><span>Пн - Вс:</span> <span>11:00 - 22:00</span></p>
+</div>
+</div>
+<div>
+<h2 class="font-headline-sm text-headline-sm text-primary mb-6 flex items-center">
+<span class="material-symbols-outlined mr-3 text-secondary" style="font-variation-settings: 'FILL' 0;">mail</span>
+                            Связь
+                        </h2>
+<div class="font-body-md text-body-md text-on-surface-variant space-y-3">
+<p><a class="hover:text-primary transition-colors border-b border-transparent hover:border-primary pb-1" href="tel:+74951234567">+7 (495) 123-45-67</a></p>
+<p><a class="hover:text-primary transition-colors border-b border-transparent hover:border-primary pb-1" href="mailto:concierge@maison.ru">concierge@maison.ru</a></p>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column: Contact Form -->
+<div class="lg:col-span-7 bg-surface-container-low p-10 md:p-14 border border-outline-variant/10 rounded-sm">
+<h3 class="font-headline-md text-headline-md text-primary mb-8">Напишите Нам</h3>
+<form class="space-y-8">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<div class="relative">
+<input class="block w-full bg-transparent border-0 border-b border-outline-variant/40 py-3 px-0 font-body-md text-body-md text-primary focus:ring-0 focus:border-primary peer transition-colors" id="name" placeholder=" " required="" type="text"/>
+<label class="absolute left-0 top-3 font-label-caps text-label-caps text-secondary duration-300 transform -translate-y-6 scale-90 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:-translate-y-6 peer-focus:scale-90 peer-focus:text-primary uppercase tracking-widest" for="name">Имя</label>
+</div>
+<div class="relative">
+<input class="block w-full bg-transparent border-0 border-b border-outline-variant/40 py-3 px-0 font-body-md text-body-md text-primary focus:ring-0 focus:border-primary peer transition-colors" id="email" placeholder=" " required="" type="email"/>
+<label class="absolute left-0 top-3 font-label-caps text-label-caps text-secondary duration-300 transform -translate-y-6 scale-90 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:-translate-y-6 peer-focus:scale-90 peer-focus:text-primary uppercase tracking-widest" for="email">Email</label>
+</div>
+</div>
+<div class="relative">
+<select class="block w-full bg-transparent border-0 border-b border-outline-variant/40 py-3 px-0 font-body-md text-body-md text-primary focus:ring-0 focus:border-primary appearance-none cursor-pointer" id="subject">
+<option class="text-secondary" disabled="" selected="" value="">Выберите тему...</option>
+<option value="orders">Заказы и Доставка</option>
+<option value="styling">Услуги Стилиста</option>
+<option value="press">Пресса и PR</option>
+<option value="other">Другое</option>
+</select>
+<span class="material-symbols-outlined absolute right-0 top-3 text-secondary pointer-events-none" style="font-variation-settings: 'FILL' 0;">expand_more</span>
+<label class="absolute left-0 -top-6 font-label-caps text-label-caps text-secondary scale-90 uppercase tracking-widest" for="subject">Тема</label>
+</div>
+<div class="relative mt-12">
+<textarea class="block w-full bg-transparent border border-outline-variant/30 rounded-sm p-4 font-body-md text-body-md text-primary focus:ring-0 focus:border-primary resize-none transition-colors peer placeholder-transparent" id="message" placeholder="Ваше сообщение" rows="4"></textarea>
+<label class="absolute left-4 -top-3 bg-surface-container-low px-2 font-label-caps text-label-caps text-secondary text-[10px] uppercase tracking-widest transition-all peer-focus:text-primary" for="message">Сообщение</label>
+</div>
+<div class="pt-4 flex justify-end">
+<button class="bg-primary text-on-primary font-button text-button uppercase tracking-widest py-4 px-12 rounded-sm hover:bg-primary-container hover:text-on-primary-container transition-all duration-300 w-full sm:w-auto" type="submit">
+                            Отправить
+                        </button>
+</div>
+</form>
+</div>
+</div>
+<!-- Map Section -->
+<div class="w-full h-[500px] rounded-sm overflow-hidden border border-outline-variant/20 relative grayscale-[30%] contrast-125 opacity-90 hover:grayscale-0 hover:opacity-100 transition-all duration-700 cursor-pointer">
+<img class="w-full h-full object-cover" data-alt="A highly detailed aerial view or stylized map of central Moscow, focusing on the Stoleshnikov Lane area. The aesthetic is extremely minimalist, high-end, and elegant, fitting a luxury fashion brand. The color palette is muted, featuring soft beiges, warm grays, and charcoal lines, avoiding bright map colors. The lighting suggests a clear, bright day, giving the map a clean, high-key look. The overall mood is sophisticated and clear." data-location="Moscow" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDRnk5BGQuDrTWp5KvT33JBL7M-PTgE-rJinvajOBhvDD5wBoR54P3KWIBHfHJ8dwoxMDOaGjymkPRKu743Cb-gl9GhY5sQk8CNSEJGUf3JggmXLEc83_MoecYVMEmAW8iBmMQGLZwTgeXpDs0ybLlUFhUTUREO7sVd-lxw4oQ3cp8-BxlzjP2wK5WrNvYFV6aiSc_Zfkvu0AvwAEmoaHIko2EEDZvyI-cWDMeRcRs7VBg2fA10COiW"/>
+<!-- Map Marker Overlay -->
+<div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex flex-col items-center">
+<div class="bg-primary text-on-primary px-4 py-2 text-xs font-label-caps tracking-widest rounded-sm mb-2 shadow-lg whitespace-nowrap">MAISON BOUTIQUE</div>
+<div class="w-4 h-4 bg-tertiary-fixed-dim rounded-full border-2 border-white shadow-md"></div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container dark:bg-surface-container-highest w-full pt-20 pb-10 border-t border-outline-variant/20">
+<div class="flex flex-col items-center max-w-container-max mx-auto px-margin-desktop">
+<div class="font-display-lg text-display-lg text-primary mb-10 text-center">
+                MAISON
+            </div>
+<nav class="flex flex-wrap justify-center gap-x-8 gap-y-4 mb-12">
+<a class="font-label-caps text-label-caps text-secondary hover:text-primary transition-all hover:opacity-80 uppercase tracking-widest" href="#">О нас</a>
+<a class="font-label-caps text-label-caps text-secondary hover:text-primary transition-all hover:opacity-80 uppercase tracking-widest" href="#">Доставка</a>
+<a class="font-label-caps text-label-caps text-secondary hover:text-primary transition-all hover:opacity-80 uppercase tracking-widest" href="#">Возврат</a>
+<a class="font-label-caps text-label-caps text-primary underline transition-all hover:opacity-80 uppercase tracking-widest" href="#">Контакты</a>
+<a class="font-label-caps text-label-caps text-secondary hover:text-primary transition-all hover:opacity-80 uppercase tracking-widest" href="#">Политика конфиденциальности</a>
+</nav>
+<div class="font-body-md text-body-md text-secondary dark:text-on-secondary-fixed-variant text-center">
+                © 2024 MAISON. Все права защищены.
+            </div>
+</div>
+</footer>
+<script>
+        // Simple scroll effect for top nav
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.classList.add('shadow-sm');
+                header.classList.replace('py-0', 'py-[-10px]'); // pseudo scale effect
+            } else {
+                header.classList.remove('shadow-sm');
+            }
+        });
+    </script>
+</body></html>

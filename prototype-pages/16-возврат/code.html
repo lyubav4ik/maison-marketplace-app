@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+
+<html lang="ru"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>MAISON - Возврат</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&amp;family=Playfair+Display:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+                "inverse-primary": "#c8c6c5",
+                "error": "#ba1a1a",
+                "outline-variant": "#c4c7c7",
+                "secondary": "#5f5e5d",
+                "tertiary-fixed": "#ffdbcf",
+                "on-tertiary-fixed": "#2e150b",
+                "secondary-fixed": "#e5e2e0",
+                "on-secondary-fixed-variant": "#474745",
+                "surface-container-high": "#e8e8e8",
+                "on-background": "#1a1c1c",
+                "surface-variant": "#e2e2e2",
+                "surface-container-low": "#f3f3f4",
+                "on-tertiary-fixed-variant": "#603f33",
+                "tertiary-container": "#3a1f15",
+                "on-error-container": "#93000a",
+                "tertiary-fixed-dim": "#ebbcac",
+                "primary-fixed-dim": "#c8c6c5",
+                "surface-tint": "#5f5e5e",
+                "background": "#f9f9f9",
+                "on-error": "#ffffff",
+                "on-secondary-fixed": "#1b1c1b",
+                "on-primary-fixed": "#1b1c1c",
+                "on-secondary-container": "#636261",
+                "tertiary": "#220b04",
+                "primary": "#111111",
+                "on-surface": "#1a1c1c",
+                "on-primary": "#ffffff",
+                "surface-dim": "#dadada",
+                "secondary-container": "#e2dfdd",
+                "on-primary-container": "#8e8d8c",
+                "on-tertiary-container": "#ad8475",
+                "surface-container-highest": "#e2e2e2",
+                "primary-container": "#262626",
+                "on-tertiary": "#ffffff",
+                "surface-container": "#eeeeee",
+                "outline": "#747878",
+                "secondary-fixed-dim": "#c8c6c4",
+                "error-container": "#ffdad6",
+                "on-secondary": "#ffffff",
+                "on-surface-variant": "#444748",
+                "primary-fixed": "#e4e2e1",
+                "on-primary-fixed-variant": "#474746",
+                "surface-container-lowest": "#ffffff",
+                "inverse-on-surface": "#f0f1f1",
+                "inverse-surface": "#2f3131",
+                "surface": "#f9f9f9",
+                "surface-bright": "#f9f9f9"
+        },
+        "borderRadius": {
+                "DEFAULT": "0.25rem",
+                "lg": "0.5rem",
+                "xl": "0.75rem",
+                "full": "9999px"
+        },
+        "spacing": {
+                "gutter": "24px",
+                "unit": "8px",
+                "margin-mobile": "16px",
+                "container-max": "1440px",
+                "margin-desktop": "64px"
+        },
+        "fontFamily": {
+                "display-lg-mobile": [
+                        "Playfair Display"
+                ],
+                "headline-sm": [
+                        "Playfair Display"
+                ],
+                "button": [
+                        "Montserrat"
+                ],
+                "display-lg": [
+                        "Playfair Display"
+                ],
+                "body-lg": [
+                        "Montserrat"
+                ],
+                "headline-md": [
+                        "Playfair Display"
+                ],
+                "body-md": [
+                        "Montserrat"
+                ],
+                "label-caps": [
+                        "Montserrat"
+                ]
+        },
+        "fontSize": {
+                "display-lg-mobile": [
+                        "32px",
+                        {
+                                "lineHeight": "1.2",
+                                "fontWeight": "700"
+                        }
+                ],
+                "headline-sm": [
+                        "24px",
+                        {
+                                "lineHeight": "1.4",
+                                "fontWeight": "600"
+                        }
+                ],
+                "button": [
+                        "14px",
+                        {
+                                "lineHeight": "1",
+                                "letterSpacing": "0.05em",
+                                "fontWeight": "500"
+                        }
+                ],
+                "display-lg": [
+                        "48px",
+                        {
+                                "lineHeight": "1.1",
+                                "letterSpacing": "-0.02em",
+                                "fontWeight": "700"
+                        }
+                ],
+                "body-lg": [
+                        "18px",
+                        {
+                                "lineHeight": "1.6",
+                                "fontWeight": "400"
+                        }
+                ],
+                "headline-md": [
+                        "32px",
+                        {
+                                "lineHeight": "1.3",
+                                "fontWeight": "600"
+                        }
+                ],
+                "body-md": [
+                        "16px",
+                        {
+                                "lineHeight": "1.5",
+                                "fontWeight": "400"
+                        }
+                ],
+                "label-caps": [
+                        "12px",
+                        {
+                                "lineHeight": "1",
+                                "letterSpacing": "0.1em",
+                                "fontWeight": "600"
+                        }
+                ]
+        }
+},
+    },
+  }
+</script>
+<style>
+        .fade-in-up { animation: fadeInUp 0.8s ease-out forwards; opacity: 0; transform: translateY(20px); }
+        @keyframes fadeInUp { to { opacity: 1; transform: translateY(0); } }
+        .delay-100 { animation-delay: 100ms; }
+        .delay-200 { animation-delay: 200ms; }
+        .delay-300 { animation-delay: 300ms; }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md antialiased selection:bg-surface-dim selection:text-primary min-h-screen flex flex-col">
+<!-- TopNavBar -->
+<header class="bg-surface/90 dark:bg-surface-dim/90 backdrop-blur-md fixed top-0 w-full z-50 border-b border-outline-variant/30">
+<div class="flex justify-between items-center h-20 px-margin-desktop max-w-container-max mx-auto">
+<div class="flex-1 hidden md:flex items-center gap-8">
+<a class="font-label-caps text-label-caps text-secondary dark:text-secondary-fixed-dim hover:text-primary transition-colors hover:opacity-70 transition-opacity duration-300" href="#">Новинки</a>
+<a class="font-label-caps text-label-caps text-secondary dark:text-secondary-fixed-dim hover:text-primary transition-colors hover:opacity-70 transition-opacity duration-300" href="#">Одежда</a>
+<a class="font-label-caps text-label-caps text-secondary dark:text-secondary-fixed-dim hover:text-primary transition-colors hover:opacity-70 transition-opacity duration-300" href="#">Аксессуары</a>
+<a class="font-label-caps text-label-caps text-secondary dark:text-secondary-fixed-dim hover:text-primary transition-colors hover:opacity-70 transition-opacity duration-300" href="#">Распродажа</a>
+</div>
+<a class="font-display-lg text-display-lg tracking-tighter text-primary dark:text-on-primary-fixed shrink-0" href="#">MAISON</a>
+<div class="flex-1 flex justify-end items-center gap-6 text-primary dark:text-on-primary-fixed">
+<button class="hover:opacity-70 transition-opacity duration-300 active:scale-95 transition-transform"><span class="material-symbols-outlined">search</span></button>
+<button class="hover:opacity-70 transition-opacity duration-300 active:scale-95 transition-transform"><span class="material-symbols-outlined">person</span></button>
+<button class="hover:opacity-70 transition-opacity duration-300 active:scale-95 transition-transform"><span class="material-symbols-outlined">shopping_bag</span></button>
+</div>
+</div>
+</header>
+<main class="flex-grow pt-32 pb-24 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto w-full">
+<!-- Header Section -->
+<div class="max-w-3xl mx-auto text-center mb-20 fade-in-up">
+<span class="font-label-caps text-label-caps text-secondary mb-4 block">ОБСЛУЖИВАНИЕ КЛИЕНТОВ</span>
+<h1 class="font-display-lg text-display-lg text-primary mb-6">Возврат</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Мы стремимся к тому, чтобы каждая вещь MAISON приносила вам радость. Если изделие вам не подошло, вы можете вернуть его в течение 14 дней с момента получения заказа.</p>
+</div>
+<!-- Policy Overview -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter mb-24 max-w-5xl mx-auto fade-in-up delay-100">
+<div class="bg-surface-container-low p-10 rounded-lg">
+<h3 class="font-headline-sm text-headline-sm text-primary mb-4">Условия возврата</h3>
+<ul class="space-y-4 font-body-md text-on-surface-variant list-disc pl-5">
+<li>Изделие не было в употреблении.</li>
+<li>Сохранены товарный вид, потребительские свойства.</li>
+<li>Сохранены оригинальные ярлыки и упаковка.</li>
+<li>Имеется чек или иной документ, подтверждающий оплату.</li>
+</ul>
+</div>
+<div class="bg-surface-container-low p-10 rounded-lg">
+<h3 class="font-headline-sm text-headline-sm text-primary mb-4">Исключения</h3>
+<p class="font-body-md text-on-surface-variant mb-4">Согласно законодательству, некоторые категории товаров не подлежат возврату или обмену:</p>
+<ul class="space-y-4 font-body-md text-on-surface-variant list-disc pl-5">
+<li>Нижнее белье и купальники.</li>
+<li>Чулочно-носочные изделия.</li>
+<li>Парфюмерия и косметика.</li>
+</ul>
+</div>
+</div>
+<!-- Step-by-Step Process -->
+<div class="max-w-4xl mx-auto mb-24 fade-in-up delay-200">
+<h2 class="font-headline-md text-headline-md text-primary text-center mb-12">Процесс возврата</h2>
+<div class="space-y-12 relative before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-outline-variant/30">
+<div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active">
+<div class="flex items-center justify-center w-10 h-10 rounded-full border-2 border-primary bg-background text-primary font-label-caps z-10 shadow-sm shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2">
+                        1
+                    </div>
+<div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-6 bg-surface border border-outline-variant/20 rounded-lg shadow-sm">
+<h4 class="font-headline-sm text-headline-sm text-primary mb-2 flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary">edit_document</span>
+                            Заявка
+                        </h4>
+<p class="font-body-md text-on-surface-variant">Заполните форму возврата, вложенную в ваш заказ, или скачайте её в личном кабинете. Укажите причину возврата.</p>
+</div>
+</div>
+<div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group">
+<div class="flex items-center justify-center w-10 h-10 rounded-full border-2 border-primary bg-background text-primary font-label-caps z-10 shadow-sm shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2">
+                        2
+                    </div>
+<div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-6 bg-surface border border-outline-variant/20 rounded-lg shadow-sm">
+<h4 class="font-headline-sm text-headline-sm text-primary mb-2 flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary">inventory_2</span>
+                            Упаковка
+                        </h4>
+<p class="font-body-md text-on-surface-variant">Аккуратно упакуйте изделие в оригинальную коробку MAISON, вложите заполненное заявление на возврат и чек.</p>
+</div>
+</div>
+<div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group">
+<div class="flex items-center justify-center w-10 h-10 rounded-full border-2 border-primary bg-background text-primary font-label-caps z-10 shadow-sm shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2">
+                        3
+                    </div>
+<div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-6 bg-surface border border-outline-variant/20 rounded-lg shadow-sm">
+<h4 class="font-headline-sm text-headline-sm text-primary mb-2 flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary">local_shipping</span>
+                            Отправка
+                        </h4>
+<p class="font-body-md text-on-surface-variant">Передайте посылку курьеру или отправьте через любой удобный пункт выдачи логистической компании. Стоимость отправки оплачивается покупателем.</p>
+</div>
+</div>
+<div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group">
+<div class="flex items-center justify-center w-10 h-10 rounded-full border-2 border-primary bg-background text-primary font-label-caps z-10 shadow-sm shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2">
+                        4
+                    </div>
+<div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-6 bg-surface border border-outline-variant/20 rounded-lg shadow-sm">
+<h4 class="font-headline-sm text-headline-sm text-primary mb-2 flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary">payments</span>
+                            Возврат средств
+                        </h4>
+<p class="font-body-md text-on-surface-variant">После получения и проверки изделия на нашем складе, мы вернем средства на карту, с которой была совершена оплата, в течение 10 рабочих дней.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Support CTA -->
+<div class="text-center fade-in-up delay-300">
+<h3 class="font-headline-sm text-headline-sm text-primary mb-4">Остались вопросы?</h3>
+<p class="font-body-md text-on-surface-variant mb-8">Наша служба поддержки готова помочь вам на каждом этапе.</p>
+<a class="inline-block bg-primary text-on-primary font-button text-button px-8 py-4 uppercase tracking-wider hover:bg-surface-tint transition-colors" href="#">Связаться с нами</a>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container dark:bg-surface-container-highest w-full pt-20 pb-10 border-t border-outline-variant/20 mt-auto">
+<div class="flex flex-col items-center max-w-container-max mx-auto px-margin-desktop">
+<h2 class="font-display-lg text-display-lg text-primary mb-8">MAISON</h2>
+<div class="flex flex-wrap justify-center gap-6 mb-12">
+<a class="font-label-caps text-label-caps text-secondary hover:text-primary hover:opacity-80 transition-all" href="#">О нас</a>
+<a class="font-label-caps text-label-caps text-secondary hover:text-primary hover:opacity-80 transition-all" href="#">Доставка</a>
+<a class="font-label-caps text-label-caps text-primary underline hover:opacity-80 transition-all" href="#">Возврат</a>
+<a class="font-label-caps text-label-caps text-secondary hover:text-primary hover:opacity-80 transition-all" href="#">Контакты</a>
+<a class="font-label-caps text-label-caps text-secondary hover:text-primary hover:opacity-80 transition-all" href="#">Политика конфиденциальности</a>
+</div>
+<p class="font-body-md text-body-md text-secondary dark:text-on-secondary-fixed-variant text-sm">© 2024 MAISON. Все права защищены.</p>
+</div>
+</footer>
+</body></html>
