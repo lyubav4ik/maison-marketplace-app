@@ -1,8 +1,16 @@
 # Статус приложения MAISON
 
-Status: готово к деплою (ждёт команды пользователя)
+Status: задеплоено, ждёт регистрации в кабинете партнёра
 Версия: 1.0.0
 Бренд: MAISON
+
+## Продакшен (VibeCode Galaxy)
+- appUrl: https://app-81b3fc11f662.vibecode.bitrix24.tech
+- serverId: 07994a85-863b-4966-b1fb-40a08b722f3e (kind GALAXY_APP)
+- accessPolicy PUBLIC, автосон управляется на уровне галактики
+- env: APP_URL=https://app-81b3fc11f662.vibecode.bitrix24.tech,
+  NODE_ENV=production; MAISON_CLIENT_ID/SECRET придут из кабинета партнёра
+- Смоук пройден: /status, /install, /assets/maison-logo.svg, / (MAISON) — 200
 
 ## Что работает
 - 18 премиум-блоков `vl-maison-*` — те же определения, что живут на
@@ -24,10 +32,12 @@ Status: готово к деплою (ждёт команды пользоват
 - Мультиязычность, платная монетизация — после первой публикации.
 
 ## Чего не хватает для Маркетплейса
-1. Деплой на сервер Galaxy (по команде пользователя) → APP_URL.
-2. Регистрация приложения в кабинете партнёра (client_id/secret) →
-   app/config.json или env.
-3. Тест-установка на чистом портале (полный цикл + reinstall).
+1. Регистрация приложения в кабинете партнёра:
+   - Обработчик: https://app-81b3fc11f662.vibecode.bitrix24.tech/install
+   - Ссылка на приложение: https://app-81b3fc11f662.vibecode.bitrix24.tech/app
+   - Права: landing, catalog, sale, user_brief
+   → client_id/secret в env сервера (редеплой) или app/config.json
+2. Тест-установка на чистом портале (полный цикл + reinstall).
 
 ## Грабли, которые уже учтены
 - Санитайзер Б24 режет form/input/textarea в CONTENT блоков — форма
