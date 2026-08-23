@@ -29,4 +29,4 @@ for (const f of fs.readdirSync(DIR)) {
 console.log(bad.length ? 'ЧУЖИЕ:\n' + [...new Set(bad)].join('\n') : 'контроль пройден');
 
 // выборочная проверка одной ссылки на доступность после пуша
-console.log('пример:', 'https://cdn.jsdelivr.net/gh/lyubav4ik/maison-marketplace-app@v0.1/assets/header-block.css');
+console.log('пример:', 'https://cdn.jsdelivr.net/gh/lyubav4ik/maison-marketplace-app@v0.1/app/assets/header-block.css');

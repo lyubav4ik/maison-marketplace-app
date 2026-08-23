@@ -5,7 +5,7 @@
     "DESCRIPTION": "Заголовок и большой форматированный текст — для политики конфиденциальности и любых информационных страниц. Текст редактируется как богатый текст (подзаголовки, списки).",
     "SECTIONS": "other",
     "ACTIVE": "Y",
-    "PREVIEW": "https://cdn.jsdelivr.net/gh/lyubav4ik/maison-marketplace-app@v0.1/assets/block-preview-article.jpg",
+    "PREVIEW": "https://cdn.jsdelivr.net/gh/lyubav4ik/maison-marketplace-app@v0.1/app/assets/block-preview-article.jpg",
     "CONTENT": "<section class=\"landing-block vl-article\">\n<div class=\"vl-article-inner\">\n<h1 class=\"vl-article-h landing-block-node-article-h\">Политика конфиденциальности</h1>\n<div class=\"vl-article-text landing-block-node-article-text\"><p>Настоящая политика обработки персональных данных составлена в соответствии с требованиями Федерального закона от 27.07.2006 №152-ФЗ «О персональных данных».</p><h3>1. Основные понятия</h3><p>Оператор — интернет-магазин MAISON. Обработка персональных данных осуществляется на законной и справедливой основе.</p><h3>2. Какие данные мы собираем</h3><ul><li>Имя и контактные данные при оформлении заказа</li><li>Данные cookies и посещений сайта</li></ul><h3>3. Цели обработки</h3><ul><li>Оформление и доставка заказов</li><li>Информирование о статусе заказа</li></ul><p>Мы не передаем персональные данные третьим лицам, кроме случаев, предусмотренных законодательством РФ.</p></div>\n</div>\n</section>"
   },
   "manifest": {
@@ -48,7 +48,7 @@
     },
     "assets": {
       "css": [
-        "https://cdn.jsdelivr.net/gh/lyubav4ik/maison-marketplace-app@v0.1/assets/article-block.css"
+        "https://cdn.jsdelivr.net/gh/lyubav4ik/maison-marketplace-app@v0.1/app/assets/article-block.css"
       ],
       "js": []
     }

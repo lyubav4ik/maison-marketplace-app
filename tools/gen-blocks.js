@@ -7,7 +7,8 @@ const ROOT = path.join(__dirname, '..');
 const OUT_BLOCKS = path.join(ROOT, 'app', 'blocks');
 const OUT_ASSETS = path.join(ROOT, 'app', 'assets');
 
-const NEW_CDN = 'cdn.jsdelivr.net/gh/lyubav4ik/maison-marketplace-app@v0.1/assets/';
+// Хост не включаем: он уже стоит в оригинальных ссылках перед заменяемой частью
+const NEW_CDN = 'lyubav4ik/maison-marketplace-app@v0.1/app/assets/';
 
 const PAYLOADS = [
   'register-header.json',
