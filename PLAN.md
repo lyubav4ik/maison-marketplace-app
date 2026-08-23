@@ -32,12 +32,13 @@
 6. Версия 1.0.0, имя maison.
 
 ## Шаги
-- [x] Изучить правила, бэкап в _backups
+- [x] CDN проверен: jsDelivr @v0.1 отдаёт все ассеты (пути /app/assets/)
+-[x] Изучить правила, бэкап в _backups
 - [x] Определить источник блоков (temp payload, 18 шт)
-- [ ] Генератор blocks/*.json + сбор ассетов (tools/gen-blocks.js)
-- [ ] pages.js, server.js, конфиги
-- [ ] Чистка: удалить блоки/ (клон velvet), src/, старый app/server.js
-- [ ] git init, коммит, GitHub-репо, push, тег v0.1
+- [x] Генератор blocks/*.json + сбор ассетов (tools/gen-blocks.js)
+- [x] pages.js, server.js, конфиги
+- [x] Чистка: удалить блоки/ (клон velvet), src/, старый app/server.js
+- [x] git init, коммит, GitHub-репо, push, тег v0.1
 - [ ] SESSION.md/README, отчёт «готово к деплою» + чек-лист партнёра
 
 ## После деплоя (по команде пользователя)
