@@ -849,8 +849,12 @@ async function provisionPortal(memberId, token, domain, refreshTokenVal) {
       let catPath = '';
       try {
         const cl = await callRest(domain, currentToken, 'catalog.catalog.list', {});
-        const first = cl.body && Array.isArray(cl.body.result) ? cl.body.result[0] : null;
-        const ib = first && (first.IBLOCK_ID || first.id);
+        const raw = cl.body && cl.body.result;
+        log.push('catalog.catalog.list raw: ' + JSON.stringify(raw).slice(0, 300));
+        const arr = Array.isArray(raw) ? raw
+          : (raw && Array.isArray(raw.catalogs) ? raw.catalogs : []);
+        const first = arr[0] || null;
+        const ib = first && (first.IBLOCK_ID || first.ID || first.iblockId || first.id);
         if (ib) catPath = '/shop/catalog/' + ib + '/';
       } catch (e) {
         log.push('catalog.catalog.list unavailable: ' + (e.message || e));
