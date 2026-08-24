@@ -198,20 +198,43 @@ function esc(s) {
 
 function appPageHtml(data) {
   const q = (url) => esc(url || '');
-  const rows = (data.rows || []).map((r) => `
+  const rows = (data.rows || []).map((r) => {
+    const d = q(r.domain);
+    const shopLinks = [
+      { href: 'https://' + d + '/shop/orders/', icon: '&#128179;', t: 'Заказы', s: 'оформленные покупки' },
+      { href: 'https://' + d + '/shop/catalog/', icon: '&#128100;', t: 'Каталог', s: 'товары и торговые предложения' },
+      { href: 'https://' + d + '/shop/stores/', icon: '&#127980;', t: 'Магазины', s: 'настройки витрины' },
+      { href: 'https://' + d + '/crm/', icon: '&#129309;', t: 'CRM', s: 'клиенты и сделки' },
+    ].map((l) => '<a class="ql" href="' + l.href + '" target="_blank" rel="noopener"><span class="ql__ic">' + l.icon + '</span><span class="ql__tx"><b>' + l.t + '</b><small>' + l.s + '</small></span><span class="ql__arr">&#8599;</span></a>').join('');
+    return `
         <div class="card">
           <div class="card__head">
             <span class="dot is-ok"></span>
-            <span class="card__status">Сайт установлен</span>
+            <span class="card__status">Магазин работает</span>
           </div>
-          <h1 class="card__title">Ваш магазин MAISON готов</h1>
+          <h1 class="card__title">Ваш бутик MAISON готов</h1>
+          <p class="card__sub">Витрина, каталог и страницы уже в вашем Битрикс24${r.publicUrl ? '' : '. Публикация сайта появится после снятия тарифного лимита'}.</p>
           <div class="card__actions">
-            ${r.publicUrl ? '<a class="btn btn--primary" href="' + q(r.publicUrl) + '" target="_blank" rel="noopener">Перейти на сайт</a>' : '<span class="btn btn--ghost">Сайт пока не опубликован</span>'}
+            ${r.publicUrl ? '<a class="btn btn--primary" href="' + q(r.publicUrl) + '" target="_blank" rel="noopener">Открыть сайт</a>' : '<span class="btn btn--ghost">Сайт пока не опубликован</span>'}
             <a class="btn btn--secondary" href="${q(r.editUrl)}" target="_blank" rel="noopener">Редактировать сайт</a>
           </div>
-        </div>`).join('\n');
-  return pageShell('MAISON — приложение установлено', 'приложение', 'MAISON', rows ||
-    '<div class="card"><h1 class="card__title">Приложение не установлено</h1><p class="card__sub">Установите MAISON, чтобы создать интернет-магазин.</p></div>');
+        </div>
+        <div class="card">
+          <h2 class="card__label">Управление магазином</h2>
+          <div class="ql-grid">${shopLinks}</div>
+        </div>
+        <div class="card">
+          <h2 class="card__label">Что дальше</h2>
+          <div class="features" style="margin-bottom:0">
+            <div class="feature"><span class="feature__ic">1</span><span>Замените демо-товары своими<small>раздел Магазин → Каталог, фото загрузите к товарам</small></span></div>
+            <div class="feature"><span class="feature__ic">2</span><span>Настройте оплату и доставку<small>Магазин → Настройки → Платёжные системы и службы доставки</small></span></div>
+            <div class="feature"><span class="feature__ic">3</span><span>Меняйте дизайн витрины<small>Сайты → ваш магазин: 18 блоков MAISON в категории бренда</small></span></div>
+          </div>
+        </div>`;
+  }).join('\n');
+  return pageShell('MAISON — панель управления', 'управление', 'MAISON', rows ||
+    '<div class="card"><h1 class="card__title">Приложение ещё не установлено</h1><p class="card__sub">Установите MAISON, чтобы создать интернет-магазин: витрину, каталог и страницы.</p></div>') +
+    '\n<script src="//api.bitrix24.tech/api/v1/"></script>\n<script>try{BX24.init(function(){BX24.fitWindow();});}catch(e){}</script>';
 }
 
 function installMasterHtml() {
@@ -397,6 +420,20 @@ function pageShell(title, tag, brand, inner) {
   .status.is-error{color:#ffb4a3;border-color:rgba(255,120,90,.35);background:rgba(255,120,90,.08)}
   .note{text-align:center;font-size:11.5px;color:#6d6a64;line-height:1.5}
   .meta{text-align:center;font-size:11px;color:#6d6a64}
+  .card__label{font-family:'Playfair Display',serif;font-size:19px;margin:0 0 14px}
+  .ql-grid{display:grid;grid-template-columns:1fr;gap:10px}
+  .ql{display:flex;align-items:center;gap:12px;padding:12px 14px;border-radius:14px;text-decoration:none;
+      background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);
+      transition:transform .16s ease, background .16s ease, border-color .16s ease}
+  .ql:hover{transform:translateY(-2px);background:rgba(255,255,255,.08);border-color:rgba(201,169,110,.35)}
+  .ql__ic{flex:none;width:34px;height:34px;border-radius:10px;display:flex;align-items:center;justify-content:center;
+          font-size:16px;background:rgba(201,169,110,.13);color:#c9a96e}
+  .ql__tx{display:flex;flex-direction:column;min-width:0;flex:1}
+  .ql__tx b{font-size:13.5px;font-weight:600;color:#f2efe9}
+  .ql__tx small{font-size:11.5px;color:#8f8c86;margin-top:1px}
+  .ql__arr{color:#6d6a64;font-size:13px;transition:color .16s ease, transform .16s ease}
+  .ql:hover .ql__arr{color:#c9a96e;transform:translate(1px,-1px)}
+  @media (min-width:480px){ .ql-grid{grid-template-columns:1fr 1fr} }
   @media (min-width:560px){ .card__actions{flex-direction:row;display:flex} .card__actions .btn{flex:1} }
 </style>
 </head>

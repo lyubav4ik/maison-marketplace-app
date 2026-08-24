@@ -11,6 +11,9 @@ Status: задеплоено, ждёт регистрации в кабинет�
 - env: APP_URL=https://app-81b3fc11f662.vibecode.bitrix24.tech,
   NODE_ENV=production; MAISON_CLIENT_ID/SECRET придут из кабинета партнёра
 - Смоук пройден: /status, /install, /assets/maison-logo.svg, / (MAISON) — 200
+- Страница приложения /app — панель управления бутиком (статус сайта,
+  быстрые ссылки Заказы/Каталог/Магазины/CRM, подсказки «Что дальше»,
+  BX24.fitWindow для слайдера). Открывается из пункта левого меню MAISON.
 
 ## Что работает
 - 18 премиум-блоков `vl-maison-*` — те же определения, что живут на
@@ -36,6 +39,8 @@ Status: задеплоено, ждёт регистрации в кабинет�
    - Обработчик: https://app-81b3fc11f662.vibecode.bitrix24.tech/install
    - Ссылка на приложение: https://app-81b3fc11f662.vibecode.bitrix24.tech/app
    - Права: landing, catalog, sale, user_brief
+   - Галочка «Добавлять свою страницу и пункт в главном меню» — ДА;
+     название пункта в описании приложения: MAISON
    → client_id/secret в env сервера (редеплой) или app/config.json
 2. Тест-установка на чистом портале (полный цикл + reinstall).
 
