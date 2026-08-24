@@ -5,9 +5,9 @@
 // Коды без repo_ (штатные блоки Б24) добавляются напрямую через fields.CODE.
 module.exports = [
   { code: 'home', title: 'Главная', blocks: ['vl-maison-footer', 'vl-maison-story', 'vl-maison-products', 'vl-maison-cats', 'vl-maison-hero', 'vl-maison-header'] },
-  { code: 'katalog', title: 'Каталог', blocks: ['vl-maison-footer', 'store.catalog.list', 'vl-maison-header'] },
+  { code: 'katalog', title: 'Каталог', blocks: ['vl-maison-footer', 'vl-maison-catalogpage', 'vl-breadcrumbs', 'vl-maison-header'] },
   { code: 'product-card', title: 'Карточка товара', blocks: ['vl-maison-footer', 'vl-maison-related', 'vl-maison-pcard', 'vl-maison-header'] },
-  { code: 'novinki', title: 'Новинки', blocks: ['vl-maison-footer', 'vl-maison-products', 'vl-maison-cats', 'vl-maison-abhero', 'vl-maison-header'] },
+  { code: 'novinki', title: 'Новинки', blocks: ['vl-maison-footer', 'vl-maison-novpage', 'vl-breadcrumbs', 'vl-maison-header'] },
   { code: 'o-brende', title: 'О бренде', blocks: ['vl-maison-footer', 'vl-maison-craft', 'vl-maison-values', 'vl-maison-abstory', 'vl-maison-abhero', 'vl-maison-header'] },
   { code: 'kontakty', title: 'Контакты', blocks: ['vl-maison-footer', 'vl-maison-mapimg', '33.13.form_2_light_no_text', 'vl-maison-contacts', 'vl-maison-header'] },
   { code: 'dostavka', title: 'Доставка', blocks: ['vl-maison-footer', 'vl-maison-delivery', 'vl-maison-abhero', 'vl-maison-header'] },

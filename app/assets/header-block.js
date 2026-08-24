@@ -49,9 +49,7 @@
 				if (e.key !== 'Enter') return;
 				e.preventDefault();
 				var q = (input.value || '').trim();
-				resolveCatalog().then(function (base) {
-					window.location.href = base + '?q=' + encodeURIComponent(q);
-				});
+				window.location.href = '/search/?q=' + encodeURIComponent(q);
 			});
 		}
 	}
