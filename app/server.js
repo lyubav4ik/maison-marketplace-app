@@ -456,9 +456,20 @@ function flattenParams(obj, prefix) {
       result[fullKey] = val;
     }
   }
+
+  // Диагностика: сохраняем лог провижининга в запись портала (виден на /app?debug=1)
+  try {
+    const installs = loadInstalls();
+    for (const key of Object.keys(installs)) {
+      if (installs[key] && installs[key].member_id === memberId) {
+        installs[key].lastLog = (result.log || []).slice(-120);
+      }
+    }
+    fs.writeFileSync(path.join(ROOT, 'data', 'installs.json'), JSON.stringify(installs, null, 2), 'utf8');
+  } catch (e) { /* не критично */ }
+
   return result;
 }
-
 function requestForm(url, postData) {
   return new Promise((resolve, reject) => {
     const u = new URL(url);
@@ -936,9 +947,13 @@ const server = http.createServer((req, res) => {
           if (ib) catalogUrl = 'https://' + install.domain + '/shop/catalog/' + ib + '/';
         } catch (e) { /* остаёмся на общем списке каталогов */ }
         const editUrl = 'https://' + install.domain + '/shop/stores/site/' + install.siteId + '/';
-        const html = appPageHtml({
+        let html = appPageHtml({
           rows: [{ domain: install.domain, siteId: install.siteId, publicUrl: publicUrl, editUrl: editUrl, catalogUrl: catalogUrl }]
         });
+        if (q.get('debug') === '1' && Array.isArray(install.lastLog) && install.lastLog.length) {
+          const pre = install.lastLog.map((l) => String(l)).join('\n');
+          html += '\n<details style="max-width:860px;margin:24px auto;font-family:sans-serif"><summary style="cursor:pointer">Лог провижининга</summary><pre style="white-space:pre-wrap;background:#f6f6f6;padding:12px;border-radius:8px;font-size:12px">' + pre.replace(/[&<>]/g, (ch) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;' }[ch])) + '</pre></details>';
+        }
         return answer(200, 'text/html; charset=utf-8', html);
       } catch (e) {
         log('app page: exception ' + (e.stack || e.message || String(e)));

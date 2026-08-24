@@ -14,4 +14,12 @@ module.exports = [
   { code: 'vozvrat', title: 'Возврат', blocks: ['vl-maison-footer', 'vl-maison-returns', 'vl-maison-abhero', 'vl-maison-header'] },
   { code: 'faq', title: 'FAQ', blocks: ['vl-maison-footer', 'vl-maison-faq', 'vl-maison-abhero', 'vl-maison-header'] },
   { code: 'privacy', title: 'Политика конфиденциальности', blocks: ['vl-maison-footer', 'vl-maison-article', 'vl-maison-header'] },
+  { code: 'cart', title: 'Корзина', blocks: ['vl-maison-footer', 'vl-cart', 'vl-breadcrumbs', 'vl-maison-header'] },
+  { code: 'checkout', title: 'Оформление заказа', blocks: ['vl-maison-footer', 'vl-checkout', 'vl-maison-header'] },
+  { code: 'order-success', title: 'Заказ оформлен', blocks: ['vl-maison-footer', 'vl-order-success', 'vl-maison-header'] },
+  { code: 'personal', title: 'Личный кабинет', blocks: ['vl-maison-footer', 'vl-account', 'vl-maison-header'] },
+  { code: 'wishlist', title: 'Избранное', blocks: ['vl-maison-footer', 'vl-wishlist', 'vl-breadcrumbs', 'vl-maison-header'] },
+  { code: 'addresses', title: 'Мои адреса', blocks: ['vl-maison-footer', 'vl-addresses', 'vl-maison-header'] },
+  { code: 'auth', title: 'Вход и регистрация', blocks: ['vl-auth'] },
+  { code: 'search', title: 'Поиск', blocks: ['vl-maison-footer', 'vl-search', 'vl-maison-header'] },
 ];
