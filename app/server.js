@@ -708,24 +708,30 @@ async function provisionPortal(memberId, token, domain, refreshTokenVal) {
   const result = { memberId, domain, siteId: null, published: false, blocks: 0, pages: 0, pageBlocks: 0, log };
   let currentToken = token;
 
-  // 1. Регистрируем все премиум-блоки
+  // 1. Регистрируем все премиум-блоки.
+  // Ассеты в определениях лежат плейсхолдером __ASSETS__/ — при регистрации
+  // подставляем актуальную базу (свой сервер /assets/ или CDN через env).
+  const ASSET_BASE = (process.env.MAISON_ASSETS || APP_URL + '/assets').replace(/\/$/, '');
+  const subAssets = (s) => typeof s === 'string' ? s.split('__ASSETS__/').join(ASSET_BASE + '/') : s;
   const repoIds = {};
   const repoContent = {};
   const blocks = getBlocks();
   for (const b of blocks) {
+    const fields = JSON.parse(subAssets(JSON.stringify(b.fields)));
+    const manifest = JSON.parse(subAssets(JSON.stringify(b.manifest)));
     const r = await callRest(domain, currentToken, 'landing.repo.register', {
-      fields: b.fields,
-      manifest: b.manifest,
+      fields,
+      manifest,
       code: b.code,
       addblock: b.code,
-      addblock_name: b.fields.NAME,
+      addblock_name: fields.NAME,
     });
     if (r.body && r.body.result) {
       repoIds[b.code] = r.body.result;
-      repoContent[b.code] = (b.fields && b.fields.CONTENT) || '';
+      repoContent[b.code] = fields.CONTENT || '';
       result.blocks++;
     } else {
-      log.push('block fail: ' + b.fields.NAME + ' ' + JSON.stringify(r.body));
+      log.push('block fail: ' + fields.NAME + ' ' + JSON.stringify(r.body));
     }
   }
 

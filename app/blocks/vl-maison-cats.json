@@ -5,8 +5,8 @@
     "DESCRIPTION": "Карточки категорий с фото во всю высоту, зумом при наведении и появлением при скролле. Статичный режим: меняйте картинку, название и ссылку каждой карточки; количество карточек — кнопками добавления/удаления. Динамический режим: поставьте любой карточке ссылку #dynamic — блок сам подтянет разделы каталога (названия и фото первых товаров), число карточек = сколько разделов показать.",
     "SECTIONS": "store",
     "ACTIVE": "Y",
-    "PREVIEW": "https://cdn.jsdelivr.net/gh/lyubav4ik/maison-marketplace-app@v0.2/app/assets/block-preview-cats.jpg",
-    "CONTENT": "<section class=\"landing-block vl-cats\">\n<div class=\"vl-cats-grid\">\n<a class=\"vl-cat landing-block-card-cat landing-block-node-cat-link fade-in\" href=\"#\" target=\"_self\">\n<img class=\"vl-cat-img landing-block-node-cat-img\" src=\"https://cdn.jsdelivr.net/gh/lyubav4ik/maison-marketplace-app@v0.2/app/assets/cat-1.jpg\" alt=\"Верхняя одежда\">\n<div class=\"vl-cat-veil\"></div>\n<div class=\"vl-cat-bottom\">\n<h3 class=\"vl-cat-title landing-block-node-cat-title\">Верхняя одежда</h3>\n<span class=\"vl-cat-arrow\" aria-hidden=\"true\">→</span>\n</div>\n</a>\n<a class=\"vl-cat landing-block-card-cat landing-block-node-cat-link fade-in\" href=\"#\" target=\"_self\" style=\"transition-delay:100ms\">\n<img class=\"vl-cat-img landing-block-node-cat-img\" src=\"https://cdn.jsdelivr.net/gh/lyubav4ik/maison-marketplace-app@v0.2/app/assets/cat-2.jpg\" alt=\"Платья\">\n<div class=\"vl-cat-veil\"></div>\n<div class=\"vl-cat-bottom\">\n<h3 class=\"vl-cat-title landing-block-node-cat-title\">Платья</h3>\n<span class=\"vl-cat-arrow\" aria-hidden=\"true\">→</span>\n</div>\n</a>\n<a class=\"vl-cat landing-block-card-cat landing-block-node-cat-link fade-in\" href=\"#\" target=\"_self\" style=\"transition-delay:200ms\">\n<img class=\"vl-cat-img landing-block-node-cat-img\" src=\"https://cdn.jsdelivr.net/gh/lyubav4ik/maison-marketplace-app@v0.2/app/assets/cat-3.jpg\" alt=\"Трикотаж\">\n<div class=\"vl-cat-veil\"></div>\n<div class=\"vl-cat-bottom\">\n<h3 class=\"vl-cat-title landing-block-node-cat-title\">Трикотаж</h3>\n<span class=\"vl-cat-arrow\" aria-hidden=\"true\">→</span>\n</div>\n</a>\n</div>\n</section>"
+    "PREVIEW": "__ASSETS__/block-preview-cats.jpg",
+    "CONTENT": "<section class=\"landing-block vl-cats\">\n<div class=\"vl-cats-grid\">\n<a class=\"vl-cat landing-block-card-cat landing-block-node-cat-link fade-in\" href=\"#\" target=\"_self\">\n<img class=\"vl-cat-img landing-block-node-cat-img\" src=\"__ASSETS__/cat-1.jpg\" alt=\"Верхняя одежда\">\n<div class=\"vl-cat-veil\"></div>\n<div class=\"vl-cat-bottom\">\n<h3 class=\"vl-cat-title landing-block-node-cat-title\">Верхняя одежда</h3>\n<span class=\"vl-cat-arrow\" aria-hidden=\"true\">→</span>\n</div>\n</a>\n<a class=\"vl-cat landing-block-card-cat landing-block-node-cat-link fade-in\" href=\"#\" target=\"_self\" style=\"transition-delay:100ms\">\n<img class=\"vl-cat-img landing-block-node-cat-img\" src=\"__ASSETS__/cat-2.jpg\" alt=\"Платья\">\n<div class=\"vl-cat-veil\"></div>\n<div class=\"vl-cat-bottom\">\n<h3 class=\"vl-cat-title landing-block-node-cat-title\">Платья</h3>\n<span class=\"vl-cat-arrow\" aria-hidden=\"true\">→</span>\n</div>\n</a>\n<a class=\"vl-cat landing-block-card-cat landing-block-node-cat-link fade-in\" href=\"#\" target=\"_self\" style=\"transition-delay:200ms\">\n<img class=\"vl-cat-img landing-block-node-cat-img\" src=\"__ASSETS__/cat-3.jpg\" alt=\"Трикотаж\">\n<div class=\"vl-cat-veil\"></div>\n<div class=\"vl-cat-bottom\">\n<h3 class=\"vl-cat-title landing-block-node-cat-title\">Трикотаж</h3>\n<span class=\"vl-cat-arrow\" aria-hidden=\"true\">→</span>\n</div>\n</a>\n</div>\n</section>"
   },
   "manifest": {
     "block": {
@@ -65,10 +65,10 @@
     },
     "assets": {
       "css": [
-        "https://cdn.jsdelivr.net/gh/lyubav4ik/maison-marketplace-app@v0.2/app/assets/categories-block.css"
+        "__ASSETS__/categories-block.css"
       ],
       "js": [
-        "https://cdn.jsdelivr.net/gh/lyubav4ik/maison-marketplace-app@v0.2/app/assets/categories-block.js"
+        "__ASSETS__/categories-block.js"
       ]
     }
   }

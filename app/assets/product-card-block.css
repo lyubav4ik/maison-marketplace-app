@@ -7,7 +7,7 @@
 .vl-pc-crumbs a{color:#5f5e5d;text-decoration:none;transition:color .3s ease}
 .vl-pc-crumbs a:hover{color:#111111}
 .vl-pc-crumbs li+li:before{content:'/';margin:0 8px;color:#5f5e5d}
-.vl-pc-crumbs .vl-pc-crumb-cur{color:#111111}
+.vl-pc-crumbs .vl-pc-crumb-cur{color:#111111;font-weight:600}
 @media(min-width:768px){.vl-pc-crumbs{display:block}}
 .vl-pc-layout{display:flex;flex-direction:column;gap:24px;margin-bottom:64px}
 @media(min-width:768px){.vl-pc-layout{flex-direction:row;gap:64px}}
@@ -46,7 +46,7 @@
 .vl-pc-btn{display:block;width:100%;height:56px;line-height:56px;background:#111111;color:#ffffff;text-align:center;text-decoration:none;font-family:'Montserrat',Arial,sans-serif;font-size:14px;font-weight:500;letter-spacing:.05em;text-transform:uppercase;margin-bottom:32px;transition:background-color .3s ease}
 .vl-pc-btn:hover{background:#262626}
 .vl-pc-info{border-top:1px solid rgba(196,199,199,.2);padding-top:24px}
-.vl-pc-infoh{font-family:'Montserrat',Arial,sans-serif;font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#111111;margin:0 0 12px}
+.vl-pc-infoh{font-family:'Montserrat',Arial,sans-serif;font-size:13px!important;font-weight:700!important;letter-spacing:.12em;text-transform:uppercase;color:#111111!important;margin:0 0 12px}
 .vl-pc-infoblock{margin-bottom:24px}
 .vl-pc-infoblock:last-child{margin-bottom:0}
 .vl-pc-text{font-family:'Montserrat',Arial,sans-serif;font-size:16px;line-height:1.5;color:#5f5e5d;margin:0}

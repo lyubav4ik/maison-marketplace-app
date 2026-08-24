@@ -5,7 +5,7 @@
     "DESCRIPTION": "Условия возврата: две карточки (условия и исключения) и шаги оформления возврата. Карточки и шаги добавляются/удаляются кнопками.",
     "SECTIONS": "other",
     "ACTIVE": "Y",
-    "PREVIEW": "https://cdn.jsdelivr.net/gh/lyubav4ik/maison-marketplace-app@v0.2/app/assets/block-preview-returns.jpg",
+    "PREVIEW": "__ASSETS__/block-preview-returns.jpg",
     "CONTENT": "<section class=\"landing-block vl-returns\">\n<div class=\"vl-rt-inner\">\n<h1 class=\"vl-rt-h landing-block-node-rt-h\">Возврат</h1>\n<p class=\"vl-rt-sub landing-block-node-rt-sub\">Мы принимаем возврат в течение 14 дней с момента получения заказа.</p>\n<div class=\"vl-rt-cards\">\n<div class=\"vl-rt-card landing-block-card-rtc\">\n<h3 class=\"vl-rt-cardh landing-block-node-rt-cardh\">Условия возврата</h3>\n<ul class=\"vl-rt-list\"><li>Возврат от физического лица</li><li>Сохранен товарный вид</li><li>Сохранены ярлыки и упаковка</li><li>Есть чек или документ заказа</li></ul>\n</div>\n<div class=\"vl-rt-card landing-block-card-rtc\">\n<h3 class=\"vl-rt-cardh landing-block-node-rt-cardh\">Исключения</h3>\n<ul class=\"vl-rt-list\"><li>Бельевые товары</li><li>Ювелирно-часовые изделия</li><li>Товары из распродажи</li></ul>\n</div>\n</div>\n<h2 class=\"vl-rt-steps-title landing-block-node-rt-stepstitle\">Этапы возврата</h2>\n<div class=\"vl-rt-steps\">\n<div class=\"vl-rt-step landing-block-card-rts\">\n<div class=\"vl-rt-num landing-block-node-rt-num\">1</div>\n<div class=\"vl-rt-stepcard\">\n<h4 class=\"vl-rt-steph landing-block-node-rt-steph\">Заявка</h4>\n<p class=\"vl-rt-steptext landing-block-node-rt-steptext\">Свяжитесь с нами удобным способом и сообщите номер заказа и причину обращения.</p>\n</div>\n</div>\n<div class=\"vl-rt-step landing-block-card-rts\">\n<div class=\"vl-rt-num landing-block-node-rt-num\">2</div>\n<div class=\"vl-rt-stepcard\">\n<h4 class=\"vl-rt-steph landing-block-node-rt-steph\">Отправка</h4>\n<p class=\"vl-rt-steptext landing-block-node-rt-steptext\">Упакуйте товар в оригинальную упаковку MAISON и передайте курьеру или в пункт выдачи.</p>\n</div>\n</div>\n<div class=\"vl-rt-step landing-block-card-rts\">\n<div class=\"vl-rt-num landing-block-node-rt-num\">3</div>\n<div class=\"vl-rt-stepcard\">\n<h4 class=\"vl-rt-steph landing-block-node-rt-steph\">Возврат средств</h4>\n<p class=\"vl-rt-steptext landing-block-node-rt-steptext\">После проверки товара деньги вернутся на ваш счет в течение 5 рабочих дней.</p>\n</div>\n</div>\n</div>\n</div>\n</section>"
   },
   "manifest": {
@@ -87,7 +87,7 @@
     },
     "assets": {
       "css": [
-        "https://cdn.jsdelivr.net/gh/lyubav4ik/maison-marketplace-app@v0.2/app/assets/returns-block.css"
+        "__ASSETS__/returns-block.css"
       ],
       "js": []
     }

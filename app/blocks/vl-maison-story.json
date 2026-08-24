@@ -5,8 +5,8 @@
     "DESCRIPTION": "Фото слева, текст справа: заголовок, описание бренда и ссылка со стрелкой. Появление при скролле. Все тексты, фото и ссылка редактируются.",
     "SECTIONS": "about",
     "ACTIVE": "Y",
-    "PREVIEW": "https://cdn.jsdelivr.net/gh/lyubav4ik/maison-marketplace-app@v0.2/app/assets/block-preview-story.jpg",
-    "CONTENT": "<section class=\"landing-block vl-story\">\n<div class=\"vl-story-inner\">\n<div class=\"vl-story-media fade-in\">\n<img class=\"vl-story-img landing-block-node-story-img\" src=\"https://cdn.jsdelivr.net/gh/lyubav4ik/maison-marketplace-app@v0.2/app/assets/story.jpg\" alt=\"История бренда\">\n</div>\n<div class=\"vl-story-body fade-in\">\n<h2 class=\"vl-story-title landing-block-node-story-title\">Наш стиль</h2>\n<div class=\"vl-story-text landing-block-node-story-text\">Мы верим, что истинная элегантность кроется в простоте и безупречном качестве. MAISON создает одежду, которая не кричит о себе, а подчеркивает вашу индивидуальность.<br><br>Каждая вещь в нашей коллекции — это инвестиция в ваш гардероб, созданная из премиальных тканей с вниманием к мельчайшим деталям кроя.</div>\n<div><a class=\"vl-story-link landing-block-node-story-link\" href=\"/katalog/\" target=\"_self\"><span>О бренде</span><span class=\"vl-story-link-arrow\" aria-hidden=\"true\">→</span></a></div>\n</div>\n</div>\n</section>"
+    "PREVIEW": "__ASSETS__/block-preview-story.jpg",
+    "CONTENT": "<section class=\"landing-block vl-story\">\n<div class=\"vl-story-inner\">\n<div class=\"vl-story-media fade-in\">\n<img class=\"vl-story-img landing-block-node-story-img\" src=\"__ASSETS__/story.jpg\" alt=\"История бренда\">\n</div>\n<div class=\"vl-story-body fade-in\">\n<h2 class=\"vl-story-title landing-block-node-story-title\">Наш стиль</h2>\n<div class=\"vl-story-text landing-block-node-story-text\">Мы верим, что истинная элегантность кроется в простоте и безупречном качестве. MAISON создает одежду, которая не кричит о себе, а подчеркивает вашу индивидуальность.<br><br>Каждая вещь в нашей коллекции — это инвестиция в ваш гардероб, созданная из премиальных тканей с вниманием к мельчайшим деталям кроя.</div>\n<div><a class=\"vl-story-link landing-block-node-story-link\" href=\"/katalog/\" target=\"_self\"><span>О бренде</span><span class=\"vl-story-link-arrow\" aria-hidden=\"true\">→</span></a></div>\n</div>\n</div>\n</section>"
   },
   "manifest": {
     "block": {
@@ -61,10 +61,10 @@
     },
     "assets": {
       "css": [
-        "https://cdn.jsdelivr.net/gh/lyubav4ik/maison-marketplace-app@v0.2/app/assets/story-block.css"
+        "__ASSETS__/story-block.css"
       ],
       "js": [
-        "https://cdn.jsdelivr.net/gh/lyubav4ik/maison-marketplace-app@v0.2/app/assets/story-block.js"
+        "__ASSETS__/story-block.js"
       ]
     }
   }

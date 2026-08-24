@@ -5,8 +5,8 @@
     "DESCRIPTION": "Блок похожих товаров: заголовок по центру и карточки (фото с зумом при наведении, название, цена, ссылка). Количество карточек — кнопками добавления/удаления.",
     "SECTIONS": "store",
     "ACTIVE": "Y",
-    "PREVIEW": "https://cdn.jsdelivr.net/gh/lyubav4ik/maison-marketplace-app@v0.2/app/assets/block-preview-related.jpg",
-    "CONTENT": "<section class=\"landing-block vl-rel\">\n<div class=\"vl-rel-inner\">\n<h2 class=\"vl-rel-title landing-block-node-rel-title\">С чем носить</h2>\n<div class=\"vl-rel-grid\">\n<a class=\"vl-rel-card landing-block-card-rel landing-block-node-rel-link\" href=\"#\" target=\"_self\">\n<div class=\"vl-rel-media\"><img class=\"vl-rel-img landing-block-node-rel-img\" src=\"https://cdn.jsdelivr.net/gh/lyubav4ik/maison-marketplace-app@v0.2/app/assets/rel-1.jpg\" alt=\"Кожаные босоножки\"></div>\n<h3 class=\"vl-rel-name landing-block-node-rel-name\">Кожаные босоножки</h3>\n<p class=\"vl-rel-price landing-block-node-rel-price\">45 000 ₽</p>\n</a>\n<a class=\"vl-rel-card landing-block-card-rel landing-block-node-rel-link\" href=\"#\" target=\"_self\">\n<div class=\"vl-rel-media\"><img class=\"vl-rel-img landing-block-node-rel-img\" src=\"https://cdn.jsdelivr.net/gh/lyubav4ik/maison-marketplace-app@v0.2/app/assets/rel-2.jpg\" alt=\"Кожаный клатч\"></div>\n<h3 class=\"vl-rel-name landing-block-node-rel-name\">Кожаный клатч</h3>\n<p class=\"vl-rel-price landing-block-node-rel-price\">82 000 ₽</p>\n</a>\n<a class=\"vl-rel-card landing-block-card-rel landing-block-node-rel-link\" href=\"#\" target=\"_self\">\n<div class=\"vl-rel-media\"><img class=\"vl-rel-img landing-block-node-rel-img\" src=\"https://cdn.jsdelivr.net/gh/lyubav4ik/maison-marketplace-app@v0.2/app/assets/rel-3.jpg\" alt=\"Подвеска с жемчугом\"></div>\n<h3 class=\"vl-rel-name landing-block-node-rel-name\">Подвеска с жемчугом</h3>\n<p class=\"vl-rel-price landing-block-node-rel-price\">38 000 ₽</p>\n</a>\n</div>\n</div>\n</section>"
+    "PREVIEW": "__ASSETS__/block-preview-related.jpg",
+    "CONTENT": "<section class=\"landing-block vl-rel\">\n<div class=\"vl-rel-inner\">\n<h2 class=\"vl-rel-title landing-block-node-rel-title\">С чем носить</h2>\n<div class=\"vl-rel-grid\">\n<a class=\"vl-rel-card landing-block-card-rel landing-block-node-rel-link\" href=\"#\" target=\"_self\">\n<div class=\"vl-rel-media\"><img class=\"vl-rel-img landing-block-node-rel-img\" src=\"__ASSETS__/rel-1.jpg\" alt=\"Кожаные босоножки\"></div>\n<h3 class=\"vl-rel-name landing-block-node-rel-name\">Кожаные босоножки</h3>\n<p class=\"vl-rel-price landing-block-node-rel-price\">45 000 ₽</p>\n</a>\n<a class=\"vl-rel-card landing-block-card-rel landing-block-node-rel-link\" href=\"#\" target=\"_self\">\n<div class=\"vl-rel-media\"><img class=\"vl-rel-img landing-block-node-rel-img\" src=\"__ASSETS__/rel-2.jpg\" alt=\"Кожаный клатч\"></div>\n<h3 class=\"vl-rel-name landing-block-node-rel-name\">Кожаный клатч</h3>\n<p class=\"vl-rel-price landing-block-node-rel-price\">82 000 ₽</p>\n</a>\n<a class=\"vl-rel-card landing-block-card-rel landing-block-node-rel-link\" href=\"#\" target=\"_self\">\n<div class=\"vl-rel-media\"><img class=\"vl-rel-img landing-block-node-rel-img\" src=\"__ASSETS__/rel-3.jpg\" alt=\"Подвеска с жемчугом\"></div>\n<h3 class=\"vl-rel-name landing-block-node-rel-name\">Подвеска с жемчугом</h3>\n<p class=\"vl-rel-price landing-block-node-rel-price\">38 000 ₽</p>\n</a>\n</div>\n</div>\n</section>"
   },
   "manifest": {
     "block": {
@@ -75,7 +75,7 @@
     },
     "assets": {
       "css": [
-        "https://cdn.jsdelivr.net/gh/lyubav4ik/maison-marketplace-app@v0.2/app/assets/related-block.css"
+        "__ASSETS__/related-block.css"
       ],
       "js": []
     }
