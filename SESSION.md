@@ -8,9 +8,23 @@ Status: задеплоено, ждёт регистрации в кабинет�
 - appUrl: https://app-81b3fc11f662.vibecode.bitrix24.tech
 - serverId: 07994a85-863b-4966-b1fb-40a08b722f3e (kind GALAXY_APP)
 - accessPolicy PUBLIC, автосон управляется на уровне галактики
-- env: APP_URL=https://app-81b3fc11f662.vibecode.bitrix24.tech,
-  NODE_ENV=production; MAISON_CLIENT_ID/SECRET придут из кабинета партнёра
+- env: APP_URL полный домен, NODE_ENV=production,
+  MAISON_CLIENT_ID/SECRET настроены на сервере (секрет только в истории
+  сессии, не в файлах)
 - Смоук пройден: /status, /install, /assets/maison-logo.svg, / (MAISON) — 200
+
+## Фиксы после первого e2e-теста (23-24.08.2026)
+- Слаги страниц = ссылкам из блоков: katalog, novinki, o-brende,
+  kontakty, dostavka, vozvrat, faq, privacy (раньше catalog/about и т.д.
+  давали 404).
+- Меню шапки/подвала и кнопка героя — реальные ссылки вместо '#'.
+  Пункты шапки: Новинки, Каталог, О бренде, Контакты. Источники правлены:
+  app/blocks + temp payload'ы register-header/footer/hero.json.
+- /uninstall теперь удаляет запись портала (member_id/domain) из
+  installs.json — требование модерации «данные пользователя удаляются».
+  Сам созданный магазин на портале НЕ трогаем (данные клиента).
+- Первый тестовый портал b24-7stt6k: сайт создан до фикса слагов →
+  переустановка после ручного удаления старого сайта.
 - Страница приложения /app — панель управления бутиком (статус сайта,
   быстрые ссылки Заказы/Каталог/Магазины/CRM, подсказки «Что дальше»,
   BX24.fitWindow для слайдера). Открывается из пункта левого меню MAISON.
