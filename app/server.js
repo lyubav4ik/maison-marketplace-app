@@ -1053,6 +1053,29 @@ const server = http.createServer((req, res) => {
   }
 
   if (url === '/uninstall') {
+    (async () => {
+      try {
+        const raw = await readBody(req);
+        const body = parseBody(raw);
+        const auth = body.auth || body;
+        const memberId = String(auth.member_id || auth.MEMBER_ID || '').trim();
+        const domain = String(auth.domain || auth.DOMAIN || '').replace(/^https?:\/\//, '').toLowerCase().trim();
+        const installs = loadInstalls();
+        let removed = 0;
+        for (const key of Object.keys(installs)) {
+          const rec = installs[key] || {};
+          const recDomain = String(rec.domain || '').toLowerCase();
+          if ((memberId && rec.member_id === memberId) || (domain && recDomain === domain)) {
+            delete installs[key];
+            removed++;
+          }
+        }
+        if (removed > 0) fs.writeFileSync(path.join(ROOT, 'data', 'installs.json'), JSON.stringify(installs, null, 2), 'utf8');
+        log('uninstall: removed=' + removed + ' member=' + memberId + ' domain=' + domain);
+      } catch (e) {
+        log('uninstall handler error: ' + (e.stack || e.message || e));
+      }
+    })();
     const body = '<h1>Приложение удалено</h1><p class="muted">Спасибо, что пользовались MAISON.</p>';
     return answer(200, 'text/html; charset=utf-8', body);
   }

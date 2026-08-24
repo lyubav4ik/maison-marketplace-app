@@ -6,7 +6,7 @@
     "SECTIONS": "footer",
     "ACTIVE": "Y",
     "PREVIEW": "https://cdn.jsdelivr.net/gh/lyubav4ik/maison-marketplace-app@v0.1/app/assets/block-preview-footer.jpg",
-    "CONTENT": "<footer class=\"landing-block vl-footer\">\n<div class=\"vl-footer-inner\">\n<a class=\"vl-footer-logo landing-block-node-flogo\" href=\"/\" target=\"_self\">MAISON</a>\n<nav class=\"vl-footer-nav\">\n<a class=\"vl-footer-flink landing-block-card-flink landing-block-node-flink\" href=\"#\" target=\"_self\">О нас</a>\n<a class=\"vl-footer-flink landing-block-card-flink landing-block-node-flink\" href=\"#\" target=\"_self\">Доставка</a>\n<a class=\"vl-footer-flink landing-block-card-flink landing-block-node-flink\" href=\"#\" target=\"_self\">Возврат</a>\n<a class=\"vl-footer-flink landing-block-card-flink landing-block-node-flink\" href=\"#\" target=\"_self\">Контакты</a>\n<a class=\"vl-footer-flink landing-block-card-flink landing-block-node-flink\" href=\"#\" target=\"_self\">Политика конфиденциальности</a>\n</nav>\n<p class=\"vl-footer-copy landing-block-node-fcopy\">© 2024 MAISON. Все права защищены.</p>\n</div>\n</footer>"
+    "CONTENT": "<footer class=\"landing-block vl-footer\">\n<div class=\"vl-footer-inner\">\n<a class=\"vl-footer-logo landing-block-node-flogo\" href=\"/\" target=\"_self\">MAISON</a>\n<nav class=\"vl-footer-nav\">\n<a class=\"vl-footer-flink landing-block-card-flink landing-block-node-flink\" href=\"/o-brende/\" target=\"_self\">О нас</a>\n<a class=\"vl-footer-flink landing-block-card-flink landing-block-node-flink\" href=\"/dostavka/\" target=\"_self\">Доставка</a>\n<a class=\"vl-footer-flink landing-block-card-flink landing-block-node-flink\" href=\"/vozvrat/\" target=\"_self\">Возврат</a>\n<a class=\"vl-footer-flink landing-block-card-flink landing-block-node-flink\" href=\"/kontakty/\" target=\"_self\">Контакты</a>\n<a class=\"vl-footer-flink landing-block-card-flink landing-block-node-flink\" href=\"/privacy/\" target=\"_self\">Политика конфиденциальности</a>\n</nav>\n<p class=\"vl-footer-copy landing-block-node-fcopy\">© 2024 MAISON. Все права защищены.</p>\n</div>\n</footer>"
   },
   "manifest": {
     "block": {
@@ -69,5 +69,6 @@
         "https://cdn.jsdelivr.net/gh/lyubav4ik/maison-marketplace-app@v0.1/app/assets/footer-block.css"
       ]
     }
-  }
+  },
+  "CONTENT": ""
 }

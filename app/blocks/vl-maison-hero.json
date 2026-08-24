@@ -6,7 +6,7 @@
     "SECTIONS": "cover",
     "ACTIVE": "Y",
     "PREVIEW": "https://cdn.jsdelivr.net/gh/lyubav4ik/maison-marketplace-app@v0.1/app/assets/block-preview-hero.jpg",
-    "CONTENT": "<section class=\"landing-block vl-hero\">\n<img class=\"vl-hero-img landing-block-node-hero-img\" src=\"https://cdn.jsdelivr.net/gh/lyubav4ik/maison-marketplace-app@v0.1/app/assets/hero-default.jpg\" alt=\"Новая коллекция MAISON\">\n<div class=\"vl-hero-overlay\"></div>\n<div class=\"vl-hero-inner\">\n<span class=\"vl-hero-label landing-block-node-hero-label\">Новая коллекция</span>\n<h2 class=\"vl-hero-title landing-block-node-hero-title\">Aura Couture</h2>\n<a class=\"vl-hero-btn landing-block-node-hero-btn\" href=\"#\" target=\"_self\">Смотреть коллекцию</a>\n</div>\n</section>"
+    "CONTENT": "<section class=\"landing-block vl-hero\">\n<img class=\"vl-hero-img landing-block-node-hero-img\" src=\"https://cdn.jsdelivr.net/gh/lyubav4ik/maison-marketplace-app@v0.1/app/assets/hero-default.jpg\" alt=\"Новая коллекция MAISON\">\n<div class=\"vl-hero-overlay\"></div>\n<div class=\"vl-hero-inner\">\n<span class=\"vl-hero-label landing-block-node-hero-label\">Новая коллекция</span>\n<h2 class=\"vl-hero-title landing-block-node-hero-title\">Aura Couture</h2>\n<a class=\"vl-hero-btn landing-block-node-hero-btn\" href=\"/katalog/\" target=\"_self\">Смотреть коллекцию</a>\n</div>\n</section>"
   },
   "manifest": {
     "block": {
