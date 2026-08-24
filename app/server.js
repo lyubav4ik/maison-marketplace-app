@@ -597,17 +597,16 @@ async function importProducts(domain, token, refreshTokenVal, memberId, log) {
   for (const sec of sections) {
     const r = await callRest(domain, token, 'catalog.section.add', {
       fields: {
-        NAME: sec.name,
-        CODE: sec.code,
-        SORT: sec.sort,
-        ACTIVE: 'Y',
-        IBLOCK_ID: iblockId,
+        name: sec.name,
+        sort: sec.sort,
+        active: 'Y',
         iblockId: iblockId,
       },
     });
     if (r.body && r.body.result) {
-      sectionIds[sec.code] = r.body.result;
-      log.push('section created: ' + sec.name + ' #' + r.body.result);
+      const rid = r.body.result;
+      sectionIds[sec.code] = (rid && typeof rid === 'object' && (rid.id || rid.ID)) || rid;
+      log.push('section created: ' + sec.name + ' #' + sectionIds[sec.code]);
     } else {
       log.push('section fail: ' + sec.name + ' ' + JSON.stringify(r.body));
     }
@@ -654,15 +653,14 @@ async function importProducts(domain, token, refreshTokenVal, memberId, log) {
 
     const prodRes = await callRest(domain, token, 'catalog.product.add', {
       fields: {
-        NAME: p.name,
-        PRICE: p.price,
-        CURRENCY: 'RUB',
-        SECTION_ID: sectionId,
-        IBLOCK_ID: iblockId,
+        name: p.name,
+        price: p.price,
+        currency: 'RUB',
+        sectionId: sectionId,
         iblockId: iblockId,
-        ACTIVE: 'Y',
-        DETAIL_TEXT: p.desc,
-        PREVIEW_TEXT: p.desc.slice(0, 200),
+        active: 'Y',
+        detailText: p.desc,
+        previewText: p.desc.slice(0, 200),
       },
     });
 
@@ -681,20 +679,15 @@ async function importProducts(domain, token, refreshTokenVal, memberId, log) {
 
           const skuRes = await callRest(domain, token, 'catalog.product.add', {
             fields: {
-              NAME: p.name + ' ' + color + ' / ' + size,
-              PRICE: p.price,
-              CURRENCY: 'RUB',
-              SECTION_ID: sectionId,
-              IBLOCK_ID: iblockId,
+              name: p.name + ' ' + color + ' / ' + size,
+              price: p.price,
+              currency: 'RUB',
+              sectionId: sectionId,
               iblockId: iblockId,
-              ACTIVE: 'Y',
-              TYPE: 2,
-              DETAIL_TEXT: p.desc,
-              PARENT_ID: productId,
-              PROPERTY_VALUES: {
-                COLOR: color,
-                SIZE: size,
-              },
+              active: 'Y',
+              type: 2,
+              detailText: p.desc,
+              parentId: productId,
             },
           });
           if (skuRes.body && skuRes.body.result) {
