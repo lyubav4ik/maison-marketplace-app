@@ -566,19 +566,18 @@ function refreshToken(domain, refreshTokenVal) {
 async function importProducts(domain, token, refreshTokenVal, memberId, log) {
   const result = { count: 0, errors: [] };
 
-  // ID инфоблока торгового каталога
+  // ID инфоблока торгового каталога: ответ приходит объектом {catalogs:[...]},
+  // главный каталог — тот, у которого productIblockId пустой (у SKU-каталога он заполнен)
   let iblockId = 1;
   try {
-    const catRes = await callRest(domain, token, 'catalog.catalog.get', { id: 1 });
-    if (catRes.body && catRes.body.result && catRes.body.result.IBLOCK_ID) {
-      iblockId = catRes.body.result.IBLOCK_ID;
-      log.push('catalog iblockId: ' + iblockId);
-    } else {
-      const listRes = await callRest(domain, token, 'catalog.catalog.list', {});
-      if (listRes.body && listRes.body.result && listRes.body.result.length > 0) {
-        iblockId = listRes.body.result[0].IBLOCK_ID || 1;
-        log.push('catalog iblockId from list: ' + iblockId);
-      }
+    const listRes = await callRest(domain, token, 'catalog.catalog.list', {});
+    const raw = listRes.body && listRes.body.result;
+    const arr = Array.isArray(raw) ? raw : (raw && Array.isArray(raw.catalogs) ? raw.catalogs : []);
+    log.push('catalog.catalog.list: ' + JSON.stringify(arr).slice(0, 250));
+    const main = arr.find((c) => !c.productIblockId || c.productIblockId === '0') || arr[0];
+    if (main) {
+      iblockId = Number(main.iblockId || main.IBLOCK_ID || main.id || main.ID) || 1;
+      log.push('catalog iblockId resolved: ' + iblockId);
     }
   } catch (e) {
     log.push('get iblockId failed, using default 1: ' + e.message);
