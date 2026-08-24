@@ -961,12 +961,28 @@ const server = http.createServer((req, res) => {
         }
         const publicUrl = await fetchPublicUrl(install);
         let catalogUrl = 'https://' + install.domain + '/shop/catalog/';
+        const resolveCatalogUrl = async (token) => {
+          const cl = await callRest(install.domain, token, 'catalog.catalog.list', {});
+          const raw = cl.body && cl.body.result;
+          log('app page: catalog.catalog.list raw: ' + JSON.stringify(raw).slice(0, 300));
+          const arr = Array.isArray(raw) ? raw
+            : (raw && Array.isArray(raw.catalogs) ? raw.catalogs : []);
+          const first = arr[0] || null;
+          return first && (first.IBLOCK_ID || first.ID || first.iblockId || first.id) || null;
+        };
         try {
-          const cl = await callRest(install.domain, install.access_token, 'catalog.catalog.list', {});
-          const first = cl.body && Array.isArray(cl.body.result) ? cl.body.result[0] : null;
-          const ib = first && (first.IBLOCK_ID || first.id);
+          let ib = await resolveCatalogUrl(install.access_token);
+          if (!ib) {
+            const refreshed = await refreshToken(install.domain, install.refresh_token);
+            if (refreshed && refreshed.access_token) {
+              saveAuth({ member_id: install.member_id, domain: install.domain, access_token: refreshed.access_token, refresh_token: refreshed.refresh_token || install.refresh_token, expires_in: refreshed.expires_in });
+              install.access_token = refreshed.access_token;
+              install.refresh_token = refreshed.refresh_token || install.refresh_token;
+              ib = await resolveCatalogUrl(refreshed.access_token);
+            }
+          }
           if (ib) catalogUrl = 'https://' + install.domain + '/shop/catalog/' + ib + '/';
-        } catch (e) { /* остаёмся на общем списке каталогов */ }
+        } catch (e) { log('app page: catalog list fail: ' + (e.message || e)); }
         const editUrl = 'https://' + install.domain + '/shop/stores/site/' + install.siteId + '/';
         let html = appPageHtml({
           rows: [{ domain: install.domain, siteId: install.siteId, publicUrl: publicUrl, editUrl: editUrl, catalogUrl: catalogUrl }]
