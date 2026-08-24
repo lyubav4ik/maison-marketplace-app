@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=Playfair+Display:wght@700&display=swap');
+﻿@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=Playfair+Display:wght@700&display=swap');
 .vl-header *,.vl-header *::before,.vl-header *::after{box-sizing:border-box;margin:0;padding:0}
 .vl-header{position:sticky!important;top:0;z-index:100;transition:background .3s ease,box-shadow .3s ease}
 :where(.vl-header){background:#f9f9f9}
@@ -27,7 +27,7 @@
 .vl-menu-list{flex-direction:column!important;align-items:stretch!important;row-gap:0!important;column-gap:0!important;padding:8px 16px}
 .vl-menu-item{border-bottom:1px solid rgba(17,17,17,.06);justify-content:flex-start!important}
 .vl-menu-item:last-child{border-bottom:0}
-.vl-menu-link{display:block;padding:15px 2px!important}
+.vl-menu-link{display:block;padding:15px 12px!important}
 .vl-header .vl-menu-link{font-size:13px}
 .vl-menu-link::after{display:none}
 .vl-logo-zone{margin-left:12px!important}

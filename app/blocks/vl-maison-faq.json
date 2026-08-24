@@ -5,7 +5,7 @@
     "DESCRIPTION": "Вопрос-ответ аккордеоном: клик раскрывает ответ. Каждая пара вопрос/ответ — карточка, добавляйте новые кнопками. Для нескольких разделов поставьте блок несколько раз с разными заголовками.",
     "SECTIONS": "other",
     "ACTIVE": "Y",
-    "PREVIEW": "https://cdn.jsdelivr.net/gh/lyubav4ik/maison-marketplace-app@v0.1/app/assets/block-preview-faq.jpg",
+    "PREVIEW": "https://cdn.jsdelivr.net/gh/lyubav4ik/maison-marketplace-app@v0.2/app/assets/block-preview-faq.jpg",
     "CONTENT": "<section class=\"landing-block vl-faq\">\n<div class=\"vl-faq-inner\">\n<h1 class=\"vl-faq-h landing-block-node-faq-h\">Часто задаваемые вопросы</h1>\n<p class=\"vl-faq-sub landing-block-node-faq-sub\">Найдите ответы на самые популярные вопросы о покупках в MAISON.</p>\n<div class=\"vl-faq-item landing-block-card-faq\">\n<button type=\"button\" class=\"vl-faq-q\"><span class=\"landing-block-node-faq-q\">Как отследить заказ?</span><span class=\"vl-faq-icon\" aria-hidden=\"true\">+</span></button>\n<div class=\"vl-faq-a\"><p class=\"vl-faq-atext landing-block-node-faq-a\">После отправки заказа вы получите письмо с номером для отслеживания.</p></div>\n</div>\n<div class=\"vl-faq-item landing-block-card-faq\">\n<button type=\"button\" class=\"vl-faq-q\"><span class=\"landing-block-node-faq-q\">Каковы сроки доставки?</span><span class=\"vl-faq-icon\" aria-hidden=\"true\">+</span></button>\n<div class=\"vl-faq-a\"><p class=\"vl-faq-atext landing-block-node-faq-a\">Стандартная доставка занимает от 3 до 5 рабочих дней, экспресс — 1-2 дня.</p></div>\n</div>\n<div class=\"vl-faq-item landing-block-card-faq\">\n<button type=\"button\" class=\"vl-faq-q\"><span class=\"landing-block-node-faq-q\">Как ухаживать за шелком?</span><span class=\"vl-faq-icon\" aria-hidden=\"true\">+</span></button>\n<div class=\"vl-faq-a\"><p class=\"vl-faq-atext landing-block-node-faq-a\">Рекомендуется профессиональная сухая чистка и деликатные средства.</p></div>\n</div>\n</div>\n</section>"
   },
   "manifest": {
@@ -63,10 +63,10 @@
     },
     "assets": {
       "css": [
-        "https://cdn.jsdelivr.net/gh/lyubav4ik/maison-marketplace-app@v0.1/app/assets/faq-block.css"
+        "https://cdn.jsdelivr.net/gh/lyubav4ik/maison-marketplace-app@v0.2/app/assets/faq-block.css"
       ],
       "js": [
-        "https://cdn.jsdelivr.net/gh/lyubav4ik/maison-marketplace-app@v0.1/app/assets/faq-block.js"
+        "https://cdn.jsdelivr.net/gh/lyubav4ik/maison-marketplace-app@v0.2/app/assets/faq-block.js"
       ]
     }
   }

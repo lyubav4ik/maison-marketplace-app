@@ -201,7 +201,7 @@ function appPageHtml(data) {
   const rows = (data.rows || []).map((r) => {
     const d = q(r.domain);
     const shopLinks = [
-      { href: 'https://' + d + '/shop/catalog/', icon: '&#128100;', t: 'Каталог', s: 'товары и торговые предложения' },
+      { href: q(r.catalogUrl) || ('https://' + d + '/shop/catalog/'), icon: '&#128100;', t: 'Каталог', s: 'товары и торговые предложения' },
       { href: 'https://' + d + '/shop/stores/', icon: '&#127980;', t: 'Магазины', s: 'настройки витрины' },
       { href: 'https://' + d + '/crm/', icon: '&#129309;', t: 'CRM', s: 'клиенты и сделки' },
     ].map((l) => '<a class="ql" href="' + l.href + '" target="_blank" rel="noopener"><span class="ql__ic">' + l.icon + '</span><span class="ql__tx"><b>' + l.t + '</b><small>' + l.s + '</small></span><span class="ql__arr">&#8599;</span></a>').join('');
@@ -432,7 +432,7 @@ function pageShell(title, tag, brand, inner) {
   .ql__tx small{font-size:11.5px;color:#8f8c86;margin-top:1px}
   .ql__arr{color:#6d6a64;font-size:13px;transition:color .16s ease, transform .16s ease}
   .ql:hover .ql__arr{color:#c9a96e;transform:translate(1px,-1px)}
-  @media (min-width:480px){ .ql-grid{grid-template-columns:1fr 1fr} }
+  @media (min-width:480px){ .ql-grid{grid-template-columns:1fr 1fr} .ql:nth-child(odd):last-child{grid-column:1/-1} }
   @media (min-width:560px){ .card__actions{flex-direction:row;display:flex} .card__actions .btn{flex:1} }
 </style>
 </head>
@@ -922,9 +922,16 @@ const server = http.createServer((req, res) => {
           return answer(200, 'text/html; charset=utf-8', html);
         }
         const publicUrl = await fetchPublicUrl(install);
+        let catalogUrl = 'https://' + install.domain + '/shop/catalog/';
+        try {
+          const cl = await callRest(install.domain, install.access_token, 'catalog.catalog.list', {});
+          const first = cl.body && Array.isArray(cl.body.result) ? cl.body.result[0] : null;
+          const ib = first && (first.IBLOCK_ID || first.id);
+          if (ib) catalogUrl = 'https://' + install.domain + '/shop/catalog/' + ib + '/';
+        } catch (e) { /* остаёмся на общем списке каталогов */ }
         const editUrl = 'https://' + install.domain + '/shop/stores/site/' + install.siteId + '/';
         const html = appPageHtml({
-          rows: [{ domain: install.domain, siteId: install.siteId, publicUrl: publicUrl, editUrl: editUrl }]
+          rows: [{ domain: install.domain, siteId: install.siteId, publicUrl: publicUrl, editUrl: editUrl, catalogUrl: catalogUrl }]
         });
         return answer(200, 'text/html; charset=utf-8', html);
       } catch (e) {

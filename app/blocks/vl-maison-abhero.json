@@ -5,8 +5,8 @@
     "DESCRIPTION": "Полноэкранная обложка внутренней страницы: фото во всю ширину, затемнение, крупный заголовок и подзаголовок по центру.",
     "SECTIONS": "cover",
     "ACTIVE": "Y",
-    "PREVIEW": "https://cdn.jsdelivr.net/gh/lyubav4ik/maison-marketplace-app@v0.1/app/assets/block-preview-abhero.jpg",
-    "CONTENT": "<section class=\"landing-block vl-abhero\">\n<img class=\"vl-abhero-bg landing-block-node-abhero-img\" src=\"https://cdn.jsdelivr.net/gh/lyubav4ik/maison-marketplace-app@v0.1/app/assets/ab-hero.jpg\" alt=\"Ателье MAISON\">\n<div class=\"vl-abhero-veil\"></div>\n<div class=\"vl-abhero-inner fade-in\">\n<h1 class=\"vl-abhero-title landing-block-node-abhero-title\">История MAISON</h1>\n<p class=\"vl-abhero-sub landing-block-node-abhero-sub\">Искусство создания одежды, неподвластной времени.</p>\n</div>\n</section>"
+    "PREVIEW": "https://cdn.jsdelivr.net/gh/lyubav4ik/maison-marketplace-app@v0.2/app/assets/block-preview-abhero.jpg",
+    "CONTENT": "<section class=\"landing-block vl-abhero\">\n<img class=\"vl-abhero-bg landing-block-node-abhero-img\" src=\"https://cdn.jsdelivr.net/gh/lyubav4ik/maison-marketplace-app@v0.2/app/assets/ab-hero.jpg\" alt=\"Ателье MAISON\">\n<div class=\"vl-abhero-veil\"></div>\n<div class=\"vl-abhero-inner fade-in\">\n<h1 class=\"vl-abhero-title landing-block-node-abhero-title\">История MAISON</h1>\n<p class=\"vl-abhero-sub landing-block-node-abhero-sub\">Искусство создания одежды, неподвластной времени.</p>\n</div>\n</section>"
   },
   "manifest": {
     "block": {
@@ -58,10 +58,10 @@
     },
     "assets": {
       "css": [
-        "https://cdn.jsdelivr.net/gh/lyubav4ik/maison-marketplace-app@v0.1/app/assets/abhero-block.css"
+        "https://cdn.jsdelivr.net/gh/lyubav4ik/maison-marketplace-app@v0.2/app/assets/abhero-block.css"
       ],
       "js": [
-        "https://cdn.jsdelivr.net/gh/lyubav4ik/maison-marketplace-app@v0.1/app/assets/maison-common.js"
+        "https://cdn.jsdelivr.net/gh/lyubav4ik/maison-marketplace-app@v0.2/app/assets/maison-common.js"
       ]
     }
   }

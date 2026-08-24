@@ -5,8 +5,8 @@
     "DESCRIPTION": "Большое фото слева, справа надзаголовок, заголовок, текст и темная кнопка со ссылкой.",
     "SECTIONS": "about",
     "ACTIVE": "Y",
-    "PREVIEW": "https://cdn.jsdelivr.net/gh/lyubav4ik/maison-marketplace-app@v0.1/app/assets/block-preview-craft.jpg",
-    "CONTENT": "<section class=\"landing-block vl-craft\">\n<div class=\"vl-craft-inner\">\n<div class=\"vl-craft-media fade-in\"><img class=\"vl-craft-img landing-block-node-craft-img\" src=\"https://cdn.jsdelivr.net/gh/lyubav4ik/maison-marketplace-app@v0.1/app/assets/ab-craft.jpg\" alt=\"Детали кроя\"></div>\n<div class=\"vl-craft-body fade-in\">\n<span class=\"vl-craft-label landing-block-node-craft-label\">Процесс</span>\n<h2 class=\"vl-craft-title landing-block-node-craft-title\">Мастерство в каждой детали</h2>\n<div class=\"vl-craft-text landing-block-node-craft-text\"><p>Внимание к деталям отличает хорошую вещь от великой. Каждый шов, каждая пуговица и линия подкладки проходят строгий контроль.</p><p>Наши мастера объединяют традиционные ручные техники с современными технологиями кроя, чтобы обеспечить идеальную посадку.</p></div>\n<a class=\"vl-craft-btn landing-block-node-craft-btn\" href=\"/katalog/\" target=\"_self\">Изучить коллекции</a>\n</div>\n</div>\n</section>"
+    "PREVIEW": "https://cdn.jsdelivr.net/gh/lyubav4ik/maison-marketplace-app@v0.2/app/assets/block-preview-craft.jpg",
+    "CONTENT": "<section class=\"landing-block vl-craft\">\n<div class=\"vl-craft-inner\">\n<div class=\"vl-craft-media fade-in\"><img class=\"vl-craft-img landing-block-node-craft-img\" src=\"https://cdn.jsdelivr.net/gh/lyubav4ik/maison-marketplace-app@v0.2/app/assets/ab-craft.jpg\" alt=\"Детали кроя\"></div>\n<div class=\"vl-craft-body fade-in\">\n<span class=\"vl-craft-label landing-block-node-craft-label\">Процесс</span>\n<h2 class=\"vl-craft-title landing-block-node-craft-title\">Мастерство в каждой детали</h2>\n<div class=\"vl-craft-text landing-block-node-craft-text\"><p>Внимание к деталям отличает хорошую вещь от великой. Каждый шов, каждая пуговица и линия подкладки проходят строгий контроль.</p><p>Наши мастера объединяют традиционные ручные техники с современными технологиями кроя, чтобы обеспечить идеальную посадку.</p></div>\n<a class=\"vl-craft-btn landing-block-node-craft-btn\" href=\"/katalog/\" target=\"_self\">Изучить коллекции</a>\n</div>\n</div>\n</section>"
   },
   "manifest": {
     "block": {
@@ -66,10 +66,10 @@
     },
     "assets": {
       "css": [
-        "https://cdn.jsdelivr.net/gh/lyubav4ik/maison-marketplace-app@v0.1/app/assets/craft-block.css"
+        "https://cdn.jsdelivr.net/gh/lyubav4ik/maison-marketplace-app@v0.2/app/assets/craft-block.css"
       ],
       "js": [
-        "https://cdn.jsdelivr.net/gh/lyubav4ik/maison-marketplace-app@v0.1/app/assets/maison-common.js"
+        "https://cdn.jsdelivr.net/gh/lyubav4ik/maison-marketplace-app@v0.2/app/assets/maison-common.js"
       ]
     }
   }

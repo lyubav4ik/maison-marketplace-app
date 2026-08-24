@@ -5,8 +5,8 @@
     "DESCRIPTION": "Изображение карты с меткой бутика. При наведении карта становится цветной. Метку и картинку можно менять.",
     "SECTIONS": "contacts",
     "ACTIVE": "Y",
-    "PREVIEW": "https://cdn.jsdelivr.net/gh/lyubav4ik/maison-marketplace-app@v0.1/app/assets/block-preview-mapimg.jpg",
-    "CONTENT": "<section class=\"landing-block vl-mapimg\">\n<div class=\"vl-mapimg-inner\">\n<img class=\"vl-mapimg-img landing-block-node-map-img\" src=\"https://cdn.jsdelivr.net/gh/lyubav4ik/maison-marketplace-app@v0.1/app/assets/ct-map.jpg\" alt=\"Карта\">\n<div class=\"vl-mapimg-marker\">\n<div class=\"vl-mapimg-label landing-block-node-map-label\">MAISON BOUTIQUE</div>\n<div class=\"vl-mapimg-dot\"></div>\n</div>\n</div>\n</section>"
+    "PREVIEW": "https://cdn.jsdelivr.net/gh/lyubav4ik/maison-marketplace-app@v0.2/app/assets/block-preview-mapimg.jpg",
+    "CONTENT": "<section class=\"landing-block vl-mapimg\">\n<div class=\"vl-mapimg-inner\">\n<img class=\"vl-mapimg-img landing-block-node-map-img\" src=\"https://cdn.jsdelivr.net/gh/lyubav4ik/maison-marketplace-app@v0.2/app/assets/ct-map.jpg\" alt=\"Карта\">\n<div class=\"vl-mapimg-marker\">\n<div class=\"vl-mapimg-label landing-block-node-map-label\">MAISON BOUTIQUE</div>\n<div class=\"vl-mapimg-dot\"></div>\n</div>\n</div>\n</section>"
   },
   "manifest": {
     "block": {
@@ -46,7 +46,7 @@
     },
     "assets": {
       "css": [
-        "https://cdn.jsdelivr.net/gh/lyubav4ik/maison-marketplace-app@v0.1/app/assets/mapimg-block.css"
+        "https://cdn.jsdelivr.net/gh/lyubav4ik/maison-marketplace-app@v0.2/app/assets/mapimg-block.css"
       ],
       "js": []
     }
