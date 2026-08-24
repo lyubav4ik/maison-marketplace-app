@@ -201,7 +201,6 @@ function appPageHtml(data) {
   const rows = (data.rows || []).map((r) => {
     const d = q(r.domain);
     const shopLinks = [
-      { href: 'https://' + d + '/shop/orders/', icon: '&#128179;', t: 'Заказы', s: 'оформленные покупки' },
       { href: 'https://' + d + '/shop/catalog/', icon: '&#128100;', t: 'Каталог', s: 'товары и торговые предложения' },
       { href: 'https://' + d + '/shop/stores/', icon: '&#127980;', t: 'Магазины', s: 'настройки витрины' },
       { href: 'https://' + d + '/crm/', icon: '&#129309;', t: 'CRM', s: 'клиенты и сделки' },
@@ -711,6 +710,7 @@ async function provisionPortal(memberId, token, domain, refreshTokenVal) {
 
   // 1. Регистрируем все премиум-блоки
   const repoIds = {};
+  const repoContent = {};
   const blocks = getBlocks();
   for (const b of blocks) {
     const r = await callRest(domain, currentToken, 'landing.repo.register', {
@@ -722,6 +722,7 @@ async function provisionPortal(memberId, token, domain, refreshTokenVal) {
     });
     if (r.body && r.body.result) {
       repoIds[b.code] = r.body.result;
+      repoContent[b.code] = (b.fields && b.fields.CONTENT) || '';
       result.blocks++;
     } else {
       log.push('block fail: ' + b.fields.NAME + ' ' + JSON.stringify(r.body));
@@ -790,17 +791,17 @@ async function provisionPortal(memberId, token, domain, refreshTokenVal) {
       if (page.code === 'home') indexLid = lid;
       log.push('page ok: ' + page.code + ' #' + lid);
 
-      let afterId = null;
-      // Добавляем в обратном порядке: последний элемент массива оказывается сверху
-      const blocksReversed = [...page.blocks].reverse();
-      for (const bcode of blocksReversed) {
-        // Штатные блоки Б24 идут напрямую кодом, кастомные — repo_<id>
+      // Массив blocks идёт снизу вверх (footer...header). addblock без
+      // AFTER_ID вставляет блок НАВЕРХ страницы (проверено на двух
+      // порталах), поэтому идём по массиву в прямом порядке: header
+      // добавится последним и окажется сверху.
+      const pageBlockIds = [];
+      for (const bcode of page.blocks) {
         const codeField = repoIds[bcode] ? 'repo_' + repoIds[bcode] : bcode;
         const params = { lid, fields: { CODE: codeField }, ACTIVE: 'Y' };
-        if (afterId) params.AFTER_ID = afterId;
         const ab = await callRest(domain, currentToken, 'landing.landing.addblock', params);
         if (ab.body && ab.body.result) {
-          afterId = ab.body.result;
+          pageBlockIds.push({ bcode, id: ab.body.result });
           result.pageBlocks++;
         } else {
           log.push('  addblock FAIL: ' + bcode + ' resp=' + JSON.stringify(ab.body).slice(0, 200));
@@ -822,6 +823,47 @@ async function provisionPortal(memberId, token, domain, refreshTokenVal) {
           log.push('token refreshed again, expires_in=' + refreshed.expires_in);
         }
       }
+    }
+
+    // 4b. Динамические ссылки на каталог: STORE-сайты отдают странице
+    // с store.catalog.list адрес вида /catalog/<lid>/ независимо от кода.
+    // Узнаём фактический адрес и пропатчиваем контент созданных блоков.
+    try {
+      const lst = await callRest(domain, currentToken, 'landing.landing.getList', {
+        params: { select: ['ID', 'CODE', 'ADDRESS'], filter: { SITE_ID: result.siteId } },
+      });
+      const rows = (lst.body && lst.body.result) || [];
+      const catRow = rows.find((r) => r.CODE === 'katalog' && r.ADDRESS)
+        || rows.find((r) => /catalog/i.test(String(r.ADDRESS || '')));
+      let catPath = catRow && catRow.ADDRESS ? String(catRow.ADDRESS) : '';
+      if (catPath) {
+        if (!catPath.startsWith('/')) catPath = '/' + catPath;
+        if (!/\/$/.test(catPath)) catPath += '/';
+        log.push('catalog address resolved: ' + catPath);
+        if (catPath !== '/katalog/') {
+          const id2code = {};
+          for (const [c, id] of Object.entries(repoIds)) id2code['repo_' + id] = c;
+          for (const row of rows) {
+            if (!row.ID) continue;
+            const bl = await callRest(domain, currentToken, 'landing.block.getList', { params: { lid: Number(row.ID) } });
+            const bls = (bl.body && bl.body.result) || [];
+            for (const inst of bls) {
+              const c0 = id2code[String(inst.CODE || '')];
+              if (!c0 || !repoContent[c0] || !repoContent[c0].includes('/katalog/')) continue;
+              const patched = repoContent[c0].split('/katalog/').join(catPath);
+              const up = await callRest(domain, currentToken, 'landing.block.update', { id: inst.ID, fields: { CONTENT: patched } });
+              if (!(up.body && up.body.result)) {
+                log.push('  block.update fail #' + inst.ID + ' ' + JSON.stringify(up.body).slice(0, 150));
+              }
+            }
+          }
+          log.push('catalog links patched to ' + catPath);
+        }
+      } else {
+        log.push('catalog address not found, keep /katalog/');
+      }
+    } catch (e) {
+      log.push('catalog link patch error: ' + (e.message || e));
     }
 
     // 5. Главная страница и публикация
