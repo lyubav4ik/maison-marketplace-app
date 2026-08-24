@@ -842,22 +842,39 @@ async function provisionPortal(memberId, token, domain, refreshTokenVal) {
       }
     }
 
-    // 4b. Динамические ссылки на каталог: STORE-сайты отдают странице
-    // с store.catalog.list адрес вида /catalog/<lid>/ независимо от кода.
-    // Узнаём фактический адрес и пропатчиваем контент созданных блоков.
+    // 4b. Динамические ссылки на каталог. Правильный адрес страницы каталога
+    // магазина: /shop/catalog/<ID торгового каталога>/ (даёт сам пользователь).
+    // Узнаём ID через catalog.catalog.list и пропатчиваем все /katalog/ ссылки.
     try {
-      const lst = await callRest(domain, currentToken, 'landing.landing.getList', {
-        params: { select: ['ID', 'CODE', 'ADDRESS'], filter: { SITE_ID: result.siteId } },
-      });
-      const rows = (lst.body && lst.body.result) || [];
-      const catRow = rows.find((r) => r.CODE === 'katalog' && r.ADDRESS)
-        || rows.find((r) => /catalog/i.test(String(r.ADDRESS || '')));
-      let catPath = catRow && catRow.ADDRESS ? String(catRow.ADDRESS) : '';
+      let catPath = '';
+      try {
+        const cl = await callRest(domain, currentToken, 'catalog.catalog.list', {});
+        const first = cl.body && Array.isArray(cl.body.result) ? cl.body.result[0] : null;
+        const ib = first && (first.IBLOCK_ID || first.id);
+        if (ib) catPath = '/shop/catalog/' + ib + '/';
+      } catch (e) {
+        log.push('catalog.catalog.list unavailable: ' + (e.message || e));
+      }
+      if (!catPath) {
+        const lst = await callRest(domain, currentToken, 'landing.landing.getList', {
+          params: { select: ['ID', 'CODE', 'ADDRESS'], filter: { SITE_ID: result.siteId } },
+        });
+        const rows0 = (lst.body && lst.body.result) || [];
+        const catRow = rows0.find((r) => r.CODE === 'katalog' && r.ADDRESS)
+          || rows0.find((r) => /catalog/i.test(String(r.ADDRESS || '')));
+        if (catRow && catRow.ADDRESS) {
+          catPath = String(catRow.ADDRESS);
+          if (!catPath.startsWith('/')) catPath = '/' + catPath;
+          if (!/\/$/.test(catPath)) catPath += '/';
+        }
+      }
       if (catPath) {
-        if (!catPath.startsWith('/')) catPath = '/' + catPath;
-        if (!/\/$/.test(catPath)) catPath += '/';
         log.push('catalog address resolved: ' + catPath);
         if (catPath !== '/katalog/') {
+          const lst2 = await callRest(domain, currentToken, 'landing.landing.getList', {
+            params: { select: ['ID', 'CODE'], filter: { SITE_ID: result.siteId } },
+          });
+          const rows = (lst2.body && lst2.body.result) || [];
           const id2code = {};
           for (const [c, id] of Object.entries(repoIds)) id2code['repo_' + id] = c;
           for (const row of rows) {
