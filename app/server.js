@@ -711,11 +711,34 @@ async function provisionPortal(memberId, token, domain, refreshTokenVal) {
   const result = { memberId, domain, siteId: null, published: false, blocks: 0, pages: 0, pageBlocks: 0, log };
   let currentToken = token;
 
+  // 0. Адрес каталога узнаём ЗАРАНЕЕ. После создания блоков изменить их
+  // контент через REST невозможно (landing.block.updateContent отдаёт
+  // BLOCK_NOT_FOUND), поэтому реальный /shop/catalog/<ID>/ вшиваем
+  // прямо в момент регистрации репозиториев вместо плейсхолдера /katalog/.
+  let catPath = '';
+  try {
+    const cl = await callRest(domain, currentToken, 'catalog.catalog.list', {});
+    const raw = cl.body && cl.body.result;
+    log.push('catalog.catalog.list raw: ' + JSON.stringify(raw).slice(0, 300));
+    const arr = Array.isArray(raw) ? raw : (raw && Array.isArray(raw.catalogs) ? raw.catalogs : []);
+    const main = arr.find((c) => c.productIblockId == null) || arr[0] || null;
+    const ib = main && (main.iblockId || main.id || main.IBLOCK_ID || main.ID);
+    if (ib) catPath = '/shop/catalog/' + ib + '/';
+  } catch (e) {
+    log.push('catalog pre-resolve unavailable: ' + (e.message || e));
+  }
+  log.push('pre-resolved catalog path: ' + (catPath || '(не удалось, останется /katalog/)'));
+
   // 1. Регистрируем все премиум-блоки.
   // Ассеты в определениях лежат плейсхолдером __ASSETS__/ — при регистрации
   // подставляем актуальную базу (свой сервер /assets/ или CDN через env).
   const ASSET_BASE = (process.env.MAISON_ASSETS || APP_URL + '/assets').replace(/\/$/, '');
-  const subAssets = (s) => typeof s === 'string' ? s.split('__ASSETS__/').join(ASSET_BASE + '/') : s;
+  const subAssets = (s) => {
+    if (typeof s !== 'string') return s;
+    let out = s.split('__ASSETS__/').join(ASSET_BASE + '/');
+    if (catPath) out = out.split('/katalog/').join(catPath);
+    return out;
+  };
   const repoIds = {};
   const repoContent = {};
   const blocks = getBlocks();
@@ -834,24 +857,13 @@ async function provisionPortal(memberId, token, domain, refreshTokenVal) {
       }
     }
 
-    // 4b. Динамические ссылки на каталог. Правильный адрес страницы каталога
-    // магазина: /shop/catalog/<ID торгового каталога>/ (даёт сам пользователь).
-    // Узнаём ID через catalog.catalog.list и пропатчиваем все /katalog/ ссылки.
-    try {
-      let catPath = '';
+    // 4b. Ссылки на каталог уже вшиты в блоки на шаге 0 (контент
+    // существующих блоков REST менять не даёт). Фиксируем итог в лог.
+    if (catPath) {
+      log.push('catalog links baked as ' + catPath);
+    } else {
+      // Запасной путь: берём фактический ADDRESS страницы каталога.
       try {
-        const cl = await callRest(domain, currentToken, 'catalog.catalog.list', {});
-        const raw = cl.body && cl.body.result;
-        log.push('catalog.catalog.list raw: ' + JSON.stringify(raw).slice(0, 300));
-        const arr = Array.isArray(raw) ? raw
-          : (raw && Array.isArray(raw.catalogs) ? raw.catalogs : []);
-        const first = arr[0] || null;
-        const ib = first && (first.IBLOCK_ID || first.ID || first.iblockId || first.id);
-        if (ib) catPath = '/shop/catalog/' + ib + '/';
-      } catch (e) {
-        log.push('catalog.catalog.list unavailable: ' + (e.message || e));
-      }
-      if (!catPath) {
         const lst = await callRest(domain, currentToken, 'landing.landing.getList', {
           params: { select: ['ID', 'CODE', 'ADDRESS'], filter: { SITE_ID: result.siteId } },
         });
@@ -859,41 +871,13 @@ async function provisionPortal(memberId, token, domain, refreshTokenVal) {
         const catRow = rows0.find((r) => r.CODE === 'katalog' && r.ADDRESS)
           || rows0.find((r) => /catalog/i.test(String(r.ADDRESS || '')));
         if (catRow && catRow.ADDRESS) {
-          catPath = String(catRow.ADDRESS);
-          if (!catPath.startsWith('/')) catPath = '/' + catPath;
-          if (!/\/$/.test(catPath)) catPath += '/';
+          let addr = String(catRow.ADDRESS);
+          if (!addr.startsWith('/')) addr = '/' + addr;
+          if (!/\/$/.test(addr)) addr += '/';
+          log.push('catalog address fallback (не применён к блокам): ' + addr);
         }
-      }
-      if (catPath) {
-        log.push('catalog address resolved: ' + catPath);
-        if (catPath !== '/katalog/') {
-          const lst2 = await callRest(domain, currentToken, 'landing.landing.getList', {
-            params: { select: ['ID', 'CODE'], filter: { SITE_ID: result.siteId } },
-          });
-          const rows = (lst2.body && lst2.body.result) || [];
-          const id2code = {};
-          for (const [c, id] of Object.entries(repoIds)) id2code['repo_' + id] = c;
-          for (const row of rows) {
-            if (!row.ID) continue;
-            const bl = await callRest(domain, currentToken, 'landing.block.getList', { params: { lid: Number(row.ID) } });
-            const bls = (bl.body && bl.body.result) || [];
-            for (const inst of bls) {
-              const c0 = id2code[String(inst.CODE || '')];
-              if (!c0 || !repoContent[c0] || !repoContent[c0].includes('/katalog/')) continue;
-              const patched = repoContent[c0].split('/katalog/').join(catPath);
-              const up = await callRest(domain, currentToken, 'landing.block.update', { id: inst.ID, fields: { CONTENT: patched } });
-              if (!(up.body && up.body.result)) {
-                log.push('  block.update fail #' + inst.ID + ' ' + JSON.stringify(up.body).slice(0, 150));
-              }
-            }
-          }
-          log.push('catalog links patched to ' + catPath);
-        }
-      } else {
-        log.push('catalog address not found, keep /katalog/');
-      }
-    } catch (e) {
-      log.push('catalog link patch error: ' + (e.message || e));
+      } catch (e) { /* не критично */ }
+      log.push('catalog links left as /katalog/ (нет данных о каталоге)');
     }
 
     // 5. Главная страница и публикация
