@@ -198,6 +198,20 @@ function esc(s) {
 
 function appPageHtml(data) {
   const q = (url) => esc(url || '');
+  let noSiteCard = '';
+  if (data.noSite) {
+    noSiteCard = `
+        <div class="card">
+          <div class="card__head">
+            <span class="dot is-warn"></span>
+            <span class="card__status is-warn">Приложение активно</span>
+          </div>
+          <h1 class="card__title">Витрина не создана</h1>
+          <p class="card__sub">Приложение MAISON установлено, но сайт-витрина удалён или ещё не собран. Нажмите кнопку — создадим заново: сайт, страницы и демо-каталог с товарами.</p>
+          <button id="btn-create-site" class="btn" data-member="${esc(data.noSite.memberId || '')}" data-domain="${q(data.noSite.domain)}"><span class="spinner"></span><span class="lbl">Создать сайт MAISON</span></button>
+          <div id="st-create" class="status"></div>
+        </div>`;
+  }
   const rows = (data.rows || []).map((r) => {
     const d = q(r.domain);
     const shopLinks = [
@@ -237,20 +251,22 @@ function appPageHtml(data) {
           </div>
         </div>`;
   }).join('\n');
-  return pageShell('MAISON — панель управления', 'управление', 'MAISON', rows ||
-    '<div class="card"><h1 class="card__title">Приложение ещё не установлено</h1><p class="card__sub">Установите MAISON, чтобы создать интернет-магазин: витрину, каталог и страницы.</p></div>') +
+  return pageShell('MAISON — панель управления', 'управление', 'MAISON', rows || noSiteCard ||
+    '<div class="card"><h1 class="card__title">Приложение ещё не установлено</h1><p class="card__sub">Установите MAISON из Маркетплейса Битрикс24, чтобы создать интернет-магазин: витрину, каталог и страницы.</p></div>') +
     '\n<script src="//api.bitrix24.tech/api/v1/"></script>\n<script>try{BX24.init(function(){BX24.fitWindow();});}catch(e){}</script>' +
     '\n<script>(function(){' +
-    'function st(id,text,cls){var el=document.getElementById(id);el.textContent=text;el.className="status is-on"+(cls?" is-"+cls:"");}' +
-    'function wire(btnId,stId,url,confirmText,okText){var b=document.getElementById(btnId);if(!b)return;' +
-    'b.addEventListener("click",function(){if(!window.confirm(confirmText))return;' +
-    'b.disabled=true;st(stId,"Работаем…");' +
+    'function st(id,text,cls){var el=document.getElementById(id);if(!el)return;el.textContent=text;el.className="status is-on"+(cls?" is-"+cls:"");}' +
+    'function wire(btnId,stId,url,opts){var b=document.getElementById(btnId);if(!b)return;' +
+    'b.addEventListener("click",function(){if(opts.confirm&&!window.confirm(opts.confirm))return;' +
+    'b.disabled=true;b.classList.add("is-busy");st(stId,opts.pending||"Работаем…");' +
     'fetch(url,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({member_id:b.getAttribute("data-member"),domain:b.getAttribute("data-domain")})})' +
     '.then(function(r){return r.json();})' +
-    '.then(function(d){if(d&&d.status==="ok"){st(stId,typeof okText==="function"?okText(d):okText,"ok");if(url==="/api/site/delete"){setTimeout(function(){location.reload();},1500);}}else{st(stId,(d&&d.error)||"Ошибка","error");b.disabled=false;}})' +
-    '.catch(function(e){st(stId,"Ошибка сети: "+(e&&e.message||e),"error");b.disabled=false;});});}' +
-    'wire("btn-site-del","st-site","/api/site/delete","Удалить сайт MAISON полностью? Витрину и все страницы можно будет создать заново переустановкой приложения.","Сайт удалён. Обновляем панель…");' +
-    'wire("btn-demo-del","st-demo","/api/products/delete","Удалить ВСЕ товары и разделы каталога? Их не восстановить.",function(d){return "Готово: удалено товаров — "+(d.products||0)+", разделов — "+(d.sections||0)+".";});' +
+    '.then(function(d){if(d&&d.status==="ok"){st(stId,typeof opts.ok==="function"?opts.ok(d):opts.ok,"ok");if(opts.reload)setTimeout(function(){location.reload();},1500);}' +
+    'else{st(stId,(d&&d.error)||"Ошибка","error");b.disabled=false;b.classList.remove("is-busy");}})' +
+    '.catch(function(e){st(stId,"Ошибка сети: "+(e&&e.message||e),"error");b.disabled=false;b.classList.remove("is-busy");});});}' +
+    'wire("btn-create-site","st-create","/api/site/create",{confirm:null,pending:"Собираем сайт и каталог, это займёт 1–3 минуты…",ok:function(d){return "Готово! Сайт #"+(d.siteId||"")+", товаров: "+(d.products||0)+". Обновляем панель…";},reload:true});' +
+    'wire("btn-site-del","st-site","/api/site/delete",{confirm:"Удалить сайт MAISON полностью? Витрину и все страницы можно будет создать заново этой кнопкой.",pending:"Удаляем сайт…",ok:"Сайт удалён. Обновляем панель…",reload:true});' +
+    'wire("btn-demo-del","st-demo","/api/products/delete",{confirm:"Удалить демо-товары и разделы, созданные приложением MAISON? Ваши собственные товары не будут затронуты.",pending:"Удаляем демо-данные…",ok:function(d){return "Готово: удалено товаров — "+(d.products||0)+", разделов — "+(d.sections||0)+".";}});' +
    '})();</script>';
 }
 
@@ -407,7 +423,9 @@ function pageShell(title, tag, brand, inner) {
   .card__head{display:flex;align-items:center;gap:9px;margin-bottom:14px}
   .dot{width:10px;height:10px;border-radius:50%;display:inline-block}
   .dot.is-ok{background:#7fd694;box-shadow:0 0 0 4px rgba(127,214,148,.15),0 0 16px rgba(127,214,148,.5)}
+  .dot.is-warn{background:#e9c46a;box-shadow:0 0 0 4px rgba(233,196,106,.15),0 0 16px rgba(233,196,106,.5)}
   .card__status{font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#a9dfb7}
+  .card__status.is-warn{color:#eed9a4}
   .card__title{font-family:'Playfair Display',serif;font-size:26px;line-height:1.2;margin:0 0 10px}
   .card__sub{color:#b3afa7;font-size:14px;margin:0 0 22px;line-height:1.6}
   .features{display:grid;grid-template-columns:1fr;gap:10px;margin-bottom:22px}
@@ -477,18 +495,6 @@ function flattenParams(obj, prefix) {
       result[fullKey] = val;
     }
   }
-
-  // Диагностика: сохраняем лог провижининга в запись портала (виден на /app?debug=1)
-  try {
-    const installs = loadInstalls();
-    for (const key of Object.keys(installs)) {
-      if (installs[key] && installs[key].member_id === memberId) {
-        installs[key].lastLog = (result.log || []).slice(-120);
-      }
-    }
-    fs.writeFileSync(path.join(ROOT, 'data', 'installs.json'), JSON.stringify(installs, null, 2), 'utf8');
-  } catch (e) { /* не критично */ }
-
   return result;
 }
 function requestForm(url, postData) {
@@ -584,6 +590,52 @@ function refreshToken(domain, refreshTokenVal) {
   });
 }
 
+// Демо-данные MAISON: нужны и при импорте, и при точечной очистке
+// (кнопка панели удаляет только их, а не весь каталог пользователя)
+const MAISON_DEMO_SECTIONS = [
+  { name: 'Платья', code: 'dresses', sort: 10 },
+  { name: 'Топы и блузы', code: 'tops', sort: 20 },
+  { name: 'Брюки и юбки', code: 'bottoms', sort: 30 },
+  { name: 'Верхняя одежда', code: 'outerwear', sort: 40 },
+  { name: 'Обувь', code: 'shoes', sort: 50 },
+  { name: 'Аксессуары', code: 'accessories', sort: 60 },
+];
+
+const MAISON_DEMO_PRODUCTS = [
+  { name: 'Платье шёлковое «Вечерняя звезда»', price: 21500, section: 'dresses', desc: 'Шёлковое платье с глубоким декольте и расклешенной юбкой. Идеально для вечернего выхода.' },
+  { name: 'Платье вязаное «Уютный вечер»', price: 14900, section: 'dresses', desc: 'Мягкое вязаное платье оверсайз. Тёплое и удобное для повседневной носки.' },
+  { name: 'Платье хлопковое «Летний бриз»', price: 9900, section: 'dresses', desc: 'Лёгкое хлопковое платье с цветочным принтом. Отличный выбор для жаркого дня.' },
+  { name: 'Платье бархатное «Королева ночи»', price: 32000, section: 'dresses', desc: 'Роскошное бархатное платье с высоким воротом и длинным рукавом. Для особых случаев.' },
+  { name: 'Платье льняное «Натуральный стиль»', price: 16800, section: 'dresses', desc: 'Натуральный лён, свободный крой. Комфорт и стиль в одном.' },
+  { name: 'Блуза шёлковая «Нежность»', price: 18900, section: 'tops', desc: 'Струящаяся шёлковая блуза с бантом на шее. Деловой и женственный образ.' },
+  { name: 'Топ хлопковый «Базовый»', price: 4900, section: 'tops', desc: 'Идеальный базовый топ из премиального хлопка. Сочетается с чем угодно.' },
+  { name: 'Боди джинсовое «Свобода»', price: 12500, section: 'tops', desc: 'Джинсовое боди с застежкой на пуговицы. Стильно и практично.' },
+  { name: 'Рубашка льняная «Лёгкость»', price: 15600, section: 'tops', desc: 'Натуральный лён, свободный крой. Классика женского гардероба.' },
+  { name: 'Кардиган кашемировый «Облако»', price: 28900, section: 'tops', desc: 'Невесомый кашемир. Тёплый, мягкий, невероятно приятный к телу.' },
+  { name: 'Брюки классические «Деловой код»', price: 12400, section: 'bottoms', desc: 'Идеальная посадка, ткань с эластаном. Не сковывают движений.' },
+  { name: 'Юбка плиссе «Танец»', price: 9900, section: 'bottoms', desc: 'Лёгкая плиссированная юбка миди. Движется вместе с вами.' },
+  { name: 'Джинсы высокой посадки «Любимые»', price: 16500, section: 'bottoms', desc: 'Премиальный деним, идеальная посадка. Стираются без потери формы.' },
+  { name: 'Шорты тёмные «Лето в городе»', price: 8900, section: 'bottoms', desc: 'Удобные шорты из твида. С карманами и ремнём в комплекте.' },
+  { name: 'Брюки широкие «Поток»', price: 14200, section: 'bottoms', desc: 'Широкий крой, высокий пояс. Элегантно и удобно.' },
+  { name: 'Пальто шерстяное «Графит»', price: 34900, section: 'outerwear', desc: 'Шерстяное пальто прямого силуэта с лацканами. Двухслойная итальянская шерсть.' },
+  { name: 'Куртка пуховая «Снежная королева»', price: 42000, section: 'outerwear', desc: 'Лёгкая и тёплая. Натуральный пух, ветрозащитная ткань.' },
+  { name: 'Тренч классический «Лондон»', price: 29500, section: 'outerwear', desc: 'Водоотталкивающая ткань, съёмная подкладка. Классика жанра.' },
+  { name: 'Жилет шерстяной «Уют»', price: 14200, section: 'outerwear', desc: 'Безрукавный жилет из шерсти. Идеален для слоёного образа.' },
+  { name: 'Пальто кашемировое «Роскошь»', price: 89000, section: 'outerwear', desc: '100% кашемир. Невесомая теплота. Инвестиция в себя.' },
+  { name: 'Ботинки кожаные «Ходьба»', price: 24500, section: 'shoes', desc: 'Натуральная кожа, удобная подошва. Для долгих прогулок.' },
+  { name: 'Туфли на шпильке «Вечер»', price: 18900, section: 'shoes', desc: 'Классические туфли 8 см. Стабильная шпилька, мягкая стелька.' },
+  { name: 'Кеды на платформе «Ритм»', price: 12900, section: 'shoes', desc: 'Модная платформа 4 см. Ткань и кожа. Удобство весь день.' },
+  { name: 'Сапоги высокие «Осенний дождь»', price: 21500, section: 'shoes', desc: 'Водонепроницаемые, с меховой подкладкой. Стильно и тепло.' },
+  { name: 'Лоферы классические «Офис»', price: 16800, section: 'shoes', desc: 'Натуральная кожа, мягкая подкладка. Элегантность и комфорт.' },
+  { name: 'Сумка кожаная «Ежедневная»', price: 28500, section: 'accessories', desc: 'Просторная сумка из натуральной кожи. Вместит ноутбук и документы.' },
+  { name: 'Шарф шёлковый «Акцент»', price: 6500, section: 'accessories', desc: 'Натуральный шёлк, ручная роспись. Яркий акцент образа.' },
+  { name: 'Ремень кожаный «Структура»', price: 4200, section: 'accessories', desc: 'Натуральная кожа, классическая пряжка. Базовый аксессуар.' },
+  { name: 'Очки солнцезащитные «Стиль»', price: 9500, section: 'accessories', desc: 'УФ-защита 400, поляризация. Модная оправа.' },
+  { name: 'Бижутерия набор «Сияние»', price: 12500, section: 'accessories', desc: 'Серьги, кольцо, браслет. Ювелирное стекло.' },
+];
+const MAISON_DEMO_SECTION_NAMES = new Set(MAISON_DEMO_SECTIONS.map((s) => s.name));
+const MAISON_DEMO_PRODUCT_NAMES = new Set(MAISON_DEMO_PRODUCTS.map((p) => p.name));
+
 async function importProducts(domain, token, refreshTokenVal, memberId, log) {
   const result = { count: 0, errors: [] };
 
@@ -605,16 +657,10 @@ async function importProducts(domain, token, refreshTokenVal, memberId, log) {
   }
 
   // Разделы каталога
-  const sections = [
-    { name: 'Платья', code: 'dresses', sort: 10 },
-    { name: 'Топы и блузы', code: 'tops', sort: 20 },
-    { name: 'Брюки и юбки', code: 'bottoms', sort: 30 },
-    { name: 'Верхняя одежда', code: 'outerwear', sort: 40 },
-    { name: 'Обувь', code: 'shoes', sort: 50 },
-    { name: 'Аксессуары', code: 'accessories', sort: 60 },
-  ];
+  const sections = MAISON_DEMO_SECTIONS;
 
   const sectionIds = {};
+  const createdSectionIds = [];
   for (const sec of sections) {
     const r = await callRest(domain, token, 'catalog.section.add', {
       fields: {
@@ -627,6 +673,7 @@ async function importProducts(domain, token, refreshTokenVal, memberId, log) {
     if (r.body && r.body.result) {
       const rid = r.body.result;
       sectionIds[sec.code] = (rid && typeof rid === 'object' && (rid.id || rid.ID)) || rid;
+      createdSectionIds.push(Number(sectionIds[sec.code]));
       log.push('section created: ' + sec.name + ' #' + sectionIds[sec.code]);
     } else {
       log.push('section fail: ' + sec.name + ' ' + JSON.stringify(r.body));
@@ -634,39 +681,9 @@ async function importProducts(domain, token, refreshTokenVal, memberId, log) {
   }
 
   // Демо-товары
-  const products = [
-    { name: 'Платье шёлковое «Вечерняя звезда»', price: 21500, section: 'dresses', desc: 'Шёлковое платье с глубоким декольте и расклешенной юбкой. Идеально для вечернего выхода.' },
-    { name: 'Платье вязаное «Уютный вечер»', price: 14900, section: 'dresses', desc: 'Мягкое вязаное платье оверсайз. Тёплое и удобное для повседневной носки.' },
-    { name: 'Платье хлопковое «Летний бриз»', price: 9900, section: 'dresses', desc: 'Лёгкое хлопковое платье с цветочным принтом. Отличный выбор для жаркого дня.' },
-    { name: 'Платье бархатное «Королева ночи»', price: 32000, section: 'dresses', desc: 'Роскошное бархатное платье с высоким воротом и длинным рукавом. Для особых случаев.' },
-    { name: 'Платье льняное «Натуральный стиль»', price: 16800, section: 'dresses', desc: 'Натуральный лён, свободный крой. Комфорт и стиль в одном.' },
-    { name: 'Блуза шёлковая «Нежность»', price: 18900, section: 'tops', desc: 'Струящаяся шёлковая блуза с бантом на шее. Деловой и женственный образ.' },
-    { name: 'Топ хлопковый «Базовый»', price: 4900, section: 'tops', desc: 'Идеальный базовый топ из премиального хлопка. Сочетается с чем угодно.' },
-    { name: 'Боди джинсовое «Свобода»', price: 12500, section: 'tops', desc: 'Джинсовое боди с застежкой на пуговицы. Стильно и практично.' },
-    { name: 'Рубашка льняная «Лёгкость»', price: 15600, section: 'tops', desc: 'Натуральный лён, свободный крой. Классика женского гардероба.' },
-    { name: 'Кардиган кашемировый «Облако»', price: 28900, section: 'tops', desc: 'Невесомый кашемир. Тёплый, мягкий, невероятно приятный к телу.' },
-    { name: 'Брюки классические «Деловой код»', price: 12400, section: 'bottoms', desc: 'Идеальная посадка, ткань с эластаном. Не сковывают движений.' },
-    { name: 'Юбка плиссе «Танец»', price: 9900, section: 'bottoms', desc: 'Лёгкая плиссированная юбка миди. Движется вместе с вами.' },
-    { name: 'Джинсы высокой посадки «Любимые»', price: 16500, section: 'bottoms', desc: 'Премиальный деним, идеальная посадка. Стираются без потери формы.' },
-    { name: 'Шорты тёмные «Лето в городе»', price: 8900, section: 'bottoms', desc: 'Удобные шорты из твида. С карманами и ремнём в комплекте.' },
-    { name: 'Брюки широкие «Поток»', price: 14200, section: 'bottoms', desc: 'Широкий крой, высокий пояс. Элегантно и удобно.' },
-    { name: 'Пальто шерстяное «Графит»', price: 34900, section: 'outerwear', desc: 'Шерстяное пальто прямого силуэта с лацканами. Двухслойная итальянская шерсть.' },
-    { name: 'Куртка пуховая «Снежная королева»', price: 42000, section: 'outerwear', desc: 'Лёгкая и тёплая. Натуральный пух, ветрозащитная ткань.' },
-    { name: 'Тренч классический «Лондон»', price: 29500, section: 'outerwear', desc: 'Водоотталкивающая ткань, съёмная подкладка. Классика жанра.' },
-    { name: 'Жилет шерстяной «Уют»', price: 14200, section: 'outerwear', desc: 'Безрукавный жилет из шерсти. Идеален для слоёного образа.' },
-    { name: 'Пальто кашемировое «Роскошь»', price: 89000, section: 'outerwear', desc: '100% кашемир. Невесомая теплота. Инвестиция в себя.' },
-    { name: 'Ботинки кожаные «Ходьба»', price: 24500, section: 'shoes', desc: 'Натуральная кожа, удобная подошва. Для долгих прогулок.' },
-    { name: 'Туфли на шпильке «Вечер»', price: 18900, section: 'shoes', desc: 'Классические туфли 8 см. Стабильная шпилька, мягкая стелька.' },
-    { name: 'Кеды на платформе «Ритм»', price: 12900, section: 'shoes', desc: 'Модная платформа 4 см. Ткань и кожа. Удобство весь день.' },
-    { name: 'Сапоги высокие «Осенний дождь»', price: 21500, section: 'shoes', desc: 'Водонепроницаемые, с меховой подкладкой. Стильно и тепло.' },
-    { name: 'Лоферы классические «Офис»', price: 16800, section: 'shoes', desc: 'Натуральная кожа, мягкая подкладка. Элегантность и комфорт.' },
-    { name: 'Сумка кожаная «Ежедневная»', price: 28500, section: 'accessories', desc: 'Просторная сумка из натуральной кожи. Вместит ноутбук и документы.' },
-    { name: 'Шарф шёлковый «Акцент»', price: 6500, section: 'accessories', desc: 'Натуральный шёлк, ручная роспись. Яркий акцент образа.' },
-    { name: 'Ремень кожаный «Структура»', price: 4200, section: 'accessories', desc: 'Натуральная кожа, классическая пряжка. Базовый аксессуар.' },
-    { name: 'Очки солнцезащитные «Стиль»', price: 9500, section: 'accessories', desc: 'УФ-защита 400, поляризация. Модная оправа.' },
-    { name: 'Бижутерия набор «Сияние»', price: 12500, section: 'accessories', desc: 'Серьги, кольцо, браслет. Ювелирное стекло.' },
-  ];
+  const products = MAISON_DEMO_PRODUCTS;
 
+  const createdProductIds = [];
   for (let i = 0; i < products.length; i++) {
     const p = products[i];
     const sectionId = sectionIds[p.section];
@@ -687,6 +704,7 @@ async function importProducts(domain, token, refreshTokenVal, memberId, log) {
 
     if (prodRes.body && prodRes.body.result) {
       const productId = prodRes.body.result;
+      createdProductIds.push(Number((productId && typeof productId === 'object' && (productId.id || productId.ID)) || productId));
       result.count++;
       log.push('product created: ' + p.name + ' #' + productId + ' (' + p.price + ' ₽)');
 
@@ -723,6 +741,17 @@ async function importProducts(domain, token, refreshTokenVal, memberId, log) {
 
     if (i % 5 === 0) await new Promise(r => setTimeout(r, 100));
   }
+
+  // Запоминаем ID созданного демо — кнопка «Удалить демо-товары и каталоги»
+  // чистит только их, не трогая товары пользователя
+  try {
+    const installs = loadInstalls();
+    if (installs[memberId]) {
+      installs[memberId].demoIds = { iblockId, sections: createdSectionIds, products: createdProductIds };
+      fs.writeFileSync(path.join(ROOT, 'data', 'installs.json'), JSON.stringify(installs, null, 2), 'utf8');
+      log.push('demo ids saved: ' + createdSectionIds.length + ' sections, ' + createdProductIds.length + ' products');
+    }
+  } catch (e) { /* не критично */ }
 
   return result;
 }
@@ -921,6 +950,17 @@ async function provisionPortal(memberId, token, domain, refreshTokenVal) {
     }
   }
 
+  // Диагностика: сохраняем лог провижининга в запись портала (виден на /app?debug=1)
+  try {
+    const installs = loadInstalls();
+    for (const key of Object.keys(installs)) {
+      if (installs[key] && installs[key].member_id === memberId) {
+        installs[key].lastLog = log.slice(-120);
+      }
+    }
+    fs.writeFileSync(path.join(ROOT, 'data', 'installs.json'), JSON.stringify(installs, null, 2), 'utf8');
+  } catch (e) { /* не критично */ }
+
   return result;
 }
 
@@ -952,8 +992,13 @@ const server = http.createServer((req, res) => {
         let install = members.find((m) => requestMember && m.member_id === requestMember)
           || members.find((m) => requestDomain && String(m.domain || '').toLowerCase() === requestDomain)
           || (members.length === 1 ? members[0] : null);
-        if (!install || !install.siteId) {
+        if (!install) {
           const html = appPageHtml({ rows: [] });
+          return answer(200, 'text/html; charset=utf-8', html);
+        }
+        if (!install.siteId) {
+          // Приложение стоит, витрина удалена/не создана — даём кнопку создания
+          const html = appPageHtml({ rows: [], noSite: { memberId: install.member_id, domain: install.domain } });
           return answer(200, 'text/html; charset=utf-8', html);
         }
         const publicUrl = await fetchPublicUrl(install);
@@ -964,7 +1009,8 @@ const server = http.createServer((req, res) => {
           log('app page: catalog.catalog.list raw: ' + JSON.stringify(raw).slice(0, 300));
           const arr = Array.isArray(raw) ? raw
             : (raw && Array.isArray(raw.catalogs) ? raw.catalogs : []);
-          const first = arr[0] || null;
+          // Главный каталог: у торговых предложений productIblockId заполнен
+          const first = arr.find((c) => !c.productIblockId || c.productIblockId === '0') || arr[0] || null;
           return first && (first.IBLOCK_ID || first.ID || first.iblockId || first.id) || null;
         };
         try {
@@ -1177,6 +1223,56 @@ const server = http.createServer((req, res) => {
     return null;
   }
 
+  if (url === '/api/site/create' && req.method === 'POST') {
+    (async () => {
+      try {
+        const raw = await readBody(req);
+        const body = parseBody(raw);
+        const found = findInstallByRequest(body);
+        if (!found) return sendJson(res, 200, { status: 'error', error: 'Приложение не установлено на портале' });
+        const rec = found.install;
+        if (inFlightProvision[rec.member_id]) {
+          return sendJson(res, 200, { status: 'error', error: 'Создание сайта уже выполняется, подождите пару минут' });
+        }
+        // Токен мог протухнуть — проверяем лёгким запросом и обновляем при ошибке
+        let token = rec.access_token;
+        let refreshTok = rec.refresh_token;
+        const probe = await callRest(rec.domain, token, 'landing.site.getList', { params: { select: ['ID'], limit: 1 } });
+        if (probe.body && probe.body.error && rec.refresh_token) {
+          const refreshed = await refreshToken(rec.domain, rec.refresh_token);
+          if (refreshed.access_token) {
+            token = refreshed.access_token;
+            refreshTok = refreshed.refresh_token || rec.refresh_token;
+            saveAuth({ member_id: rec.member_id, domain: rec.domain, access_token: token, refresh_token: refreshTok, expires_in: refreshed.expires_in });
+          } else {
+            return sendJson(res, 200, { status: 'error', error: 'Не удалось обновить доступ к порталу. Переустановите приложение.' });
+          }
+        }
+        const provisionPromise = provisionPortal(rec.member_id, token, rec.domain, refreshTok)
+          .catch((e) => { throw e; })
+          .finally(() => { delete inFlightProvision[rec.member_id]; });
+        inFlightProvision[rec.member_id] = provisionPromise;
+        try {
+          const result = await Promise.race([
+            provisionPromise,
+            new Promise((_, reject) => setTimeout(() => reject(new Error('Превышено время создания сайта')), 300000)),
+          ]);
+          if (!result.siteId) throw new Error('Сайт не создан: ' + ((result.log && result.log[result.log.length - 1]) || 'нет данных'));
+          saveInstallSite({ member_id: rec.member_id, domain: rec.domain }, result.siteId);
+          log('api/site/create site=' + result.siteId + ' pages=' + result.pages + ' products=' + (result.products || 0));
+          return sendJson(res, 200, { status: 'ok', siteId: result.siteId, products: result.products || 0, published: !!result.published });
+        } catch (e) {
+          log('api/site/create failed: ' + (e.message || String(e)));
+          return sendJson(res, 200, { status: 'error', error: e.message || String(e) });
+        }
+      } catch (e) {
+        log('api/site/create exception ' + (e.stack || e.message));
+        return sendJson(res, 200, { status: 'error', error: e.message || String(e) });
+      }
+    })();
+    return;
+  }
+
   if (url === '/api/site/delete' && req.method === 'POST') {
     (async () => {
       try {
@@ -1233,15 +1329,13 @@ const server = http.createServer((req, res) => {
           }
         }
         if (!catalogs.length) return sendJson(res, 200, { status: 'error', error: 'Торговый каталог не найден на портале' });
-        // Торговые предложения (productIblockId != null) удаляем первыми
-        const sorted = [...catalogs].sort((a, b) => ((b.productIblockId != null ? 1 : 0) - (a.productIblockId != null ? 1 : 0)));
-        const iblocks = sorted.map((c) => Number(c.iblockId || c.id || c.IBLOCK_ID || c.ID)).filter(Boolean);
+        const iblocks = catalogs.map((c) => Number(c.iblockId || c.id || c.IBLOCK_ID || c.ID)).filter(Boolean);
         let products = 0, sections = 0;
-        const listAll = async (method, filter) => {
+        const listAll = async (method, filter, select) => {
           const out = [];
           let start = 0;
           for (;;) {
-            const r = await callRest(domain, token, method, { select: ['id', 'iblockId'], filter, start });
+            const r = await callRest(domain, token, method, { select: select || ['id', 'iblockId'], filter, start });
             const rows = r.body && r.body.result;
             const arr = Array.isArray(rows) ? rows : (rows && (rows.products || rows.sections)) || [];
             out.push(...arr);
@@ -1251,13 +1345,38 @@ const server = http.createServer((req, res) => {
           }
           return out;
         };
+        // Удаляем ТОЛЬКО демо-данные MAISON: по сохранённым ID из установки
+        // и по именам (для порталов, установленных до появления demoIds).
+        // Пользовательские товары и разделы не трогаем.
+        const storedDemo = found.install.demoIds || null;
+        const storedProducts = new Set((storedDemo && storedDemo.products) || []);
+        const storedSections = new Set((storedDemo && storedDemo.sections) || []);
+        const deletedProductIds = new Set();
         for (const ib of iblocks) {
-          for (const p of await listAll('catalog.product.list', { iblockId: ib })) {
-            const d = await callRest(domain, token, 'catalog.product.delete', { id: Number(p.id || p.ID) });
+          const rows = await listAll('catalog.product.list', { iblockId: ib }, ['id', 'iblockId', 'name', 'parentId']);
+          // Сначала основные товары демо-набора
+          for (const p of rows) {
+            const pid = Number(p.id || p.ID);
+            const pname = String(p.name || '');
+            const isOurs = storedProducts.has(pid) || MAISON_DEMO_PRODUCT_NAMES.has(pname);
+            if (!isOurs) continue;
+            const d = await callRest(domain, token, 'catalog.product.delete', { id: pid });
+            if (d.body && d.body.result !== undefined && !d.body.error) { products++; deletedProductIds.add(pid); }
+          }
+          // Затем SKU-предложения, привязанные к удалённым товарам (parentId)
+          const skus = rows.filter((p) => p.parentId && deletedProductIds.has(Number(p.parentId)));
+          for (const s of skus) {
+            const sid = Number(s.id || s.ID);
+            const d = await callRest(domain, token, 'catalog.product.delete', { id: sid });
             if (d.body && d.body.result !== undefined && !d.body.error) products++;
           }
-          for (const s of await listAll('catalog.section.list', { iblockId: ib })) {
-            const d = await callRest(domain, token, 'catalog.section.delete', { id: Number(s.id || s.ID) });
+        }
+        for (const ib of iblocks) {
+          for (const s of await listAll('catalog.section.list', { iblockId: ib }, ['id', 'iblockId', 'name'])) {
+            const sid = Number(s.id || s.ID);
+            const isOurs = storedSections.has(sid) || MAISON_DEMO_SECTION_NAMES.has(String(s.name || ''));
+            if (!isOurs) continue;
+            const d = await callRest(domain, token, 'catalog.section.delete', { id: sid });
             if (d.body && d.body.result !== undefined && !d.body.error) sections++;
           }
         }
