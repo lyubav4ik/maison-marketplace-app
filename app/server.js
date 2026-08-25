@@ -1403,7 +1403,8 @@ const server = http.createServer((req, res) => {
         const storedDemo = found.install.demoIds || null;
         const storedProducts = new Set((storedDemo && storedDemo.products) || []);
         const storedSections = new Set((storedDemo && storedDemo.sections) || []);
-        const deletedProductIds = new Set();
+        const toDeleteProducts = new Set();
+        const toDeleteSections = new Set();
         // Фаза 1: основные демо-товары (по сохранённым ID и по именам)
         const rowsByIblock = {};
         for (const ib of iblocks) {
@@ -1413,28 +1414,66 @@ const server = http.createServer((req, res) => {
             const pid = Number(p.id || p.ID);
             const pname = String(p.name || '');
             if (!p.parentId && (storedProducts.has(pid) || MAISON_DEMO_PRODUCT_NAMES.has(pname))) {
-              const d = await callRest(domain, token, 'catalog.product.delete', { id: pid });
-              if (d.body && d.body.result !== undefined && !d.body.error) { products++; deletedProductIds.add(pid); }
+              toDeleteProducts.add(pid);
             }
           }
         }
-        // Фаза 2: SKU-предложения, привязанные к удалённым товарам (в любом инфоблоке)
+        // Фаза 2: SKU-предложения, привязанные к удалённым товарам
         for (const ib of Object.keys(rowsByIblock)) {
           for (const s of rowsByIblock[ib]) {
-            if (!s.parentId || !deletedProductIds.has(Number(s.parentId))) continue;
+            if (!s.parentId || !toDeleteProducts.has(Number(s.parentId))) continue;
             const sid = Number(s.id || s.ID);
-            if (deletedProductIds.has(sid)) continue;
-            const d = await callRest(domain, token, 'catalog.product.delete', { id: sid });
-            if (d.body && d.body.result !== undefined && !d.body.error) products++;
+            if (toDeleteProducts.has(sid)) continue;
+            toDeleteProducts.add(sid);
           }
         }
+        // Фаза 3: разделы
         for (const ib of iblocks) {
           for (const s of await listAll('catalog.section.list', { iblockId: ib }, ['id', 'iblockId', 'name'])) {
             const sid = Number(s.id || s.ID);
-            const isOurs = storedSections.has(sid) || MAISON_DEMO_SECTION_NAMES.has(String(s.name || ''));
-            if (!isOurs) continue;
-            const d = await callRest(domain, token, 'catalog.section.delete', { id: sid });
-            if (d.body && d.body.result !== undefined && !d.body.error) sections++;
+            if (storedSections.has(sid) || MAISON_DEMO_SECTION_NAMES.has(String(s.name || ''))) {
+              toDeleteSections.add(sid);
+            }
+          }
+        }
+        // Батч-удаление: пакетами по 20, с паузами между пакетами.
+        // Битрикс24 отдаёт operating_reset_at — не делаем новых вызовов до этого времени.
+        const BATCH = 20;
+        const allIds = [...toDeleteProducts, ...toDeleteSections];
+        const allTypes = [...toDeleteProducts].map(() => 'p').concat([...toDeleteSections].map(() => 's'));
+        const batches = Math.ceil(allIds.length / BATCH) || 0;
+        log('api/products/delete will batch ' + toDeleteProducts.size + ' products + ' + toDeleteSections.size + ' sections in ' + batches + ' batch(es) of ' + BATCH);
+        let nextAllowedAt = 0;
+        for (let i = 0; i < allIds.length; i += BATCH) {
+          const waitMs = nextAllowedAt - Date.now();
+          if (waitMs > 0) await new Promise((r) => setTimeout(r, Math.min(waitMs, 5000)));
+          const chunk = {};
+          const sliceIds = allIds.slice(i, i + BATCH);
+          for (let j = 0; j < sliceIds.length; j++) {
+            chunk['d' + j] = (allTypes[i + j] === 's' ? 'catalog.section.delete' : 'catalog.product.delete') + '?id=' + sliceIds[j];
+          }
+          try {
+            const batchRes = await callRest(domain, token, 'batch', { halt: 0, cmd: chunk });
+            const timeInfo = (batchRes.body && batchRes.body.time) || {};
+            if (timeInfo.operating_reset_at) nextAllowedAt = timeInfo.operating_reset_at;
+            const errText = (batchRes.body && batchRes.body.error) || '';
+            if (errText === 'QUERY_LIMIT_EXCEEDED') {
+              log('api/products/delete rate-limited, backing off 30s');
+              await new Promise((r) => setTimeout(r, 30000));
+              i -= BATCH; continue;
+            }
+            const res = (batchRes.body && batchRes.body.result) || {};
+            for (const key of Object.keys(res)) {
+              const v = res[key];
+              const ok = v === true || (v && v.result !== undefined && !v.error);
+              if (ok) {
+                const idx = Number(key.replace('d', ''));
+                if (allTypes[i + idx] === 's') sections++; else products++;
+              }
+            }
+          } catch (e) {
+            log('api/products/delete batch error: ' + e.message);
+            await new Promise((r) => setTimeout(r, 5000));
           }
         }
         log('api/products/delete iblocks=' + iblocks.join(',') + ' products=' + products + ' sections=' + sections);
