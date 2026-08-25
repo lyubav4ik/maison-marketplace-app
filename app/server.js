@@ -642,6 +642,7 @@ async function importProducts(domain, token, refreshTokenVal, memberId, log) {
   // ID инфоблока торгового каталога: ответ приходит объектом {catalogs:[...]},
   // главный каталог — тот, у которого productIblockId пустой (у SKU-каталога он заполнен)
   let iblockId = 1;
+  let offersIblockId = null;
   try {
     const listRes = await callRest(domain, token, 'catalog.catalog.list', {});
     const raw = listRes.body && listRes.body.result;
@@ -650,7 +651,12 @@ async function importProducts(domain, token, refreshTokenVal, memberId, log) {
     const main = arr.find((c) => !c.productIblockId || c.productIblockId === '0') || arr[0];
     if (main) {
       iblockId = Number(main.iblockId || main.IBLOCK_ID || main.id || main.ID) || 1;
-      log.push('catalog iblockId resolved: ' + iblockId);
+      // Инфоблок торговых предложений — отдельный каталог с productIblockId = главный
+      const offers = arr.find((c) => Number(c.productIblockId) === iblockId);
+      if (offers) {
+        offersIblockId = Number(offers.iblockId || offers.id || offers.IBLOCK_ID || offers.ID) || null;
+      }
+      log.push('catalog iblockId resolved: ' + iblockId + ', offers: ' + (offersIblockId || 'нет'));
     }
   } catch (e) {
     log.push('get iblockId failed, using default 1: ' + e.message);
@@ -659,9 +665,48 @@ async function importProducts(domain, token, refreshTokenVal, memberId, log) {
   // Разделы каталога
   const sections = MAISON_DEMO_SECTIONS;
 
+  // Каталог переживает удаление приложения: при переустановках демо уже может
+  // существовать — ищем его по именам и не создаём дубли.
+  const listExisting = async (method) => {
+    const out = [];
+    let start = 0;
+    for (;;) {
+      const r = await callRest(domain, token, method, { select: ['id', 'iblockId', 'name'], filter: { iblockId }, start });
+      const rows = r.body && r.body.result;
+      const arr2 = Array.isArray(rows) ? rows : (rows && (rows.products || rows.sections)) || [];
+      out.push(...arr2);
+      const nx = r.body && r.body.next;
+      if (!arr2.length || nx === undefined || nx === null || nx === false) break;
+      start = nx;
+    }
+    return out;
+  };
+  let existingSections = [];
+  let existingProducts = [];
+  try {
+    existingSections = await listExisting('catalog.section.list');
+    existingProducts = await listExisting('catalog.product.list');
+    log.push('existing before import: ' + existingSections.length + ' sections, ' + existingProducts.length + ' products');
+  } catch (e) {
+    log.push('existing lookup failed (продолжаем как чистую установку): ' + e.message);
+  }
+  const sectionByName = new Map(existingSections.map((s) => [String(s.name || ''), Number(s.id || s.ID)]));
+  const productNames = new Set(existingProducts.map((p) => String(p.name || '')));
+  // ID всех демо-товаров, что уже есть на портале (для demoIds/очистки)
+  const reusedProductIds = existingProducts
+    .filter((p) => MAISON_DEMO_PRODUCT_NAMES.has(String(p.name || '')))
+    .map((p) => Number(p.id || p.ID));
+
   const sectionIds = {};
   const createdSectionIds = [];
   for (const sec of sections) {
+    if (sectionByName.has(sec.name)) {
+      // Уже есть с прошлой установки — переиспользуем
+      sectionIds[sec.code] = sectionByName.get(sec.name);
+      createdSectionIds.push(sectionIds[sec.code]);
+      log.push('section exists, reuse: ' + sec.name + ' #' + sectionIds[sec.code]);
+      continue;
+    }
     const r = await callRest(domain, token, 'catalog.section.add', {
       fields: {
         name: sec.name,
@@ -684,10 +729,17 @@ async function importProducts(domain, token, refreshTokenVal, memberId, log) {
   const products = MAISON_DEMO_PRODUCTS;
 
   const createdProductIds = [];
+  let skippedProducts = 0;
   for (let i = 0; i < products.length; i++) {
     const p = products[i];
     const sectionId = sectionIds[p.section];
     if (!sectionId) continue;
+
+    if (productNames.has(p.name)) {
+      // Демо-товар уже есть с прошлой установки
+      skippedProducts++;
+      continue;
+    }
 
     const prodRes = await callRest(domain, token, 'catalog.product.add', {
       fields: {
@@ -721,8 +773,7 @@ async function importProducts(domain, token, refreshTokenVal, memberId, log) {
               name: p.name + ' ' + color + ' / ' + size,
               price: p.price,
               currency: 'RUB',
-              sectionId: sectionId,
-              iblockId: iblockId,
+              iblockId: offersIblockId || iblockId,
               active: 'Y',
               type: 2,
               detailText: p.desc,
@@ -742,14 +793,15 @@ async function importProducts(domain, token, refreshTokenVal, memberId, log) {
     if (i % 5 === 0) await new Promise(r => setTimeout(r, 100));
   }
 
-  // Запоминаем ID созданного демо — кнопка «Удалить демо-товары и каталоги»
+  // Запоминаем ID демо (старые + новые) — кнопка «Удалить демо-товары и каталоги»
   // чистит только их, не трогая товары пользователя
   try {
     const installs = loadInstalls();
     if (installs[memberId]) {
-      installs[memberId].demoIds = { iblockId, sections: createdSectionIds, products: createdProductIds };
+      const allDemoIds = [...new Set([...reusedProductIds, ...createdProductIds])];
+      installs[memberId].demoIds = { iblockId, sections: createdSectionIds, products: allDemoIds };
       fs.writeFileSync(path.join(ROOT, 'data', 'installs.json'), JSON.stringify(installs, null, 2), 'utf8');
-      log.push('demo ids saved: ' + createdSectionIds.length + ' sections, ' + createdProductIds.length + ' products');
+      log.push('demo ids saved: ' + createdSectionIds.length + ' sections, ' + allDemoIds.length + ' products (' + createdProductIds.length + ' new, ' + skippedProducts + ' skipped as existing)');
     }
   } catch (e) { /* не критично */ }
 
@@ -1352,21 +1404,26 @@ const server = http.createServer((req, res) => {
         const storedProducts = new Set((storedDemo && storedDemo.products) || []);
         const storedSections = new Set((storedDemo && storedDemo.sections) || []);
         const deletedProductIds = new Set();
+        // Фаза 1: основные демо-товары (по сохранённым ID и по именам)
+        const rowsByIblock = {};
         for (const ib of iblocks) {
           const rows = await listAll('catalog.product.list', { iblockId: ib }, ['id', 'iblockId', 'name', 'parentId']);
-          // Сначала основные товары демо-набора
+          rowsByIblock[ib] = rows;
           for (const p of rows) {
             const pid = Number(p.id || p.ID);
             const pname = String(p.name || '');
-            const isOurs = storedProducts.has(pid) || MAISON_DEMO_PRODUCT_NAMES.has(pname);
-            if (!isOurs) continue;
-            const d = await callRest(domain, token, 'catalog.product.delete', { id: pid });
-            if (d.body && d.body.result !== undefined && !d.body.error) { products++; deletedProductIds.add(pid); }
+            if (!p.parentId && (storedProducts.has(pid) || MAISON_DEMO_PRODUCT_NAMES.has(pname))) {
+              const d = await callRest(domain, token, 'catalog.product.delete', { id: pid });
+              if (d.body && d.body.result !== undefined && !d.body.error) { products++; deletedProductIds.add(pid); }
+            }
           }
-          // Затем SKU-предложения, привязанные к удалённым товарам (parentId)
-          const skus = rows.filter((p) => p.parentId && deletedProductIds.has(Number(p.parentId)));
-          for (const s of skus) {
+        }
+        // Фаза 2: SKU-предложения, привязанные к удалённым товарам (в любом инфоблоке)
+        for (const ib of Object.keys(rowsByIblock)) {
+          for (const s of rowsByIblock[ib]) {
+            if (!s.parentId || !deletedProductIds.has(Number(s.parentId))) continue;
             const sid = Number(s.id || s.ID);
+            if (deletedProductIds.has(sid)) continue;
             const d = await callRest(domain, token, 'catalog.product.delete', { id: sid });
             if (d.body && d.body.result !== undefined && !d.body.error) products++;
           }
