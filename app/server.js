@@ -217,6 +217,12 @@ function appPageHtml(data) {
             ${r.publicUrl ? '<a class="btn btn--primary" href="' + q(r.publicUrl) + '" target="_blank" rel="noopener">Открыть сайт</a>' : '<span class="btn btn--ghost">Сайт пока не опубликован</span>'}
             <a class="btn btn--secondary" href="${q(r.editUrl)}" target="_blank" rel="noopener">Редактировать сайт</a>
           </div>
+          <div class="danger">
+            <button id="btn-site-del" class="btn btn--danger" data-member="${esc(r.memberId || '')}" data-domain="${q(r.domain)}">Удалить сайт</button>
+            <div id="st-site" class="status"></div>
+            <button id="btn-demo-del" class="btn btn--danger" data-member="${esc(r.memberId || '')}" data-domain="${q(r.domain)}">Удалить демо-товары и каталоги</button>
+            <div id="st-demo" class="status"></div>
+          </div>
         </div>
         <div class="card">
           <h2 class="card__label">Управление магазином</h2>
@@ -233,7 +239,19 @@ function appPageHtml(data) {
   }).join('\n');
   return pageShell('MAISON — панель управления', 'управление', 'MAISON', rows ||
     '<div class="card"><h1 class="card__title">Приложение ещё не установлено</h1><p class="card__sub">Установите MAISON, чтобы создать интернет-магазин: витрину, каталог и страницы.</p></div>') +
-    '\n<script src="//api.bitrix24.tech/api/v1/"></script>\n<script>try{BX24.init(function(){BX24.fitWindow();});}catch(e){}</script>';
+    '\n<script src="//api.bitrix24.tech/api/v1/"></script>\n<script>try{BX24.init(function(){BX24.fitWindow();});}catch(e){}</script>' +
+    '\n<script>(function(){' +
+    'function st(id,text,cls){var el=document.getElementById(id);el.textContent=text;el.className="status is-on"+(cls?" is-"+cls:"");}' +
+    'function wire(btnId,stId,url,confirmText,okText){var b=document.getElementById(btnId);if(!b)return;' +
+    'b.addEventListener("click",function(){if(!window.confirm(confirmText))return;' +
+    'b.disabled=true;st(stId,"Работаем…");' +
+    'fetch(url,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({member_id:b.getAttribute("data-member"),domain:b.getAttribute("data-domain")})})' +
+    '.then(function(r){return r.json();})' +
+    '.then(function(d){if(d&&d.status==="ok"){st(stId,typeof okText==="function"?okText(d):okText,"ok");if(url==="/api/site/delete"){setTimeout(function(){location.reload();},1500);}}else{st(stId,(d&&d.error)||"Ошибка","error");b.disabled=false;}})' +
+    '.catch(function(e){st(stId,"Ошибка сети: "+(e&&e.message||e),"error");b.disabled=false;});});}' +
+    'wire("btn-site-del","st-site","/api/site/delete","Удалить сайт MAISON полностью? Витрину и все страницы можно будет создать заново переустановкой приложения.","Сайт удалён. Обновляем панель…");' +
+    'wire("btn-demo-del","st-demo","/api/products/delete","Удалить ВСЕ товары и разделы каталога? Их не восстановить.",function(d){return "Готово: удалено товаров — "+(d.products||0)+", разделов — "+(d.sections||0)+".";});' +
+   '})();</script>';
 }
 
 function installMasterHtml() {
@@ -413,6 +431,9 @@ function pageShell(title, tag, brand, inner) {
   .btn--secondary{background:rgba(255,255,255,.08);color:#f2efe9;border-color:rgba(255,255,255,.2);box-shadow:none}
   .btn--secondary:hover{background:rgba(255,255,255,.14)}
   .btn--ghost{background:rgba(255,255,255,.04);color:#8f8c86;cursor:default;box-shadow:none}
+  .danger{display:flex;flex-direction:column;gap:10px;margin-top:16px;padding-top:16px;border-top:1px solid rgba(255,255,255,.08)}
+  .btn--danger{background:rgba(255,120,90,.07);color:#ffb4a3;border-color:rgba(255,120,90,.28);box-shadow:none;font-size:13.5px;font-weight:500;padding:12px 16px;border-radius:13px}
+  .btn--danger:hover:not(:disabled){background:rgba(255,120,90,.15);box-shadow:none;transform:none;filter:brightness(1.1)}
   .status{display:none;margin-top:14px;padding:12px 14px;border-radius:12px;font-size:13px;line-height:1.5;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);color:#b3afa7}
   .status.is-on{display:block}
   .status.is-ok{color:#a9dfb7;border-color:rgba(127,214,148,.3);background:rgba(127,214,148,.07)}
@@ -961,7 +982,7 @@ const server = http.createServer((req, res) => {
         } catch (e) { log('app page: catalog list fail: ' + (e.message || e)); }
         const editUrl = 'https://' + install.domain + '/shop/stores/site/' + install.siteId + '/';
         let html = appPageHtml({
-          rows: [{ domain: install.domain, siteId: install.siteId, publicUrl: publicUrl, editUrl: editUrl, catalogUrl: catalogUrl }]
+          rows: [{ domain: install.domain, memberId: install.member_id, siteId: install.siteId, publicUrl: publicUrl, editUrl: editUrl, catalogUrl: catalogUrl }]
         });
         if (q.get('debug') === '1' && Array.isArray(install.lastLog) && install.lastLog.length) {
           const pre = install.lastLog.map((l) => String(l)).join('\n');
@@ -1131,6 +1152,121 @@ const server = http.createServer((req, res) => {
         html = '<h1>Ошибка установки</h1><p class="muted">' + esc(e.message || String(e)) + '</p>';
       }
       return answer(200, 'text/html; charset=utf-8', html);
+    })();
+    return;
+  }
+
+  // ---------- API управления из панели приложения ----------
+
+  function findInstallByRequest(body) {
+    const memberId = String(body.member_id || body.MEMBER_ID || '').trim();
+    const domain = String(body.domain || body.DOMAIN || '').replace(/^https?:\/\//, '').toLowerCase().trim();
+    const installs = loadInstalls();
+    const key = Object.keys(installs).find((k) => {
+      const rec = installs[k] || {};
+      return (memberId && rec.member_id === memberId) || (domain && String(rec.domain || '').toLowerCase() === domain);
+    });
+    return key ? { key, install: installs[key] } : null;
+  }
+
+  async function restTry(domain, token, methods, params) {
+    for (const m of methods) {
+      const r = await callRest(domain, token, m, params);
+      if (r.body && r.body.result !== undefined && !(r.body.error)) return { method: m, body: r.body };
+    }
+    return null;
+  }
+
+  if (url === '/api/site/delete' && req.method === 'POST') {
+    (async () => {
+      try {
+        const raw = await readBody(req);
+        const body = parseBody(raw);
+        const found = findInstallByRequest(body);
+        if (!found || !found.install.siteId) return sendJson(res, 200, { status: 'error', error: 'Сайт не найден' });
+        const domain = found.install.domain;
+        let ok = await restTry(domain, found.install.access_token, ['landing.site.delete', 'landing.site.markdelete'], { id: Number(found.install.siteId) });
+        if (!ok && found.install.refresh_token) {
+          const refreshed = await refreshToken(domain, found.install.refresh_token);
+          if (refreshed && refreshed.access_token) {
+            saveAuth({ member_id: found.install.member_id, domain, access_token: refreshed.access_token, refresh_token: refreshed.refresh_token || found.install.refresh_token, expires_in: refreshed.expires_in });
+            ok = await restTry(domain, refreshed.access_token, ['landing.site.delete', 'landing.site.markdelete'], { id: Number(found.install.siteId) });
+          }
+        }
+        log('api/site/delete site=' + found.install.siteId + ' ok=' + (ok ? ok.method : 'false'));
+        if (!ok) return sendJson(res, 200, { status: 'error', error: 'Не удалось удалить сайт через Битрикс24. Удалите его вручную: Сайты и магазины.' });
+        const installs = loadInstalls();
+        if (installs[found.key]) {
+          delete installs[found.key].siteId;
+          delete installs[found.key].lastLog;
+          fs.writeFileSync(path.join(ROOT, 'data', 'installs.json'), JSON.stringify(installs, null, 2), 'utf8');
+        }
+        return sendJson(res, 200, { status: 'ok' });
+      } catch (e) {
+        log('api/site/delete exception ' + (e.stack || e.message));
+        return sendJson(res, 200, { status: 'error', error: e.message || String(e) });
+      }
+    })();
+    return;
+  }
+
+  if (url === '/api/products/delete' && req.method === 'POST') {
+    (async () => {
+      try {
+        const raw = await readBody(req);
+        const body = parseBody(raw);
+        const found = findInstallByRequest(body);
+        if (!found) return sendJson(res, 200, { status: 'error', error: 'Портал не найден' });
+        const domain = found.install.domain;
+        let token = found.install.access_token;
+        const cl = await callRest(domain, token, 'catalog.catalog.list', {});
+        let raw0 = cl.body && cl.body.result;
+        let catalogs = Array.isArray(raw0) ? raw0 : (raw0 && raw0.catalogs) || [];
+        if ((!catalogs.length) && found.install.refresh_token) {
+          const refreshed = await refreshToken(domain, found.install.refresh_token);
+          if (refreshed && refreshed.access_token) {
+            saveAuth({ member_id: found.install.member_id, domain, access_token: refreshed.access_token, refresh_token: refreshed.refresh_token || found.install.refresh_token, expires_in: refreshed.expires_in });
+            token = refreshed.access_token;
+            const cl2 = await callRest(domain, token, 'catalog.catalog.list', {});
+            raw0 = cl2.body && cl2.body.result;
+            catalogs = Array.isArray(raw0) ? raw0 : (raw0 && raw0.catalogs) || [];
+          }
+        }
+        if (!catalogs.length) return sendJson(res, 200, { status: 'error', error: 'Торговый каталог не найден на портале' });
+        // Торговые предложения (productIblockId != null) удаляем первыми
+        const sorted = [...catalogs].sort((a, b) => ((b.productIblockId != null ? 1 : 0) - (a.productIblockId != null ? 1 : 0)));
+        const iblocks = sorted.map((c) => Number(c.iblockId || c.id || c.IBLOCK_ID || c.ID)).filter(Boolean);
+        let products = 0, sections = 0;
+        const listAll = async (method, filter) => {
+          const out = [];
+          let start = 0;
+          for (;;) {
+            const r = await callRest(domain, token, method, { select: ['id', 'iblockId'], filter, start });
+            const rows = r.body && r.body.result;
+            const arr = Array.isArray(rows) ? rows : (rows && (rows.products || rows.sections)) || [];
+            out.push(...arr);
+            const nx = r.body && r.body.next;
+            if (!arr.length || nx === undefined || nx === null || nx === false) break;
+            start = nx;
+          }
+          return out;
+        };
+        for (const ib of iblocks) {
+          for (const p of await listAll('catalog.product.list', { iblockId: ib })) {
+            const d = await callRest(domain, token, 'catalog.product.delete', { id: Number(p.id || p.ID) });
+            if (d.body && d.body.result !== undefined && !d.body.error) products++;
+          }
+          for (const s of await listAll('catalog.section.list', { iblockId: ib })) {
+            const d = await callRest(domain, token, 'catalog.section.delete', { id: Number(s.id || s.ID) });
+            if (d.body && d.body.result !== undefined && !d.body.error) sections++;
+          }
+        }
+        log('api/products/delete iblocks=' + iblocks.join(',') + ' products=' + products + ' sections=' + sections);
+        return sendJson(res, 200, { status: 'ok', products, sections });
+      } catch (e) {
+        log('api/products/delete exception ' + (e.stack || e.message));
+        return sendJson(res, 200, { status: 'error', error: e.message || String(e) });
+      }
     })();
     return;
   }
